@@ -19,7 +19,7 @@ export default function RootLayout({
        <head>
         <meta name="color-scheme" content="light" />
       </head>
-      <body className="min-h-screen bg-[#FAF7F2] text-zinc-900">
+      <body className="min-h-screen bg-white text-zinc-900">
         {/* Page shell */}
         <div className="min-h-screen flex flex-col">
           {/* Header band */}
