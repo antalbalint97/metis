@@ -6,6 +6,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Metis Blog",
   description: "From questions to understanding.",
+  colorScheme: "light",
 };
 
 export default function RootLayout({
@@ -15,6 +16,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="hu">
+       <head>
+        <meta name="color-scheme" content="light" />
+      </head>
       <body className="min-h-screen bg-[#FAF7F2] text-zinc-900">
         {/* Page shell */}
         <div className="min-h-screen flex flex-col">
