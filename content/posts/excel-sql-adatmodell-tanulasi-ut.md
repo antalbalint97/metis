@@ -4,7 +4,7 @@ date: "2026-02-19"
 excerpt: "A legtöbben SQL-lel vagy Pythonnal akarnak kezdeni. Pedig az igazi fejlődés az Excelből indul, és adatmodell gondolkodásban ér véget."
 series: "data-gondolkodas"
 seriesTitle: "Adatos gondolkodás"
-seriesOrder: 3
+seriesOrder: 5
 ---
 
 # Miért Excel → SQL → adatmodell a helyes tanulási út?
@@ -16,14 +16,11 @@ Ha valaki Data Analyst akar lenni, gyakran ezt mondja:
 
 Ez érthető.
 
-De a tapasztalatom az, hogy a legtöbb elakadás nem technológiai,  
-hanem gondolkodási.
-
+De a tapasztalatom az, hogy a legtöbb elakadás nem technológiai, hanem gondolkodási.
 Ez a cikk arról szól, miért érdemes az elemzői tanulást:
 
 Excel → SQL → adatmodell gondolkodás sorrendben felépíteni.
 
----
 
 ## 1. Excel mint gondolkodási eszköz
 
@@ -43,8 +40,6 @@ Amikor pivotolsz, valójában ezt kérdezed:
 „Mi történik, ha ugyanazt az adatot más tengely mentén nézem?”
 
 Ez tiszta elemzői gondolkodás.
-
----
 
 ## 2. A pivot mögött SQL van
 
@@ -67,8 +62,6 @@ Csak egy vizuális GROUP BY.
 
 Ha ezt megérted, az SQL már nem félelmetes.
 
----
-
 ## 3. SQL mint formalizált Excel
 
 Az SQL nem új gondolkodás.
@@ -85,14 +78,11 @@ CASE WHEN = üzleti szabály
 Ha Excelben tudsz gondolkodni,  
 SQL-ben is fogsz tudni.
 
----
-
 ## 4. Miért nem elég önmagában az SQL?
 
 Mert az SQL csak eszköz.
 
-Lehet tökéletes lekérdezésed,  
-és mégis rossz számot kapsz.
+Lehet tökéletes lekérdezésed, és mégis rossz számot kapsz.
 
 Ha nem tudod:
 
@@ -101,8 +91,6 @@ Ha nem tudod:
 - milyen szinten mérsz  
 
 akkor az SQL csak gyorsítja a hibát.
-
----
 
 ## 5. Itt jön képbe az adatmodell
 
@@ -113,17 +101,13 @@ Az adatmodell válaszol ezekre:
 - mi a grain  
 
 Ezért a tanulási ív:
-
 Excel → SQL → adatmodell
 
 Nem fordítva.
 
----
-
 ## 6. Tipikus rossz tanulási sorrend
 
 Sokan így kezdenek:
-
 SQL → Python → dashboard
 
 Közben:
@@ -134,8 +118,6 @@ Közben:
 
 Ez frusztrációhoz vezet.
 
----
-
 ## 7. Tipikus jó tanulási sorrend
 
 1. Excelben kérdez  
@@ -143,8 +125,6 @@ Ez frusztrációhoz vezet.
 3. adatmodellben megérti  
 
 Ez stabil alapot ad.
-
----
 
 ## 8. Media24 példa
 
@@ -167,14 +147,11 @@ Adatmodell kérdés:
 
 Ez a három szint együtt ad elemzőt.
 
----
 
 ## Zárás
 
 Nem az a kérdés, hogy milyen eszközt tanulsz meg először.
-
 Hanem az, hogy megtanulsz-e gondolkodni az adatról.
 
 Az eszközök jönnek-mennek.
-
 A gondolkodás marad.

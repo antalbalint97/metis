@@ -1,54 +1,16 @@
 ---
-title: "Adatmodell gondolkodás: miért nem SQL-lel kezdődik a jó elemzés"
+title: "Adatmodell gondolkodás: hogyan épülnek fel az adatbázisok?"
 date: "2026-02-19"
 excerpt: "A legtöbb rossz KPI nem technikai hiba, hanem gondolkodási. Ez a cikk megmutatja, miért az adatmodell az elemzés valódi alapja."
 series: "data-gondolkodas"
 seriesTitle: "Adatos gondolkodás"
-seriesOrder: 1
+seriesOrder: 6
 ---
 
-# Adatmodell gondolkodás: miért nem SQL-lel kezdődik a jó elemzés
+# Adatmodell gondolkodás: hogyan épülnek fel az adatbázisok?
 
-Sok kezdő Data Analyst úgy tanul SQL-t, mint egy lekérdezési nyelvet:
 
-SELECT  
-WHERE  
-GROUP BY  
-JOIN  
-
-Ez fontos.  
-De önmagában kevés.
-
-A jó elemzés nem ott kezdődik, hogy mit írunk le SQL-ben,  
-hanem ott, hogy **mit gondolunk az adatról**.
-
-Ez a cikk arról szól, mit jelent az adatmodell gondolkodás,  
-és miért ez az alapja minden korrekt mérésnek, KPI-nak és dashboardnak.
-
----
-
-## 1. A legtöbb hiba nem SQL-hiba
-
-Amikor egy elemzés félremegy, ritkán azért, mert:
-
-- rossz a szintaxis  
-- elgépelés van  
-
-Sokkal gyakoribb ok:
-
-**nem tiszta, hogy egy sor mit jelent az adatban.**
-
-Ha ezt nem tudod pontosan kimondani, akkor:
-
-- rossz szinten aggregálsz  
-- rossz nevezőt használsz  
-- és teljesen korrekt SQL-lel is félrevezető számot kapsz.
-
-Ez gondolkodási probléma, nem technikai.
-
----
-
-## 2. Mit jelent az, hogy „egy sor”?
+## 1. Mit jelent az, hogy „egy sor”?
 
 Minden táblánál fel kell tenned egy egyszerű kérdést:
 
@@ -68,8 +30,6 @@ Példák:
 Ez az úgynevezett *grain*.
 
 Ha a grain nincs tisztázva, akkor a számolás lutri.
-
----
 
 ## 3. Fact és dimension – két külön szerep
 
@@ -103,8 +63,6 @@ Egyszerű szabály:
 
 > Fact = esemény  
 > Dimension = kontextus
-
----
 
 ## 4. Mi romlik el, ha ezt nem érted?
 
@@ -142,8 +100,6 @@ Ugyanaz az adat.
 Teljesen más kérdés.  
 Teljesen más válasz.
 
----
-
 ## 5. Entity-szint gondolkodás
 
 Minden KPI mögött van egy főszereplő.
@@ -162,8 +118,6 @@ Ellenőrző kérdés:
 
 **„Ez a szám kinek a viselkedéséről szól?”**
 
----
-
 ## 6. Mini checklist minden elemzés elején
 
 Mielőtt SQL-t írsz:
@@ -175,8 +129,6 @@ Mielőtt SQL-t írsz:
 
 Ez 2 perc gondolkodás.  
 Órákat spórol meg.
-
----
 
 ## 7. Media24 példa: ugyanaz a churn, kétféleképp
 
@@ -199,8 +151,6 @@ Innen számolt churn:
 Mindkettő legitim.  
 De mást jelent.
 
----
-
 ## 8. Az adatmodell nem data engineer privilégium
 
 Sokan azt gondolják:
@@ -218,8 +168,6 @@ Egy jó Data Analyst:
 - tudja, melyik szinten mér  
 
 Ez különbözteti meg a dashboard-kattintót az elemzőtől.
-
----
 
 ## Zárás
 
