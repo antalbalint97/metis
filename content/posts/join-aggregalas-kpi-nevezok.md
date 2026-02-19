@@ -1,28 +1,31 @@
 ---
 title: "JOIN, aggregálás és KPI nevezők: hol csúszik félre az elemzés?"
-date: "2026-02-16"
-excerpt: "Miért nem elég tudni JOIN-olni - és hogyan torzulnak el a mutatók, ha rossz szinten számolunk."
+date: "2026-02-19"
+excerpt: "Miért nem elég tudni JOIN-olni? Hogyan torzulnak el a KPI-ok, ha rossz szinten számolunk?"
 series: "data-gondolkodas"
 seriesTitle: "Adatos gondolkodás"
-seriesOrder: 6
+seriesOrder: 2
 ---
 
-Az előző cikkben az adatmodell alapjairól volt szó: fact, dimension, primary key, foreign key, grain.
+# JOIN, aggregálás és KPI nevezők: hol csúszik félre az elemzés?
+
+Az előző cikkben arról volt szó, miért nem SQL-lel kezdődik a jó elemzés,  
+hanem az adatmodell megértésével.
 
 Most jön az a pont, ahol a legtöbb kezdő elemzés félrecsúszik.
 
-Nem azért, mert rossz az SQL.
+Nem azért, mert rossz az SQL.  
 Hanem azért, mert rossz szinten gondolkodunk.
 
 Ez a cikk három dologról szól:
 
-- mit csinál valójában egy JOIN,
-- miért veszélyes a duplázás,
-- és hogyan válasszuk meg helyesen egy KPI nevezőjét.
+- mit csinál valójában egy JOIN,  
+- miért veszélyes az 1 : many kapcsolat,  
+- és hogyan válasszuk meg helyesen egy KPI nevezőjét.  
 
 ---
 
-## Mit csinál valójában egy JOIN?
+## 1. Mit csinál valójában egy JOIN?
 
 Sokan úgy tanulják meg a JOIN-t, mint egy technikai eszközt:
 
@@ -33,21 +36,27 @@ JOIN customers c
   ON a.customer_id = c.customer_id;
 ```
 
-De a JOIN nem „összerak két táblát”.
-A JOIN sorokat párosít össze.
+A legtöbb fejben ilyenkor ez történik:
 
-Ha egy customerhez 5 activity sor tartozik,
+„Összeraktam két táblát.”
+
+Valójában azonban a JOIN nem táblákat rak össze.  
+A JOIN **sorokat párosít össze**.
+
+Ha egy customerhez 5 activity sor tartozik,  
 akkor a JOIN után 5 sor lesz.
 
 Nem 1.
 
+Ez a legtöbb KPI torzulásának alapja.
+
 ---
 
-## A klasszikus 1 : many torzítás
+## 2. Az 1 : many torzítás
 
-Kérdés:
+Tegyük fel, hogy meg akarjuk nézni:
 
-Mennyi az átlagos költés ügyfelenként?
+*Mennyi az átlagos költés ügyfelenként?*
 
 Kezdő megoldás:
 
@@ -58,13 +67,22 @@ JOIN customers c
   ON a.customer_id = c.customer_id;
 ```
 
-Ez tranzakció szintű átlag.
+Ez technikailag helyes.
+
+De ez tranzakció-szintű átlag.
+
+Nem ügyfél-szintű.
+
+Ha egy ügyfél sok tranzakciót csinál,  
+akkor nagyobb súlyt kap az átlagban.
+
+Ez torzít.
 
 ---
 
-## Helyes megoldás
+## 3. A helyes gondolkodás: először aggregálj
 
-Először aggregálunk ügyfél szinten:
+Helyes megoldás:
 
 ```sql
 WITH customer_spend AS (
@@ -78,46 +96,111 @@ SELECT AVG(total_spend)
 FROM customer_spend;
 ```
 
----
+Először entity-szintre lépünk.  
+Utána számolunk mutatót.
 
-## Mikor dupláz a JOIN?
-
-- 1 : many kapcsolat
-- több fact tábla JOIN
-- nem ismert grain
+Ez a különbség sor-szint és entity-szint között.
 
 ---
 
-## Row-level vs entity-level
+## 4. Mikor dupláz a JOIN?
 
-Row-level:
-- átlag tranzakció érték
+Tipikus esetek:
 
-Entity-level:
-- átlag ügyfél költés
+- 1 : many kapcsolat  
+- több fact tábla JOIN  
+- nem ismert grain  
+
+Ha nem tudod pontosan, mit jelent 1 sor,  
+a JOIN könnyen sor-szorzássá válik.
+
+És a legveszélyesebb az egészben:
+
+a lekérdezés nem dob hibát.
+
+Csak rossz számot ad.
 
 ---
 
-## KPI nevezők
+## 5. Row-level vs entity-level
 
-Activation rate = aktivált / eligible
+Fontos különbség:
+
+**Row-level mutató:**  
+átlag tranzakció érték  
+
+**Entity-level mutató:**  
+átlag ügyfél költés  
+
+Ez nem technikai kérdés.  
+Ez üzleti döntés.
+
+Melyik érdekel?
+
+---
+
+## 6. KPI nevezők – itt csúszik el igazán
+
+Egy KPI mindig tört:
+
+Számláló / Nevező
+
+A legtöbb torzulás a nevezőnél történik.
+
+Példa:
 
 Churn rate = churned / aktív időszak elején
 
+Activation rate = aktivált / eligible
+
+Ha rossz a nevező:
+
+- túl magas arány  
+- túl alacsony arány  
+- félrevezető döntés  
+
 ---
 
-## Három kérdés minden KPI előtt
+## 7. KPI definíciós sablon
 
-1. Ki az entity?
-2. Mi a számláló?
-3. Ki a nevező?
+Minden KPI előtt töltsd ki:
+
+- Entity:  
+- Számláló:  
+- Nevező:  
+- Időablak:  
+- Forrás tábla:  
+
+Ha ezt nem tudod leírni,  
+akkor a KPI még nincs kész.
+
+---
+
+## 8. Media24 példa: churn torzulás
+
+Ha churn-t számolsz activity táblából,  
+de a nevező status_snapshot-ból jön,
+
+akkor könnyen:
+
+- rossz időszakot hasonlítasz  
+- eltérő grainen számolsz  
+- torz arányt kapsz  
+
+Ez nem SQL-hiba.  
+Ez modell-hiba.
 
 ---
 
 ## Zárás
 
-A JOIN nem veszélyes.
+A JOIN nem veszélyes.  
 A gondolkodás nélküli JOIN az.
 
-A KPI nem torzít.
+A KPI nem torzít.  
 A rosszul választott nevező torzít.
+
+A jó elemző nem csak lekérdez.  
+Hanem definiál.
+
+És a definíció mindig megelőzi a kódot.

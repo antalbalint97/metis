@@ -1,107 +1,235 @@
 ---
-title: "Adatmodell gondolkodás: fact, dimension, kulcsok és kapcsolatok"
-date: "2026-02-16"
-excerpt: "Miért nem mindegy, hogy mit jelent egy sor az adatban - és miért innen indul minden korrekt elemzés."
+title: "Adatmodell gondolkodás: miért nem SQL-lel kezdődik a jó elemzés"
+date: "2026-02-19"
+excerpt: "A legtöbb rossz KPI nem technikai hiba, hanem gondolkodási. Ez a cikk megmutatja, miért az adatmodell az elemzés valódi alapja."
 series: "data-gondolkodas"
 seriesTitle: "Adatos gondolkodás"
-seriesOrder: 5
+seriesOrder: 1
 ---
 
-Sok kezdő Data Analyst úgy tanul SQL-t, mint egy lekérdezési nyelvet.
-SELECT, WHERE, GROUP BY, JOIN.
+# Adatmodell gondolkodás: miért nem SQL-lel kezdődik a jó elemzés
 
-Ez hasznos.
+Sok kezdő Data Analyst úgy tanul SQL-t, mint egy lekérdezési nyelvet:
+
+SELECT  
+WHERE  
+GROUP BY  
+JOIN  
+
+Ez fontos.  
 De önmagában kevés.
 
-A jó elemzés nem ott kezdődik, hogy mit írunk le,
-hanem ott, hogy hogyan gondolkodunk az adatról.
+A jó elemzés nem ott kezdődik, hogy mit írunk le SQL-ben,  
+hanem ott, hogy **mit gondolunk az adatról**.
 
-Ez a cikk arról szól, mi az az adatmodell gondolkodás,
-és miért ez az alapja minden későbbi korrekt mérésnek.
-
----
-
-## Mi az az adatmodell gondolkodás?
-
-Egyszerűen megfogalmazva:
-
-Tudod, hogy egy sor mit jelent.
-Tudod, hogy egy tábla mire szolgál.
-Tudod, hogy a táblák hogyan kapcsolódnak egymáshoz.
-
-Ha ez nincs meg, akkor:
-
-- rossz szinten aggregálsz,
-- duplázol JOIN-nal,
-- és félrevezető KPI-ket számolsz.
+Ez a cikk arról szól, mit jelent az adatmodell gondolkodás,  
+és miért ez az alapja minden korrekt mérésnek, KPI-nak és dashboardnak.
 
 ---
 
-## Fact és dimension: két külön világ
+## 1. A legtöbb hiba nem SQL-hiba
 
-### Fact (ténytábla)
+Amikor egy elemzés félremegy, ritkán azért, mert:
 
-Olyan eseményeket tartalmaz, amelyek megtörténtek.
+- rossz a szintaxis  
+- elgépelés van  
+
+Sokkal gyakoribb ok:
+
+**nem tiszta, hogy egy sor mit jelent az adatban.**
+
+Ha ezt nem tudod pontosan kimondani, akkor:
+
+- rossz szinten aggregálsz  
+- rossz nevezőt használsz  
+- és teljesen korrekt SQL-lel is félrevezető számot kapsz.
+
+Ez gondolkodási probléma, nem technikai.
+
+---
+
+## 2. Mit jelent az, hogy „egy sor”?
+
+Minden táblánál fel kell tenned egy egyszerű kérdést:
+
+**Mit jelent egyetlen sor ebben a táblában?**
 
 Példák:
-- vásárlás
-- rendelés
-- app activity
-- kattintás
-- tranzakció
 
-Példa:
+- activity_daily  
+  → egy user egy nap egy aktivitása  
 
-| activity_id | customer_id | date | amount |
-|------------|-------------|------|--------|
-| 1001 | 42 | 2026-01-05 | 12.99 |
+- customers  
+  → egy user  
 
----
+- status_snapshot  
+  → egy user egy hónapban egy státusza  
 
-### Dimension (dimenziótábla)
+Ez az úgynevezett *grain*.
 
-Leíró információ az entitásokról.
-
-| customer_id | signup_date | country | segment |
-|-------------|-------------|---------|---------|
-| 42 | 2025-03-12 | HU | premium |
+Ha a grain nincs tisztázva, akkor a számolás lutri.
 
 ---
 
-## Primary key és foreign key
+## 3. Fact és dimension – két külön szerep
 
-Primary key: egy sor egyedi azonosítója.
-Foreign key: másik tábla primary key-jére mutató oszlop.
+### Fact tábla
+
+Olyan dolgokat tartalmaz, amik **történnek**.
+
+Példák:
+
+- kattintás  
+- olvasás  
+- vásárlás  
+- login  
+
+Ezek tipikusan sok soros, növekvő táblák.
+
+### Dimension tábla
+
+Olyan dolgokat tartalmaz, amik **leírják**, hogy kik és mik.
+
+Példák:
+
+- ügyfél adatai  
+- csomag neve  
+- ország  
+- csatorna  
+
+Ezek lassabban változnak.
+
+Egyszerű szabály:
+
+> Fact = esemény  
+> Dimension = kontextus
 
 ---
 
-## 1 : many kapcsolat
+## 4. Mi romlik el, ha ezt nem érted?
 
-1 customer → sok activity sor
+Kérdés:
 
----
+*Mennyi az átlagos költés ügyfelenként?*
 
-## Grain
-
-Mit jelent egy sor a táblában.
-
----
-
-## Gyakori hiba
+Kezdő megoldás:
 
 ```sql
-SELECT COUNT(*) FROM activity;
+SELECT AVG(amount)
+FROM activity;
 ```
 
-Helyes:
+Ez tranzakció-szintű átlag.  
+Nem ügyfél-szintű.
+
+Helyes gondolkodás:
+
+1. először ügyfél szinten összegzünk  
+2. utána átlagolunk  
 
 ```sql
-SELECT COUNT(DISTINCT customer_id) FROM activity;
+WITH customer_spend AS (
+  SELECT customer_id,
+         SUM(amount) AS total_spend
+  FROM activity
+  GROUP BY customer_id
+)
+SELECT AVG(total_spend)
+FROM customer_spend;
 ```
+
+Ugyanaz az adat.  
+Teljesen más kérdés.  
+Teljesen más válasz.
+
+---
+
+## 5. Entity-szint gondolkodás
+
+Minden KPI mögött van egy főszereplő.
+
+Ez az *entity*.
+
+Példák:
+
+- churn → user  
+- revenue → customer vagy order  
+- activity → user  
+
+Ha ezt nem mondod ki, akkor a mutató értelmezhetetlen.
+
+Ellenőrző kérdés:
+
+**„Ez a szám kinek a viselkedéséről szól?”**
+
+---
+
+## 6. Mini checklist minden elemzés elején
+
+Mielőtt SQL-t írsz:
+
+- Mit jelent 1 sor?  
+- Mi az entity?  
+- Milyen szinten akarok mérni?  
+- Van-e olyan tábla, ahol előbb aggregálnom kell?
+
+Ez 2 perc gondolkodás.  
+Órákat spórol meg.
+
+---
+
+## 7. Media24 példa: ugyanaz a churn, kétféleképp
+
+status_snapshot:
+
+1 sor = 1 user egy hónapban  
+
+Innen számolt churn:
+
+→ havi státusz-alapú churn  
+
+activity_daily:
+
+1 sor = 1 user egy nap  
+
+Innen számolt churn:
+
+→ viselkedés-alapú churn  
+
+Mindkettő legitim.  
+De mást jelent.
+
+---
+
+## 8. Az adatmodell nem data engineer privilégium
+
+Sokan azt gondolják:
+
+„Az adatmodell a mérnök dolga.”
+
+Valójában:
+
+- a mérnök felépíti  
+- az elemzőnek **értenie kell**
+
+Egy jó Data Analyst:
+
+- tudja, melyik tábla mire való  
+- tudja, melyik szinten mér  
+
+Ez különbözteti meg a dashboard-kattintót az elemzőtől.
 
 ---
 
 ## Zárás
 
-Az adatmodell nem adat engineer privilégium.
-Egy jó Data Analyst érti a struktúrát.
+A jó elemzés nem SQL-lel kezdődik.  
+Nem Pythonnal.  
+Nem Excellel.
+
+Hanem ezzel a kérdéssel:
+
+**„Mit jelent egy sor az adatban?”**
+
+Ha erre tudsz válaszolni,  
+akkor az eszköz már csak részlet.
