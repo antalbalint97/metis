@@ -4,13 +4,12 @@ date: "2026-02-19"
 excerpt: "Miért nem elég tudni JOIN-olni? Hogyan torzulnak el a KPI-ok, ha rossz szinten számolunk?"
 series: "data-gondolkodas"
 seriesTitle: "Adatos gondolkodás"
-seriesOrder: 2
+seriesOrder: 7
 ---
 
 # JOIN, aggregálás és KPI nevezők: hol csúszik félre az elemzés?
 
-Az előző cikkben arról volt szó, miért nem SQL-lel kezdődik a jó elemzés,  
-hanem az adatmodell megértésével.
+Az előző cikkben arról volt szó, hogy mit jelent az adatmodellekben való gondolkozás.
 
 Most jön az a pont, ahol a legtöbb kezdő elemzés félrecsúszik.
 
@@ -22,8 +21,6 @@ Ez a cikk három dologról szól:
 - mit csinál valójában egy JOIN,  
 - miért veszélyes az 1 : many kapcsolat,  
 - és hogyan válasszuk meg helyesen egy KPI nevezőjét.  
-
----
 
 ## 1. Mit csinál valójában egy JOIN?
 
@@ -49,8 +46,6 @@ akkor a JOIN után 5 sor lesz.
 Nem 1.
 
 Ez a legtöbb KPI torzulásának alapja.
-
----
 
 ## 2. Az 1 : many torzítás
 
@@ -78,8 +73,6 @@ akkor nagyobb súlyt kap az átlagban.
 
 Ez torzít.
 
----
-
 ## 3. A helyes gondolkodás: először aggregálj
 
 Helyes megoldás:
@@ -101,8 +94,6 @@ Utána számolunk mutatót.
 
 Ez a különbség sor-szint és entity-szint között.
 
----
-
 ## 4. Mikor dupláz a JOIN?
 
 Tipikus esetek:
@@ -120,8 +111,6 @@ a lekérdezés nem dob hibát.
 
 Csak rossz számot ad.
 
----
-
 ## 5. Row-level vs entity-level
 
 Fontos különbség:
@@ -136,8 +125,6 @@ Ez nem technikai kérdés.
 Ez üzleti döntés.
 
 Melyik érdekel?
-
----
 
 ## 6. KPI nevezők – itt csúszik el igazán
 
@@ -159,22 +146,17 @@ Ha rossz a nevező:
 - túl alacsony arány  
 - félrevezető döntés  
 
----
-
 ## 7. KPI definíciós sablon
 
-Minden KPI előtt töltsd ki:
+Minden KPI előtt gondold át:
 
-- Entity:  
-- Számláló:  
-- Nevező:  
-- Időablak:  
-- Forrás tábla:  
+- Entity: mi a megfigyelés alapegysége (tranzakció vagy előfizető)
+- Számláló: mit akarunk összehasonlítani (mit mérünk itt?)
+- Nevező:  mivel akarjuk összehasonlítani (mihez képest?)
+- Időablak: fontos, hogy a fejünkben legyen az idő dimenzió kérdése, minden KPI időben értelmeződik (egy napot, egy hetet, egy hónapot vizsgálok?)
+- Forrás tábla: melyik adattáblából és milyen aggregáció után?
 
-Ha ezt nem tudod leírni,  
-akkor a KPI még nincs kész.
-
----
+Ha ezt nem tudod leírni,  akkor a KPI még nincs kész.
 
 ## 8. Media24 példa: churn torzulás
 
@@ -189,8 +171,6 @@ akkor könnyen:
 
 Ez nem SQL-hiba.  
 Ez modell-hiba.
-
----
 
 ## Zárás
 
