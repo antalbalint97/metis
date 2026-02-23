@@ -1,44 +1,167 @@
-/* @import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-} */
-
-/* body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-:root {
-  color-scheme: light;
-/* } */ 
-
 @import "tailwindcss";
 
+/* ──────────────────────────────────────────────
+   METIS DESIGN SYSTEM — Tokens
+   ────────────────────────────────────────────── */
+
+/*
+  Color palette
+  ─────────────
+  Background : warm off-white   #FAF8F5
+  Surface    : clean white       #FFFFFF
+  Foreground : deep charcoal     #1C1917
+  Muted fg   : warm gray         #57534E
+  Muted bg   : stone tint        #F5F0EB
+  Border     : subtle warm gray  #E7E0D8
+  Accent     : muted teal        #2A7E6E
+  Accent fg  : white on accent   #FFFFFF
+  Ring       : focus ring teal   #2A7E6E (with alpha)
+*/
+
 :root {
   color-scheme: light;
+
+  /* ── Core surfaces ── */
+  --background: #FAF8F5;
+  --foreground: #1C1917;
+  --surface: #FFFFFF;
+
+  /* ── Muted / secondary ── */
+  --muted: #F5F0EB;
+  --muted-foreground: #57534E;
+
+  /* ── Borders ── */
+  --border: #E7E0D8;
+  --border-strong: #D4CCC3;
+
+  /* ── Accent (muted teal) ── */
+  --accent: #2A7E6E;
+  --accent-hover: #237064;
+  --accent-foreground: #FFFFFF;
+  --accent-muted: #E8F4F1;
+
+  /* ── Primary (charcoal for buttons) ── */
+  --primary: #1C1917;
+  --primary-hover: #292524;
+  --primary-foreground: #FAF8F5;
+
+  /* ── Secondary (outline/ghost) ── */
+  --secondary: #FFFFFF;
+  --secondary-hover: #F5F0EB;
+  --secondary-foreground: #1C1917;
+
+  /* ── Interactive / focus ── */
+  --ring: #2A7E6E;
+
+  /* ── Destructive ── */
+  --destructive: #B91C1C;
+  --destructive-foreground: #FFFFFF;
+
+  /* ── Radius scale ── */
+  --radius-sm: 0.375rem;
+  --radius: 0.625rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+
+  /* ── Shadow scale ── */
+  --shadow-xs: 0 1px 2px 0 rgba(28, 25, 23, 0.04);
+  --shadow-sm: 0 1px 3px 0 rgba(28, 25, 23, 0.06), 0 1px 2px -1px rgba(28, 25, 23, 0.06);
+  --shadow-md: 0 4px 6px -1px rgba(28, 25, 23, 0.06), 0 2px 4px -2px rgba(28, 25, 23, 0.04);
+  --shadow-lg: 0 10px 15px -3px rgba(28, 25, 23, 0.06), 0 4px 6px -4px rgba(28, 25, 23, 0.04);
 }
 
+/* ── Dark mode ── */
+.dark {
+  color-scheme: dark;
+
+  --background: #18181B;
+  --foreground: #F5F0EB;
+  --surface: #1F1F23;
+
+  --muted: #27272A;
+  --muted-foreground: #A8A29E;
+
+  --border: #2E2E32;
+  --border-strong: #3F3F46;
+
+  --accent: #3DBDA8;
+  --accent-hover: #34A694;
+  --accent-foreground: #18181B;
+  --accent-muted: #1A2E2A;
+
+  --primary: #F5F0EB;
+  --primary-hover: #E7E0D8;
+  --primary-foreground: #18181B;
+
+  --secondary: #27272A;
+  --secondary-hover: #2E2E32;
+  --secondary-foreground: #F5F0EB;
+
+  --ring: #3DBDA8;
+
+  --destructive: #EF4444;
+  --destructive-foreground: #18181B;
+}
+
+/* ── Map tokens to Tailwind v4 ── */
+@theme inline {
+  /* Colors */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-muted: var(--accent-muted);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-hover: var(--secondary-hover);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-ring: var(--ring);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  /* Typography */
+  --font-sans: 'Inter', 'Inter Fallback', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
+
+  /* Radius */
+  --radius-sm: 0.375rem;
+  --radius-DEFAULT: 0.625rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+}
+
+/* ── Base styles ── */
 html, body {
   height: 100%;
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Focus ring utility ── */
+*:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* ── Selection ── */
+::selection {
+  background-color: var(--accent-muted);
+  color: var(--foreground);
 }

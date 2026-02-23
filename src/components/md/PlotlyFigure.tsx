@@ -64,7 +64,7 @@ export function PlotlyFigure({ id, height = 420 }: PlotlyFigureProps) {
 
   if (!id) {
     return (
-      <figure className="my-8 rounded-xl border border-zinc-200 bg-zinc-50 p-5 text-sm text-zinc-700">
+      <figure className="my-8 rounded-xl border border-border bg-muted p-5 text-sm text-muted-foreground">
         Plotly ábra: hiányzó id.
       </figure>
     );
@@ -72,7 +72,7 @@ export function PlotlyFigure({ id, height = 420 }: PlotlyFigureProps) {
 
   if (error) {
     return (
-      <figure className="my-8 rounded-xl border border-zinc-200 bg-zinc-50 p-5 text-sm text-zinc-700">
+      <figure className="my-8 rounded-xl border border-border bg-muted p-5 text-sm text-muted-foreground">
         Nem sikerült betölteni a Plotly ábrát ({id}): {error}
       </figure>
     );
@@ -80,7 +80,7 @@ export function PlotlyFigure({ id, height = 420 }: PlotlyFigureProps) {
 
   if (!spec) {
     return (
-      <figure className="my-8 rounded-xl border border-zinc-200 bg-zinc-50 p-5 text-sm text-zinc-700">
+      <figure className="my-8 rounded-xl border border-border bg-muted p-5 text-sm text-muted-foreground">
         Ábra betöltése…
       </figure>
     );
@@ -101,7 +101,7 @@ export function PlotlyFigure({ id, height = 420 }: PlotlyFigureProps) {
   };
 
   return (
-    <figure className="my-10 rounded-xl border border-zinc-200 p-3">
+    <figure className="my-10 rounded-xl border border-border bg-surface p-3">
       <Plot
         data={spec.data}
         layout={layout}

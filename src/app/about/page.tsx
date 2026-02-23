@@ -4,17 +4,17 @@ export default function AboutPage() {
   return (
     <main className="mx-auto w-full max-w-3xl px-6 pb-20 pt-12">
       <header className="mb-10">
-        <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+        <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl text-foreground">
           Rólam
         </h1>
-        <p className="mt-3 text-base leading-relaxed text-neutral-600">
+        <p className="mt-3 text-base leading-relaxed text-muted-foreground">
           Adattudomány, statisztika, matematika és Python érthetően, lépésről lépésre.
         </p>
       </header>
 
       <section className="grid gap-10 sm:grid-cols-[180px_1fr] sm:items-start">
         <div className="sm:sticky sm:top-20">
-          <div className="overflow-hidden rounded-2xl border border-neutral-200 bg-neutral-50">
+          <div className="overflow-hidden rounded-xl border border-border bg-muted">
             <Image
               src="/images/balint.jpg"
               alt="Bálint portré"
@@ -24,7 +24,7 @@ export default function AboutPage() {
               className="h-auto w-full object-cover"
             />
           </div>
-          <p className="mt-3 text-sm text-neutral-500">
+          <p className="mt-3 text-sm text-muted-foreground">
             Elérhetőség: learn.metis@gmail.com
           </p>
         </div>
@@ -32,13 +32,13 @@ export default function AboutPage() {
         <article
           className={[
             // Inline selector typography styling (ugyanaz a módszer, mint a postoknál)
-            "[&_p]:my-7 [&_p]:leading-relaxed [&_p]:text-neutral-800",
-            "[&_h2]:mt-14 [&_h2]:scroll-mt-24 [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:tracking-tight",
-            "[&_h3]:mt-10 [&_h3]:scroll-mt-24 [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:tracking-tight",
-            "[&_a]:underline [&_a]:underline-offset-4",
+            "[&_p]:my-7 [&_p]:leading-relaxed [&_p]:text-muted-foreground",
+            "[&_h2]:mt-14 [&_h2]:scroll-mt-24 [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:tracking-tight [&_h2]:text-foreground",
+            "[&_h3]:mt-10 [&_h3]:scroll-mt-24 [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:tracking-tight [&_h3]:text-foreground",
+            "[&_a]:underline [&_a]:underline-offset-4 [&_a]:text-accent",
             "[&_ul]:my-7 [&_ul]:list-disc [&_ul]:pl-7 [&_ul>li]:my-2",
             "[&_ol]:my-7 [&_ol]:list-decimal [&_ol]:pl-7 [&_ol>li]:my-2",
-            "[&_blockquote]:my-8 [&_blockquote]:border-l-4 [&_blockquote]:border-neutral-200 [&_blockquote]:pl-5 [&_blockquote]:text-neutral-700",
+            "[&_blockquote]:my-8 [&_blockquote]:border-l-4 [&_blockquote]:border-border [&_blockquote]:pl-5 [&_blockquote]:text-muted-foreground",
           ].join(" ")}
         >
           <h2>Bemutatkozás</h2>

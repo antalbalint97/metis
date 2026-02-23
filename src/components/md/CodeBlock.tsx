@@ -18,7 +18,7 @@ export function Code({ inline, className, children }: CodeProps) {
 
   if (inline) {
     return (
-      <code className="rounded-md bg-zinc-100 px-1.5 py-0.5 text-[0.95em]">
+      <code className="rounded-md bg-muted px-1.5 py-0.5 text-[0.95em]">
         {code}
       </code>
     );
@@ -29,13 +29,13 @@ export function Code({ inline, className, children }: CodeProps) {
 
   if (isCalc) {
     return (
-    <div className="my-8 rounded-xl border border-zinc-200 bg-zinc-50 p-5">
-    <div className="mb-3 text-sm font-semibold text-zinc-700">
+    <div className="my-8 rounded-xl border border-border bg-muted p-5">
+    <div className="mb-3 text-sm font-semibold text-muted-foreground">
     Számolás - lépésről lépésre
     </div>
 
 
-    <div className="whitespace-pre-wrap font-mono text-sm leading-6 text-zinc-900">
+    <div className="whitespace-pre-wrap font-mono text-sm leading-6 text-foreground">
     {code}
     </div>
     </div>
@@ -43,13 +43,13 @@ export function Code({ inline, className, children }: CodeProps) {
   }
 
   return (
-    <div className="my-8 overflow-hidden rounded-xl border border-zinc-200 bg-zinc-950">
-      <div className="flex items-center justify-between border-b border-zinc-800 px-4 py-2">
-        <span className="text-xs font-medium text-zinc-300">
+    <div className="my-8 overflow-hidden rounded-xl border border-border bg-[#1C1917]">
+      <div className="flex items-center justify-between border-b border-[#2E2E32] px-4 py-2">
+        <span className="text-xs font-medium text-[#A8A29E]">
           {isPython ? "python" : lang ?? "code"}
         </span>
       </div>
-      <pre className="overflow-x-auto p-4 text-sm leading-6 text-zinc-100">
+      <pre className="overflow-x-auto p-4 text-sm leading-6 text-[#F5F0EB]">
         <code className={className}>{code}</code>
       </pre>
     </div>

@@ -13,11 +13,11 @@ export function Figure({ src, alt, caption }: FigureProps) {
       <img
         src={src}
         alt={alt ?? ""}
-        className="w-full rounded-xl border border-zinc-200"
+        className="w-full rounded-xl border border-border"
         loading="lazy"
       />
       {caption ? (
-        <figcaption className="mt-3 text-sm text-zinc-600">
+        <figcaption className="mt-3 text-sm text-muted-foreground">
           {caption}
         </figcaption>
       ) : null}

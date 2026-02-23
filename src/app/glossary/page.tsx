@@ -286,9 +286,9 @@ function DefinitionList({ items }: { items: Term[] }) {
   return (
     <dl className="mt-5 space-y-5">
       {items.map((it) => (
-        <div key={it.term} className="rounded-xl border border-zinc-200 bg-white/40 p-4 sm:p-5">
-          <dt className="font-semibold text-zinc-900">{it.term}</dt>
-          <dd className="mt-2 text-zinc-700 leading-relaxed">{it.desc}</dd>
+        <div key={it.term} className="rounded-xl border border-border bg-surface p-4 sm:p-5 shadow-[var(--shadow-xs)]">
+          <dt className="font-semibold text-foreground">{it.term}</dt>
+          <dd className="mt-2 text-muted-foreground leading-relaxed">{it.desc}</dd>
         </div>
       ))}
     </dl>
@@ -298,8 +298,8 @@ function DefinitionList({ items }: { items: Term[] }) {
 export default function SzotarPage() {
   return (
     <article className="max-w-none">
-      <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight">Adatos szótár</h1>
-      <p className="mt-4 text-zinc-700 leading-relaxed">
+      <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight text-foreground">Adatos szótár</h1>
+      <p className="mt-4 text-muted-foreground leading-relaxed">
         Rövid fogalommagyarázatok azokhoz a kifejezésekhez, amik elemzés közben újra és újra előjönnek.
       </p>
 
