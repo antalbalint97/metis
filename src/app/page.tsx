@@ -226,6 +226,66 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Mentorprogram */}
+      <section className="rounded-xl border border-border bg-surface shadow-[var(--shadow-sm)] overflow-hidden">
+        <div className="flex flex-col md:flex-row">
+          {/* Left — copy */}
+          <div className="flex-1 px-6 py-10 sm:px-10 sm:py-14">
+            <p className="text-xs font-semibold uppercase tracking-widest text-accent">
+              Mentorprogram
+            </p>
+
+            <h2 className="mt-3 text-2xl sm:text-3xl font-semibold tracking-tight text-foreground text-balance">
+              Személyre szabott fejlődés, szakmai mentorral
+            </h2>
+
+            <p className="mt-4 text-muted-foreground leading-relaxed max-w-lg">
+              A mentorprogram azoknak szól, akik már dolgoznak a szakmában, és
+              szeretnének gyorsabban, strukturáltabban és tudatosabban fejlődni.
+            </p>
+
+            <ul className="mt-6 space-y-3 text-sm text-muted-foreground">
+              <li className="flex items-start gap-2.5">
+                <span className="mt-1.5 block h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                Egyéni fejlődési terv
+              </li>
+              <li className="flex items-start gap-2.5">
+                <span className="mt-1.5 block h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                Rendszeres mentorbeszélgetések
+              </li>
+              <li className="flex items-start gap-2.5">
+                <span className="mt-1.5 block h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                Valódi problémák közös feldolgozása
+              </li>
+            </ul>
+
+            <div className="mt-8">
+              <Link
+                href="/posts"
+                className="inline-flex items-center justify-center rounded-lg border border-primary bg-primary px-5 py-3 text-sm sm:text-base font-medium text-primary-foreground hover:bg-primary-hover transition-colors"
+              >
+                Mentorprogram részletei
+              </Link>
+            </div>
+          </div>
+
+          {/* Right — abstract visual */}
+          <div className="hidden md:flex items-center justify-center w-[340px] lg:w-[400px] shrink-0 bg-muted p-10">
+            <div className="relative w-full aspect-square max-w-[260px]">
+              {/* Layered geometric shapes */}
+              <div className="absolute inset-0 rounded-2xl border border-border bg-surface shadow-[var(--shadow-md)]" />
+              <div className="absolute top-6 left-6 right-6 bottom-6 rounded-xl bg-accent-muted" />
+              <div className="absolute top-12 left-12 right-12 bottom-12 rounded-lg border border-accent/20 bg-surface shadow-[var(--shadow-sm)]" />
+              <div className="absolute top-[72px] left-[72px] h-10 w-10 rounded-full bg-accent/15" />
+              <div className="absolute bottom-16 right-14 h-14 w-[100px] rounded-md bg-muted border border-border" />
+              <div className="absolute bottom-10 right-10 h-2 w-16 rounded-full bg-accent/30" />
+              <div className="absolute top-16 right-14 h-2 w-12 rounded-full bg-border-strong" />
+              <div className="absolute top-[88px] right-14 h-2 w-8 rounded-full bg-border" />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* What is inside */}
       <section className="space-y-5">
         <h2 className="text-xl sm:text-2xl font-semibold tracking-tight text-foreground">
