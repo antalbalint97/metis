@@ -56,10 +56,10 @@ export default function HomePage() {
       <section className="space-y-5">
         <div className="space-y-2">
           <h2 className="text-xl sm:text-2xl font-semibold tracking-tight text-foreground text-balance">
-            Fejlodesi savok Junior--Medior szakembereknek
+            Fejlődési sávok Junior–Medior szakembereknek
           </h2>
           <p className="text-muted-foreground leading-relaxed max-w-2xl">
-            Strukturalt tanulasi keretek kulonbozo technikai szerepkorokre, valodi problemak menten.
+            Strukturált tanulási keretek különböző technikai szerepkörökre, valódi problémák mentén.
           </p>
         </div>
 
@@ -69,28 +69,28 @@ export default function HomePage() {
             <div className="flex items-start justify-between gap-3">
               <h3 className="font-semibold text-foreground">Data Analyst</h3>
               <span className="shrink-0 rounded-md bg-accent-muted px-2 py-0.5 text-xs font-medium text-accent">
-                JUNIOR--MEDIOR
+                JUNIOR–MEDIOR
               </span>
             </div>
             <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-              Adatok ertelmezese, uzleti kerdesek megvalaszolasa es dontest tamogato elemzesek keszitese.
+              Adatok értelmezése, üzleti kérdések megválaszolása és döntést támogató elemzések készítése.
             </p>
             <div className="mt-4">
               <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                Fokuszteruletek
+                Fókuszterületek
               </p>
               <ul className="mt-2 space-y-1.5 text-sm text-muted-foreground">
                 <li className="flex items-start gap-2">
                   <span className="mt-1.5 block h-1 w-1 shrink-0 rounded-full bg-accent" />
-                  SQL es adatlekerdezes
+                  SQL és adatlekérdezés
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="mt-1.5 block h-1 w-1 shrink-0 rounded-full bg-accent" />
-                  Leiro statisztika es vizualizacio
+                  Leíró statisztika és vizualizáció
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="mt-1.5 block h-1 w-1 shrink-0 rounded-full bg-accent" />
-                  Uzleti metrikak es riportolas
+                  Üzleti metrikák és riportolás
                 </li>
               </ul>
             </div>
@@ -99,7 +99,7 @@ export default function HomePage() {
                 href="/posts"
                 className="inline-flex items-center justify-center rounded-lg border border-border bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground hover:bg-secondary-hover transition-colors"
               >
-                Sav megnyitasa
+                Sáv megnyitása
               </Link>
             </div>
           </div>
@@ -109,28 +109,28 @@ export default function HomePage() {
             <div className="flex items-start justify-between gap-3">
               <h3 className="font-semibold text-foreground">Data Scientist</h3>
               <span className="shrink-0 rounded-md bg-accent-muted px-2 py-0.5 text-xs font-medium text-accent">
-                JUNIOR--MEDIOR
+                JUNIOR–MEDIOR
               </span>
             </div>
             <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-              Statisztikai modellezes, hipotezisvizsgalat es adatalapú predikciok keszitese.
+              Statisztikai modellezés, hipotézisvizsgálat és adatalapú predikciók készítése.
             </p>
             <div className="mt-4">
               <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                Fokuszteruletek
+                Fókuszterületek
               </p>
               <ul className="mt-2 space-y-1.5 text-sm text-muted-foreground">
                 <li className="flex items-start gap-2">
                   <span className="mt-1.5 block h-1 w-1 shrink-0 rounded-full bg-accent" />
-                  Valoszinusegszamitas es statisztika
+                  Valószínűségszámítás és statisztika
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="mt-1.5 block h-1 w-1 shrink-0 rounded-full bg-accent" />
-                  Python es explorativ adatelemzes
+                  Python és exploratív adatelemzés
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="mt-1.5 block h-1 w-1 shrink-0 rounded-full bg-accent" />
-                  Feature engineering es modellvalasztas
+                  Feature engineering és modellválasztás
                 </li>
               </ul>
             </div>
@@ -139,7 +139,7 @@ export default function HomePage() {
                 href="/posts"
                 className="inline-flex items-center justify-center rounded-lg border border-border bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground hover:bg-secondary-hover transition-colors"
               >
-                Sav megnyitasa
+                Sáv megnyitása
               </Link>
             </div>
           </div>
@@ -149,28 +149,28 @@ export default function HomePage() {
             <div className="flex items-start justify-between gap-3">
               <h3 className="font-semibold text-foreground">Machine Learning Engineer</h3>
               <span className="shrink-0 rounded-md bg-accent-muted px-2 py-0.5 text-xs font-medium text-accent">
-                JUNIOR--MEDIOR
+                JUNIOR–MEDIOR
               </span>
             </div>
             <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-              ML modellek epitese, uzembe helyezese es skalazasa produkcioban.
+              ML modellek építése, üzembe helyezése és skálázása produkcióban.
             </p>
             <div className="mt-4">
               <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                Fokuszteruletek
+                Fókuszterületek
               </p>
               <ul className="mt-2 space-y-1.5 text-sm text-muted-foreground">
                 <li className="flex items-start gap-2">
                   <span className="mt-1.5 block h-1 w-1 shrink-0 rounded-full bg-accent" />
-                  ML pipeline-ok es MLOps alapok
+                  ML pipeline-ok és MLOps alapok
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="mt-1.5 block h-1 w-1 shrink-0 rounded-full bg-accent" />
-                  Modell trenirozas es ertekelesi metrikak
+                  Modell trénírozás és értékelési metrikák
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="mt-1.5 block h-1 w-1 shrink-0 rounded-full bg-accent" />
-                  API-k es modell szerviralas
+                  API-k és modell szervírálás
                 </li>
               </ul>
             </div>
@@ -179,7 +179,7 @@ export default function HomePage() {
                 href="/posts"
                 className="inline-flex items-center justify-center rounded-lg border border-border bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground hover:bg-secondary-hover transition-colors"
               >
-                Sav megnyitasa
+                Sáv megnyitása
               </Link>
             </div>
           </div>
@@ -189,28 +189,28 @@ export default function HomePage() {
             <div className="flex items-start justify-between gap-3">
               <h3 className="font-semibold text-foreground">Software Engineer</h3>
               <span className="shrink-0 rounded-md bg-accent-muted px-2 py-0.5 text-xs font-medium text-accent">
-                JUNIOR--MEDIOR
+                JUNIOR–MEDIOR
               </span>
             </div>
             <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-              Szoftverrendszerek tervezese, fejlesztese es karbantartasa skalazhato architekturaban.
+              Szoftverrendszerek tervezése, fejlesztése és karbantartása skálázható architektúrában.
             </p>
             <div className="mt-4">
               <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                Fokuszteruletek
+                Fókuszterületek
               </p>
               <ul className="mt-2 space-y-1.5 text-sm text-muted-foreground">
                 <li className="flex items-start gap-2">
                   <span className="mt-1.5 block h-1 w-1 shrink-0 rounded-full bg-accent" />
-                  Tiszta kod es tervezesi mintak
+                  Tiszta kód és tervezési minták
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="mt-1.5 block h-1 w-1 shrink-0 rounded-full bg-accent" />
-                  Verziokoveites es CI/CD alapok
+                  Verziókövetés és CI/CD alapok
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="mt-1.5 block h-1 w-1 shrink-0 rounded-full bg-accent" />
-                  Adatbazisok es API tervezes
+                  Adatbázisok és API tervezés
                 </li>
               </ul>
             </div>
@@ -219,7 +219,7 @@ export default function HomePage() {
                 href="/posts"
                 className="inline-flex items-center justify-center rounded-lg border border-border bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground hover:bg-secondary-hover transition-colors"
               >
-                Sav megnyitasa
+                Sáv megnyitása
               </Link>
             </div>
           </div>
