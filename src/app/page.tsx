@@ -86,7 +86,7 @@ export default function HomePage() {
       </section>
 
       {/* Career tracks */}
-      <section className="space-y-5">
+      <section id="fejlodesi-savok" className="scroll-mt-24 space-y-5">
         <div className="space-y-2">
           <h2 className="text-xl sm:text-2xl font-semibold tracking-tight text-foreground text-balance">
             Fejlődési sávok Junior–Medior szakembereknek
@@ -129,7 +129,7 @@ export default function HomePage() {
             </div>
             <div className="mt-auto pt-5">
               <Link
-                href="/fejlodesi-savok/data-analyst"
+                href="/#fejlodesi-savok"
                 className="inline-flex items-center justify-center rounded-lg border border-border bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground hover:bg-secondary-hover transition-colors"
               >
                 Sáv megnyitása
@@ -146,7 +146,7 @@ export default function HomePage() {
               </span>
             </div>
             <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-              Statisztikai modellezés, hipotézisvizsgálat és adatalapú predikciók k��szítése.
+              Statisztikai modellezés, hipotézisvizsgálat és adatalapú predikciók készítése.
             </p>
             <div className="mt-4">
               <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
@@ -169,7 +169,7 @@ export default function HomePage() {
             </div>
             <div className="mt-auto pt-5">
               <Link
-                href="/fejlodesi-savok/data-scientist"
+                href="/#fejlodesi-savok"
                 className="inline-flex items-center justify-center rounded-lg border border-border bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground hover:bg-secondary-hover transition-colors"
               >
                 Sáv megnyitása
@@ -186,7 +186,7 @@ export default function HomePage() {
               </span>
             </div>
             <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-              ML modellek építése, üzembe helyezése és skálázása produkcióban.
+              ML-modellek építése, üzembe helyezése és skálázása produkciós környezetben.
             </p>
             <div className="mt-4">
               <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
@@ -199,17 +199,17 @@ export default function HomePage() {
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="mt-1.5 block h-1 w-1 shrink-0 rounded-full bg-accent" />
-                  Modell trénírozás és értékelési metrikák
+                  Modelltréning és értékelési metrikák
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="mt-1.5 block h-1 w-1 shrink-0 rounded-full bg-accent" />
-                  API-k és modell szervírálás
+                  API-k és modellservírozás
                 </li>
               </ul>
             </div>
             <div className="mt-auto pt-5">
               <Link
-                href="/posts"
+                href="/#fejlodesi-savok"
                 className="inline-flex items-center justify-center rounded-lg border border-border bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground hover:bg-secondary-hover transition-colors"
               >
                 Sáv megnyitása
@@ -249,7 +249,7 @@ export default function HomePage() {
             </div>
             <div className="mt-auto pt-5">
               <Link
-                href="/posts"
+                href="/#fejlodesi-savok"
                 className="inline-flex items-center justify-center rounded-lg border border-border bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground hover:bg-secondary-hover transition-colors"
               >
                 Sáv megnyitása
@@ -294,7 +294,7 @@ export default function HomePage() {
 
             <div className="mt-8">
               <Link
-                href="/posts"
+                href="/"
                 className="inline-flex items-center justify-center rounded-lg border border-primary bg-primary px-5 py-3 text-sm sm:text-base font-medium text-primary-foreground hover:bg-primary-hover transition-colors"
               >
                 Mentorprogram részletei
