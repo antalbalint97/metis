@@ -52,6 +52,39 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Mit találsz a Metisen? */}
+      <section className="space-y-5">
+        <h2 className="text-xl sm:text-2xl font-semibold tracking-tight text-foreground">
+          Mit találsz a Metisen?
+        </h2>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="rounded-xl border border-border bg-surface p-5 shadow-[var(--shadow-xs)]">
+            <h3 className="font-semibold text-foreground">Fejlődési sávok</h3>
+            <p className="mt-2 text-sm sm:text-base text-muted-foreground leading-relaxed">
+              Strukturált tanulási utak különböző technikai szerepkörökre, valódi
+              problémák mentén.
+            </p>
+          </div>
+
+          <div className="rounded-xl border border-border bg-surface p-5 shadow-[var(--shadow-xs)]">
+            <h3 className="font-semibold text-foreground">Mentorprogram</h3>
+            <p className="mt-2 text-sm sm:text-base text-muted-foreground leading-relaxed">
+              Személyre szabott fejlődés szakmai mentorral, egyéni terv és
+              rendszeres beszélgetések alapján.
+            </p>
+          </div>
+
+          <div className="rounded-xl border border-border bg-surface p-5 shadow-[var(--shadow-xs)]">
+            <h3 className="font-semibold text-foreground">Cikkek és jegyzetek</h3>
+            <p className="mt-2 text-sm sm:text-base text-muted-foreground leading-relaxed">
+              Rövid, gyakorlati tartalmak SQL-ről, statisztikáról, Pythonról és
+              elemzői gondolkodásról.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Career tracks */}
       <section className="space-y-5">
         <div className="space-y-2">
@@ -286,125 +319,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* What is inside */}
-      <section className="space-y-5">
-        <h2 className="text-xl sm:text-2xl font-semibold tracking-tight text-foreground">
-          Mit találsz itt?
-        </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <div className="rounded-xl border border-border bg-surface p-5 shadow-[var(--shadow-xs)]">
-            <h3 className="font-semibold text-foreground">Rövid jegyzetek</h3>
-            <p className="mt-2 text-sm sm:text-base text-muted-foreground leading-relaxed">
-              Tiszta, praktikus kapaszkodók elemzői helyzetekhez. Nem
-              definícióhalmozás, hanem gondolkodási keretek.
-            </p>
-          </div>
-
-          <div className="rounded-xl border border-border bg-surface p-5 shadow-[var(--shadow-xs)]">
-            <h3 className="font-semibold text-foreground">Példák</h3>
-            <p className="mt-2 text-sm sm:text-base text-muted-foreground leading-relaxed">
-              Üzleti sztorik és tipikus csapdák: nevezők, definíciók,
-              eloszlások, összehasonlítások, döntési helyzetek.
-            </p>
-          </div>
-
-          <div className="rounded-xl border border-border bg-surface p-5 shadow-[var(--shadow-xs)]">
-            <h3 className="font-semibold text-foreground">Közös nyelv</h3>
-            <p className="mt-2 text-sm sm:text-base text-muted-foreground leading-relaxed">
-              Fogalomtár azokhoz a kifejezésekhez, amik elemzés közben újra és
-              újra előjönnek.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Start here */}
-      <section className="space-y-5">
-        <div className="flex items-baseline justify-between gap-4">
-          <h2 className="text-xl sm:text-2xl font-semibold tracking-tight text-foreground">
-            Kezdd itt
-          </h2>
-          <Link
-            href="/posts"
-            className="text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors"
-          >
-            Összes cikk →
-          </Link>
-        </div>
-
-        <div className="rounded-xl border border-border bg-surface p-6 shadow-[var(--shadow-xs)]">
-          <ol className="space-y-4 text-muted-foreground">
-            <li className="flex gap-3">
-              <span className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-border-strong text-xs text-muted-foreground">
-                1
-              </span>
-              <div>
-                <Link
-                  href="/posts/data-analyst-mit-csinal-valojaban"
-                  className="font-medium text-foreground hover:text-accent transition-colors"
-                >
-                  Mit csinál egy Data Analyst valójában?
-                </Link>
-                <div className="text-sm">
-                  Szerepek, elvárások, és hogyan olvasd a pozícióneveket.
-                </div>
-              </div>
-            </li>
-
-            <li className="flex gap-3">
-              <span className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-border-strong text-xs text-muted-foreground">
-                2
-              </span>
-              <div>
-                <Link
-                  href="/posts/mit-jelent-valojaban-megnezni-az-adatot-eda"
-                  className="font-medium text-foreground hover:text-accent transition-colors"
-                >
-                  Mit jelent az EDA, azaz „megnézni az adatot"?
-                </Link>
-                <div className="text-sm">
-                  Elemzői keret: kérdés, megfigyelés, iteráció.
-                </div>
-              </div>
-            </li>
-
-            <li className="flex gap-3">
-              <span className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-border-strong text-xs text-muted-foreground">
-                3
-              </span>
-              <div>
-                <Link
-                  href="/posts/leiro-statisztika-hogyan-ne-felj-a-szamoktol"
-                  className="font-medium text-foreground hover:text-accent transition-colors"
-                >
-                  Leíró statisztika: hogyan ne félj a számoktól?
-                </Link>
-                <div className="text-sm">
-                  Eloszlások, nevezők, outlierek és „egy szám" csapdák.
-                </div>
-              </div>
-            </li>
-
-            <li className="flex gap-3">
-              <span className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-border-strong text-xs text-muted-foreground">
-                4
-              </span>
-              <div>
-                <Link
-                  href="/posts/mit-is-mer-a-churn"
-                  className="font-medium text-foreground hover:text-accent transition-colors"
-                >
-                  Mit is mér a churn?
-                </Link>
-                <div className="text-sm">
-                  Mit jelent valójában a lemorzsolódás üzleti szempontból.
-                </div>
-              </div>
-            </li>
-          </ol>
-        </div>
-      </section>
     </div>
   );
 }
