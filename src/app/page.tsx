@@ -146,7 +146,7 @@ export default function HomePage() {
               </span>
             </div>
             <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-              Statisztikai modellezés, hipotézisvizsgálat és adatalapú predikciók készítése.
+              Statisztikai modellezés, hipotézisvizsgálat és adatalapú predikciók k��szítése.
             </p>
             <div className="mt-4">
               <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
@@ -169,7 +169,7 @@ export default function HomePage() {
             </div>
             <div className="mt-auto pt-5">
               <Link
-                href="/posts"
+                href="/fejlodesi-savok/data-scientist"
                 className="inline-flex items-center justify-center rounded-lg border border-border bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground hover:bg-secondary-hover transition-colors"
               >
                 Sáv megnyitása
