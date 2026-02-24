@@ -52,6 +52,180 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Career tracks */}
+      <section className="space-y-5">
+        <div className="space-y-2">
+          <h2 className="text-xl sm:text-2xl font-semibold tracking-tight text-foreground text-balance">
+            Fejlodesi savok Junior--Medior szakembereknek
+          </h2>
+          <p className="text-muted-foreground leading-relaxed max-w-2xl">
+            Strukturalt tanulasi keretek kulonbozo technikai szerepkorokre, valodi problemak menten.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {/* Data Analyst */}
+          <div className="flex flex-col rounded-xl border border-border bg-surface p-5 sm:p-6 shadow-[var(--shadow-xs)]">
+            <div className="flex items-start justify-between gap-3">
+              <h3 className="font-semibold text-foreground">Data Analyst</h3>
+              <span className="shrink-0 rounded-md bg-accent-muted px-2 py-0.5 text-xs font-medium text-accent">
+                JUNIOR--MEDIOR
+              </span>
+            </div>
+            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+              Adatok ertelmezese, uzleti kerdesek megvalaszolasa es dontest tamogato elemzesek keszitese.
+            </p>
+            <div className="mt-4">
+              <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                Fokuszteruletek
+              </p>
+              <ul className="mt-2 space-y-1.5 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <span className="mt-1.5 block h-1 w-1 shrink-0 rounded-full bg-accent" />
+                  SQL es adatlekerdezes
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1.5 block h-1 w-1 shrink-0 rounded-full bg-accent" />
+                  Leiro statisztika es vizualizacio
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1.5 block h-1 w-1 shrink-0 rounded-full bg-accent" />
+                  Uzleti metrikak es riportolas
+                </li>
+              </ul>
+            </div>
+            <div className="mt-auto pt-5">
+              <Link
+                href="/posts"
+                className="inline-flex items-center justify-center rounded-lg border border-border bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground hover:bg-secondary-hover transition-colors"
+              >
+                Sav megnyitasa
+              </Link>
+            </div>
+          </div>
+
+          {/* Data Scientist */}
+          <div className="flex flex-col rounded-xl border border-border bg-surface p-5 sm:p-6 shadow-[var(--shadow-xs)]">
+            <div className="flex items-start justify-between gap-3">
+              <h3 className="font-semibold text-foreground">Data Scientist</h3>
+              <span className="shrink-0 rounded-md bg-accent-muted px-2 py-0.5 text-xs font-medium text-accent">
+                JUNIOR--MEDIOR
+              </span>
+            </div>
+            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+              Statisztikai modellezes, hipotezisvizsgalat es adatalapú predikciok keszitese.
+            </p>
+            <div className="mt-4">
+              <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                Fokuszteruletek
+              </p>
+              <ul className="mt-2 space-y-1.5 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <span className="mt-1.5 block h-1 w-1 shrink-0 rounded-full bg-accent" />
+                  Valoszinusegszamitas es statisztika
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1.5 block h-1 w-1 shrink-0 rounded-full bg-accent" />
+                  Python es explorativ adatelemzes
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1.5 block h-1 w-1 shrink-0 rounded-full bg-accent" />
+                  Feature engineering es modellvalasztas
+                </li>
+              </ul>
+            </div>
+            <div className="mt-auto pt-5">
+              <Link
+                href="/posts"
+                className="inline-flex items-center justify-center rounded-lg border border-border bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground hover:bg-secondary-hover transition-colors"
+              >
+                Sav megnyitasa
+              </Link>
+            </div>
+          </div>
+
+          {/* Machine Learning Engineer */}
+          <div className="flex flex-col rounded-xl border border-border bg-surface p-5 sm:p-6 shadow-[var(--shadow-xs)]">
+            <div className="flex items-start justify-between gap-3">
+              <h3 className="font-semibold text-foreground">Machine Learning Engineer</h3>
+              <span className="shrink-0 rounded-md bg-accent-muted px-2 py-0.5 text-xs font-medium text-accent">
+                JUNIOR--MEDIOR
+              </span>
+            </div>
+            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+              ML modellek epitese, uzembe helyezese es skalazasa produkcioban.
+            </p>
+            <div className="mt-4">
+              <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                Fokuszteruletek
+              </p>
+              <ul className="mt-2 space-y-1.5 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <span className="mt-1.5 block h-1 w-1 shrink-0 rounded-full bg-accent" />
+                  ML pipeline-ok es MLOps alapok
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1.5 block h-1 w-1 shrink-0 rounded-full bg-accent" />
+                  Modell trenirozas es ertekelesi metrikak
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1.5 block h-1 w-1 shrink-0 rounded-full bg-accent" />
+                  API-k es modell szerviralas
+                </li>
+              </ul>
+            </div>
+            <div className="mt-auto pt-5">
+              <Link
+                href="/posts"
+                className="inline-flex items-center justify-center rounded-lg border border-border bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground hover:bg-secondary-hover transition-colors"
+              >
+                Sav megnyitasa
+              </Link>
+            </div>
+          </div>
+
+          {/* Software Engineer */}
+          <div className="flex flex-col rounded-xl border border-border bg-surface p-5 sm:p-6 shadow-[var(--shadow-xs)]">
+            <div className="flex items-start justify-between gap-3">
+              <h3 className="font-semibold text-foreground">Software Engineer</h3>
+              <span className="shrink-0 rounded-md bg-accent-muted px-2 py-0.5 text-xs font-medium text-accent">
+                JUNIOR--MEDIOR
+              </span>
+            </div>
+            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+              Szoftverrendszerek tervezese, fejlesztese es karbantartasa skalazhato architekturaban.
+            </p>
+            <div className="mt-4">
+              <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                Fokuszteruletek
+              </p>
+              <ul className="mt-2 space-y-1.5 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <span className="mt-1.5 block h-1 w-1 shrink-0 rounded-full bg-accent" />
+                  Tiszta kod es tervezesi mintak
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1.5 block h-1 w-1 shrink-0 rounded-full bg-accent" />
+                  Verziokoveites es CI/CD alapok
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1.5 block h-1 w-1 shrink-0 rounded-full bg-accent" />
+                  Adatbazisok es API tervezes
+                </li>
+              </ul>
+            </div>
+            <div className="mt-auto pt-5">
+              <Link
+                href="/posts"
+                className="inline-flex items-center justify-center rounded-lg border border-border bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground hover:bg-secondary-hover transition-colors"
+              >
+                Sav megnyitasa
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* What is inside */}
       <section className="space-y-5">
         <h2 className="text-xl sm:text-2xl font-semibold tracking-tight text-foreground">
