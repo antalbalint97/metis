@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 
 export const metadata: Metadata = {
   title: "Metis",
@@ -319,6 +320,19 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Visszajelzések */}
+      <section className="space-y-5">
+        <div className="space-y-2">
+          <h2 className="text-xl sm:text-2xl font-semibold tracking-tight text-foreground">
+            Mit mondanak a tanulók?
+          </h2>
+          <p className="text-muted-foreground">
+            Néhány rövid visszajelzés korábbi diákoktól.
+          </p>
+        </div>
+
+        <TestimonialsCarousel />
+      </section>
 
     </div>
   );
