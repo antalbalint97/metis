@@ -189,9 +189,9 @@ export default async function PostPage({
   return (
     <article className="space-y-12">
       <header className="space-y-4">
-        <div className="flex items-center gap-3 text-sm text-zinc-500">
+        <div className="flex items-center gap-3 text-sm text-muted-foreground">
           <span>{post.frontmatter.date}</span>
-          <span className="text-zinc-300">•</span>
+          <span className="text-border-strong">•</span>
           <span>{minutes} perc olvasás</span>
         </div>
 
@@ -200,7 +200,7 @@ export default async function PostPage({
         </h1>
 
         {post.frontmatter.excerpt ? (
-          <p className="max-w-prose text-base leading-relaxed text-zinc-700 sm:text-lg">
+          <p className="max-w-prose text-base leading-relaxed text-muted-foreground sm:text-lg">
             {post.frontmatter.excerpt}
           </p>
         ) : null}
@@ -208,7 +208,7 @@ export default async function PostPage({
 
       <div
         className="
-          max-w-none leading-7 text-zinc-900
+          max-w-none leading-7 text-foreground
 
           [&_p]:my-7
           [&_li>p]:my-0
@@ -216,13 +216,13 @@ export default async function PostPage({
           [&_h2]:mt-16 [&_h2]:mb-6
           [&_h2]:text-2xl sm:[&_h2]:text-3xl
           [&_h2]:font-semibold [&_h2]:tracking-tight
-          [&_h2]:border-b [&_h2]:border-zinc-200 [&_h2]:pb-3
+          [&_h2]:border-b [&_h2]:border-border [&_h2]:pb-3
 
           [&_h3]:mt-10 [&_h3]:mb-4
           [&_h3]:text-xl sm:[&_h3]:text-2xl
           [&_h3]:font-semibold [&_h3]:tracking-tight
 
-          [&_a]:underline [&_a]:underline-offset-4
+          [&_a]:underline [&_a]:underline-offset-4 [&_a]:text-accent
 
           [&_p+ul]:mt-4
           [&_p+ol]:mt-4
@@ -230,18 +230,18 @@ export default async function PostPage({
           [&_ol]:my-1 [&_ol]:list-decimal [&_ol]:pl-6
           [&_li]:my-0.5 [&_li]:pl-1
 
-          [&_blockquote]:my-8 [&_blockquote]:border-l-2 [&_blockquote]:border-zinc-200
-          [&_blockquote]:pl-4 [&_blockquote]:text-zinc-700
+          [&_blockquote]:my-8 [&_blockquote]:border-l-2 [&_blockquote]:border-border
+          [&_blockquote]:pl-4 [&_blockquote]:text-muted-foreground
 
-          [&_hr]:my-10 [&_hr]:border-zinc-200
+          [&_hr]:my-10 [&_hr]:border-border
 
           [&_details]:my-8
           [&_summary]:cursor-pointer
           [&_summary]:select-none
 
           [&_table]:my-8 [&_table]:w-full [&_table]:border-collapse
-          [&_th]:border [&_th]:border-zinc-200 [&_th]:bg-zinc-50 [&_th]:p-3 [&_th]:text-left
-          [&_td]:border [&_td]:border-zinc-200 [&_td]:p-3
+          [&_th]:border [&_th]:border-border [&_th]:bg-muted [&_th]:p-3 [&_th]:text-left [&_th]:text-foreground
+          [&_td]:border [&_td]:border-border [&_td]:p-3
         "
       >
         <ReactMarkdown
@@ -305,47 +305,47 @@ export default async function PostPage({
       </div>
 
       {currentSeries && seriesItems.length > 0 ? (
-        <section className="border-t border-zinc-200 pt-10">
+        <section className="border-t border-border pt-10">
           <div className="space-y-6">
             <div className="flex flex-col gap-2">
-              <p className="text-sm text-zinc-500">Cikksorozat</p>
+              <p className="text-sm text-muted-foreground">Cikksorozat</p>
               <h2 className="text-2xl font-semibold tracking-tight">
                 {seriesTitleToShow}
               </h2>
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2">
-              <div className="rounded-xl border border-zinc-200 p-5">
-                <p className="text-sm text-zinc-500">Előző rész</p>
+              <div className="rounded-xl border border-border bg-surface p-5">
+                <p className="text-sm text-muted-foreground">Előző rész</p>
                 {prevItem ? (
                   <Link
                     href={`/posts/${prevItem.slug}`}
-                    className="mt-2 block font-medium underline underline-offset-4"
+                    className="mt-2 block font-medium text-foreground underline underline-offset-4 hover:text-accent transition-colors"
                   >
                     {prevItem.title}
                   </Link>
                 ) : (
-                  <p className="mt-2 text-zinc-600">Nincs (ez az első rész).</p>
+                  <p className="mt-2 text-muted-foreground">Nincs (ez az első rész).</p>
                 )}
               </div>
 
-              <div className="rounded-xl border border-zinc-200 p-5">
-                <p className="text-sm text-zinc-500">Következő rész</p>
+              <div className="rounded-xl border border-border bg-surface p-5">
+                <p className="text-sm text-muted-foreground">Következő rész</p>
                 {nextItem ? (
                   <Link
                     href={`/posts/${nextItem.slug}`}
-                    className="mt-2 block font-medium underline underline-offset-4"
+                    className="mt-2 block font-medium text-foreground underline underline-offset-4 hover:text-accent transition-colors"
                   >
                     {nextItem.title}
                   </Link>
                 ) : (
-                  <p className="mt-2 text-zinc-600">Nincs (ez az utolsó rész).</p>
+                  <p className="mt-2 text-muted-foreground">Nincs (ez az utolsó rész).</p>
                 )}
               </div>
             </div>
 
-            <div className="rounded-xl border border-zinc-200 p-5">
-              <p className="text-sm text-zinc-500">Összes rész</p>
+            <div className="rounded-xl border border-border bg-surface p-5">
+              <p className="text-sm text-muted-foreground">Összes rész</p>
 
               <ol className="mt-3 space-y-2">
                 {seriesItems.map((it) => {
@@ -353,7 +353,7 @@ export default async function PostPage({
 
                   return (
                     <li key={it.slug} className="flex items-start gap-3">
-                      <span className="mt-0.5 text-sm text-zinc-500">
+                      <span className="mt-0.5 text-sm text-muted-foreground">
                         {typeof it.seriesOrder === "number"
                           ? `${it.seriesOrder}.`
                           : "•"}
@@ -361,9 +361,9 @@ export default async function PostPage({
 
                       {isCurrent ? (
                         <div>
-                          <p className="font-medium text-zinc-900">{it.title}</p>
+                          <p className="font-medium text-foreground">{it.title}</p>
                           {it.excerpt ? (
-                            <p className="mt-1 text-sm text-zinc-600">
+                            <p className="mt-1 text-sm text-muted-foreground">
                               {it.excerpt}
                             </p>
                           ) : null}
@@ -372,12 +372,12 @@ export default async function PostPage({
                         <div>
                           <Link
                             href={`/posts/${it.slug}`}
-                            className="font-medium underline underline-offset-4"
+                            className="font-medium text-foreground underline underline-offset-4 hover:text-accent transition-colors"
                           >
                             {it.title}
                           </Link>
                           {it.excerpt ? (
-                            <p className="mt-1 text-sm text-zinc-600">
+                            <p className="mt-1 text-sm text-muted-foreground">
                               {it.excerpt}
                             </p>
                           ) : null}
