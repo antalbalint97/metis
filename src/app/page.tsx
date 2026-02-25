@@ -209,7 +209,7 @@ export default function HomePage() {
             </div>
             <div className="mt-auto pt-5">
               <Link
-                href="/#fejlodesi-savok"
+                href="/fejlodesi-savok/machine-learning-engineer"
                 className="inline-flex items-center justify-center rounded-lg border border-border bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground hover:bg-secondary-hover transition-colors"
               >
                 Sáv megnyitása
@@ -249,7 +249,7 @@ export default function HomePage() {
             </div>
             <div className="mt-auto pt-5">
               <Link
-                href="/#fejlodesi-savok"
+                href="/fejlodesi-savok/software-engineer"
                 className="inline-flex items-center justify-center rounded-lg border border-border bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground hover:bg-secondary-hover transition-colors"
               >
                 Sáv megnyitása

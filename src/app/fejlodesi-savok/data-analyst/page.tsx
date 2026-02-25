@@ -71,7 +71,7 @@ export default function DataAnalystTrackPage() {
       {/* Hero */}
       <section>
         <Link
-          href="/fejlodesi-savok"
+          href="/"
           className="text-sm text-muted-foreground hover:text-foreground transition-colors"
         >
           {"← Fejlődési sávok"}
