@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 
 export const metadata: Metadata = {
   title: "Metis",
@@ -209,7 +210,7 @@ export default function HomePage() {
             </div>
             <div className="mt-auto pt-5">
               <Link
-                href="/#fejlodesi-savok"
+                href="/fejlodesi-savok/machine-learning-engineer"
                 className="inline-flex items-center justify-center rounded-lg border border-border bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground hover:bg-secondary-hover transition-colors"
               >
                 Sáv megnyitása
@@ -249,7 +250,7 @@ export default function HomePage() {
             </div>
             <div className="mt-auto pt-5">
               <Link
-                href="/#fejlodesi-savok"
+                href="/fejlodesi-savok/software-engineer"
                 className="inline-flex items-center justify-center rounded-lg border border-border bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground hover:bg-secondary-hover transition-colors"
               >
                 Sáv megnyitása
@@ -294,7 +295,7 @@ export default function HomePage() {
 
             <div className="mt-8">
               <Link
-                href="/"
+                href="/mentorprogram"
                 className="inline-flex items-center justify-center rounded-lg border border-primary bg-primary px-5 py-3 text-sm sm:text-base font-medium text-primary-foreground hover:bg-primary-hover transition-colors"
               >
                 Mentorprogram részletei
@@ -319,6 +320,19 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Visszajelzések */}
+      <section className="space-y-5">
+        <div className="space-y-2">
+          <h2 className="text-xl sm:text-2xl font-semibold tracking-tight text-foreground">
+            Mit mondanak a tanulók?
+          </h2>
+          <p className="text-muted-foreground">
+            Néhány rövid visszajelzés korábbi diákoktól.
+          </p>
+        </div>
+
+        <TestimonialsCarousel />
+      </section>
 
     </div>
   );

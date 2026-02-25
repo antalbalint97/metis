@@ -2,70 +2,66 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Data Scientist – Fejlődési sáv | Metis",
+  title: "Software Engineer – Fejlődési sáv | Metis",
   description:
-    "Strukturált tanulási út Junior–Medior Data Scientisteknek: statisztika, Python, modellezés és kísérletezés.",
+    "Strukturált tanulási út Junior–Medior Software Engineereknek: tiszta kód, architektúra, CI/CD és integrációk.",
 };
 
 const starterArticles = [
-  { title: "Mi a különbség Data Analyst és Data Scientist között?", href: "#" },
-  { title: "Hogyan gondolkodik egy Data Scientist egy problémáról?", href: "#" },
-  { title: "Az első modelled: mire figyelj, mielőtt kódolsz?", href: "#" },
-  { title: "Hipotézis, kísérlet, iteráció: az adattudós keretrendszere", href: "#" },
+  { title: "Mikor jó egy kód? Olvashatóság, felelősség, egyszerűség", href: "#" },
+  { title: "Refaktorálás a gyakorlatban: mikor és hogyan?", href: "#" },
+  { title: "API tervezés alapjai: REST, konvenciók, hibakezelés", href: "#" },
+  { title: "CI/CD alapok: mit automatizálj először?", href: "#" },
 ];
 
 const modules = [
   {
-    title: "Valószínűségszámítás és statisztika",
+    title: "Tiszta kód és tervezési minták",
     description:
-      "Az adattudós legfontosabb nyelve: eloszlások, becslések, tesztelés és bizonytalanságkezelés.",
+      "Hogyan írj karbantartható, olvasható és bővíthető kódot — a valós fejlesztői munkában.",
     articles: [
-      "Valószínűségi változók és eloszlások intuitíven",
-      "Feltételes valószínűség és Bayes-tétel a gyakorlatban",
-      "Konfidenciaintervallum: mit mond valójában?",
-      "Hipotézisvizsgálat: p-érték, szignifikancia és csapdák",
-      "A/B teszt tervezés: minta méret, erő, szignifikancia",
+      "Single Responsibility: egy osztály, egy felelősség",
+      "Elnevezések ereje: változók, függvények, modulok",
+      "Dependency injection: miért és hogyan?",
+      "Tervezési minták a gyakorlatban: Strategy, Observer, Factory",
     ],
   },
   {
-    title: "Python és exploratív adatelemzés",
+    title: "Rendszertervezés és architektúra alapok",
     description:
-      "Pandas, vizualizáció és az az első 30 perc, amikor megismered az adataidat.",
+      "Hogyan gondolkodj rendszerszinten, mielőtt kódolsz: komponensek, határok és kompromisszumok.",
     articles: [
-      "Pandas alapok: DataFrame gondolkodás",
-      "Hiányzó adatok kezelése: stratégiák és csapdák",
-      "Matplotlib és Seaborn: mikor melyiket?",
-      "EDA checklist: mit nézz meg először?",
-      "Feature-ök felfedezése vizuálisan",
-      "Jupyter notebook legjobb gyakorlatok",
+      "Monolitikus vs. mikroszerviz: mikor melyik?",
+      "Rétegek és modulok: a jó architektúra alapjai",
+      "Állapotkezelés: hol és hogyan tartsd az adatot?",
+      "Terhelés, skálázás és cache: alapfogalmak fejlesztőknek",
     ],
   },
   {
-    title: "Feature engineering és modellválasztás",
+    title: "Verziókezelés, CI/CD és release",
     description:
-      "Hogyan készítsd elő az adatot modellezéshez, és hogyan válaszd ki a megfelelő megközelítést.",
+      "A megbízható szállítás alapjai: branch stratégia, automatizáció és kiadási folyamatok.",
     articles: [
-      "Kategorikus változók kódolása: one-hot, target, ordinal",
-      "Skálázás és normalizálás: mikor melyik kell?",
-      "Feature selection technikák összehasonlítása",
-      "Overfitting felismerése és megelőzése",
-      "Modellválasztás: regresszió, fa, ensemble — döntési keretrendszer",
+      "Git workflow: trunk-based vs. feature branch",
+      "CI pipeline felépítése: lint, teszt, build, deploy",
+      "Automatikus tesztelés: unit, integráció, e2e — mikor melyik?",
+      "Release stratégiák: semantic versioning és changelog",
     ],
   },
   {
-    title: "Modell értékelés és kísérletezés",
+    title: "API-k, adatmodellezés és integrációk",
     description:
-      "Metrikák, validáció és az a kérdés, hogy a modelled tényleg jobb-e, mint a baseline.",
+      "Hogyan tervezz API-t, gondolkodj adatszerkezetben és csatlakozz külső rendszerekhez.",
     articles: [
-      "Accuracy-n túl: precision, recall, F1 és mikor melyik számít",
-      "ROC-görbe és AUC: vizuális modellértékelés",
-      "Cross-validation: miért nem elég egy split?",
-      "Baseline modellek: miért kezdj egyszerűen?",
+      "RESTful API konvenciók: endpoint-ok, státuszkódok, hibakezelés",
+      "Adatmodellezés relációs adatbázisban: normálformák és trade-off-ok",
+      "Autentikáció és autorizáció: JWT, OAuth és session",
+      "Külső integrációk: webhook-ok, retry és idempotencia",
     ],
   },
 ];
 
-export default function DataScientistTrackPage() {
+export default function SoftwareEngineerTrackPage() {
   return (
     <div className="space-y-14 sm:space-y-18">
       {/* Hero */}
@@ -78,14 +74,13 @@ export default function DataScientistTrackPage() {
         </Link>
 
         <h1 className="mt-4 text-3xl sm:text-4xl font-semibold tracking-tight text-foreground text-balance">
-          Data Scientist – Fejlődési sáv
+          Software Engineer – Fejlődési sáv
         </h1>
 
         <p className="mt-4 text-lg text-muted-foreground leading-relaxed max-w-2xl">
-          Strukturált tanulási út azoknak, akik statisztikai modellezéssel,
-          hipotézisvizsgálattal és adatalapú predikciókkal szeretnének dolgozni.
-          Valószínűségszámítás, Python, feature engineering és kísérletezés — a
-          valós munkához igazítva.
+          Strukturált tanulási út azoknak, akik skálázható szoftverrendszereket
+          terveznek és szállítanak. Tervezési döntések, tiszta kód, architektúra
+          és megbízható szállítás — a valós fejlesztői munkához igazítva.
         </p>
 
         <div className="mt-4 flex items-center gap-2">
@@ -105,19 +100,19 @@ export default function DataScientistTrackPage() {
         <ul className="space-y-2.5 text-muted-foreground">
           <li className="flex items-start gap-2.5">
             <span className="mt-1.5 block h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
-            Junior Data Scientisteknek, akik szeretnék a statisztikai alapjaikat megerősíteni
+            Junior fejlesztőknek, akik szeretnének túllépni a „működik" szinten
           </li>
           <li className="flex items-start gap-2.5">
             <span className="mt-1.5 block h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
-            Medior szintűeknek, akik a modellezési gondolkodásukat rendszereznék
+            Medior szintűeknek, akik az architektúra és rendszertervezés felé nyitnának
           </li>
           <li className="flex items-start gap-2.5">
             <span className="mt-1.5 block h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
-            Data Analysteknek, akik a Data Science irányba szeretnének lépni
+            Karrierváltóknak, akik a szoftverfejlesztés alapjait keresik strukturáltan
           </li>
           <li className="flex items-start gap-2.5">
             <span className="mt-1.5 block h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
-            Bárkinek, aki kísérletezéssel és predikciókkal akar dolgozni
+            Bárkinek, aki megbízható, karbantartható szoftvert szeretne írni
           </li>
         </ul>
       </section>
@@ -157,7 +152,7 @@ export default function DataScientistTrackPage() {
             Modulok
           </h2>
           <p className="text-muted-foreground">
-            Tematikus blokkok, amelyek a Data Scientist munka kulcsterületeit járják körbe.
+            Tematikus blokkok, amelyek a Software Engineer munka kulcsterületeit járják körbe.
           </p>
         </div>
 
@@ -205,7 +200,7 @@ export default function DataScientistTrackPage() {
         </p>
         <div className="mt-6">
           <Link
-            href="/posts"
+            href="/"
             className="inline-flex items-center justify-center rounded-lg border border-primary bg-primary px-5 py-3 text-sm sm:text-base font-medium text-primary-foreground hover:bg-primary-hover transition-colors"
           >
             Mentorprogram részletei
