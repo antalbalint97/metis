@@ -2,70 +2,69 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Data Scientist – Fejlődési sáv | Metis",
+  title: "Machine Learning Engineer – Fejlődési sáv | Metis",
   description:
-    "Strukturált tanulási út Junior–Medior Data Scientisteknek: statisztika, Python, modellezés és kísérletezés.",
+    "Strukturált tanulási út Junior–Medior ML Engineereknek: pipeline-ok, metrikák, deployment és monitorozás.",
 };
 
 const starterArticles = [
-  { title: "Mi a különbség Data Analyst és Data Scientist között?", href: "#" },
-  { title: "Hogyan gondolkodik egy Data Scientist egy problémáról?", href: "#" },
-  { title: "Az első modelled: mire figyelj, mielőtt kódolsz?", href: "#" },
-  { title: "Hipotézis, kísérlet, iteráció: az adattudós keretrendszere", href: "#" },
+  { title: "Mit csinál egy ML Engineer a gyakorlatban?", href: "#" },
+  { title: "Hogyan épül fel egy ML pipeline end-to-end?", href: "#" },
+  { title: "Metrikák, amelyek számítanak: offline vs. online értékelés", href: "#" },
+  { title: "Az első modelled produkció felé: mire figyelj?", href: "#" },
 ];
 
 const modules = [
   {
-    title: "Valószínűségszámítás és statisztika",
+    title: "ML pipeline-ok és MLOps alapok",
     description:
-      "Az adattudós legfontosabb nyelve: eloszlások, becslések, tesztelés és bizonytalanságkezelés.",
+      "Hogyan épül fel egy reprodukálható, karbantartható ML rendszer a notebook-on túl.",
     articles: [
-      "Valószínűségi változók és eloszlások intuitíven",
-      "Feltételes valószínűség és Bayes-tétel a gyakorlatban",
-      "Konfidenciaintervallum: mit mond valójában?",
-      "Hipotézisvizsgálat: p-érték, szignifikancia és csapdák",
-      "A/B teszt tervezés: minta méret, erő, szignifikancia",
+      "Notebook-tól a pipeline-ig: miért kell struktúra?",
+      "Adatvalidáció és preprocessing automatizálás",
+      "Experiment tracking: MLflow, W&B és társaik",
+      "Verziókövetés adatra és modellre",
+      "CI/CD ML-projektekben: miben más?",
     ],
   },
   {
-    title: "Python és exploratív adatelemzés",
+    title: "Modelltréning és értékelési metrikák",
     description:
-      "Pandas, vizualizáció és az az első 30 perc, amikor megismered az adataidat.",
+      "Tréning-ciklusok, hiperparaméter-keresés és a helyes metrikaválasztás — az üzleti célhoz igazítva.",
     articles: [
-      "Pandas alapok: DataFrame gondolkodás",
-      "Hiányzó adatok kezelése: stratégiák és csapdák",
-      "Matplotlib és Seaborn: mikor melyiket?",
-      "EDA checklist: mit nézz meg először?",
-      "Feature-ök felfedezése vizuálisan",
-      "Jupyter notebook legjobb gyakorlatok",
+      "Tréning, validáció, teszt: miért három halmaz?",
+      "Hiperparaméter-tuning stratégiák: grid, random, Bayesian",
+      "Offline metrikák: precision, recall, RMSE és társaik",
+      "Üzleti metrika vs. modellmetrika: hol a kapcsolat?",
+      "Overfitting a gyakorlatban: felismerés és megelőzés",
     ],
   },
   {
-    title: "Feature engineering és modellválasztás",
+    title: "Deployment, serving és monitorozás",
     description:
-      "Hogyan készítsd elő az adatot modellezéshez, és hogyan válaszd ki a megfelelő megközelítést.",
+      "Hogyan kerül a modell éles környezetbe, és hogyan tartod ott egészségesen.",
     articles: [
-      "Kategorikus változók kódolása: one-hot, target, ordinal",
-      "Skálázás és normalizálás: mikor melyik kell?",
-      "Feature selection technikák összehasonlítása",
-      "Overfitting felismerése és megelőzése",
-      "Modellválasztás: regresszió, fa, ensemble — döntési keretrendszer",
+      "Model serving alapok: REST API, batch, streaming",
+      "Containerizáció és modell-csomagolás",
+      "A/B teszt és shadow deployment modelleknél",
+      "Drift detekció: mikor romlik a modelled?",
+      "Alerting és monitoring: mit figyeljünk produkción?",
     ],
   },
   {
-    title: "Modell értékelés és kísérletezés",
+    title: "Adat- és feature-rendszerek",
     description:
-      "Metrikák, validáció és az a kérdés, hogy a modelled tényleg jobb-e, mint a baseline.",
+      "Feature store-ok, adatminőség és a tréning-serving skew elkerülése.",
     articles: [
-      "Accuracy-n túl: precision, recall, F1 és mikor melyik számít",
-      "ROC-görbe és AUC: vizuális modellértékelés",
-      "Cross-validation: miért nem elég egy split?",
-      "Baseline modellek: miért kezdj egyszerűen?",
+      "Feature store: mikor van rá szükség?",
+      "Tréning-serving skew: honnan jön és hogyan kerüld el?",
+      "Adatminőség monitorozás automatizáltan",
+      "Feature engineering produkciós környezetben",
     ],
   },
 ];
 
-export default function DataScientistTrackPage() {
+export default function MLEngineerTrackPage() {
   return (
     <div className="space-y-14 sm:space-y-18">
       {/* Hero */}
@@ -78,14 +77,13 @@ export default function DataScientistTrackPage() {
         </Link>
 
         <h1 className="mt-4 text-3xl sm:text-4xl font-semibold tracking-tight text-foreground text-balance">
-          Data Scientist – Fejlődési sáv
+          Machine Learning Engineer – Fejlődési sáv
         </h1>
 
         <p className="mt-4 text-lg text-muted-foreground leading-relaxed max-w-2xl">
-          Strukturált tanulási út azoknak, akik statisztikai modellezéssel,
-          hipotézisvizsgálattal és adatalapú predikciókkal szeretnének dolgozni.
-          Valószínűségszámítás, Python, feature engineering és kísérletezés — a
-          valós munkához igazítva.
+          Strukturált tanulási út azoknak, akik ML-modelleket építenek és visznek
+          produkcióba. Pipeline-ok, metrikák, deployment és monitorozás — a valós
+          rendszerhez igazítva, nem tankönyvi sorrendben.
         </p>
 
         <div className="mt-4 flex items-center gap-2">
@@ -105,19 +103,19 @@ export default function DataScientistTrackPage() {
         <ul className="space-y-2.5 text-muted-foreground">
           <li className="flex items-start gap-2.5">
             <span className="mt-1.5 block h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
-            Junior Data Scientisteknek, akik szeretnék a statisztikai alapjaikat megerősíteni
+            Junior ML Engineereknek, akik most kezdik a produkciós munkát
           </li>
           <li className="flex items-start gap-2.5">
             <span className="mt-1.5 block h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
-            Medior szintűeknek, akik a modellezési gondolkodásukat rendszereznék
+            Medior szintűeknek, akik szeretnék rendszerezni az MLOps tudásukat
           </li>
           <li className="flex items-start gap-2.5">
             <span className="mt-1.5 block h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
-            Data Analysteknek, akik a Data Science irányba szeretnének lépni
+            Data Scientisteknek, akik a deployment irányba szeretnének lépni
           </li>
           <li className="flex items-start gap-2.5">
             <span className="mt-1.5 block h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
-            Bárkinek, aki kísérletezéssel és predikciókkal akar dolgozni
+            Bárkinek, aki ML-rendszereket épít és üzemeltet
           </li>
         </ul>
       </section>
@@ -157,7 +155,7 @@ export default function DataScientistTrackPage() {
             Modulok
           </h2>
           <p className="text-muted-foreground">
-            Tematikus blokkok, amelyek a Data Scientist munka kulcsterületeit járják körbe.
+            Tematikus blokkok, amelyek az ML Engineer munka kulcsterületeit járják körbe.
           </p>
         </div>
 
@@ -205,7 +203,7 @@ export default function DataScientistTrackPage() {
         </p>
         <div className="mt-6">
           <Link
-            href="/posts"
+            href="/"
             className="inline-flex items-center justify-center rounded-lg border border-primary bg-primary px-5 py-3 text-sm sm:text-base font-medium text-primary-foreground hover:bg-primary-hover transition-colors"
           >
             Mentorprogram részletei
