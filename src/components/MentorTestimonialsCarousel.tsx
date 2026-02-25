@@ -3,7 +3,7 @@
 import { useRef, useEffect, useState, useCallback } from "react";
 import { testimonials } from "@/data/testimonials";
 
-export default function TestimonialsCarousel() {
+export default function MentorTestimonialsCarousel() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
@@ -16,7 +16,6 @@ export default function TestimonialsCarousel() {
     setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 2);
   }, []);
 
-  /* auto-scroll */
   useEffect(() => {
     const el = scrollRef.current;
     if (!el) return;
@@ -34,7 +33,6 @@ export default function TestimonialsCarousel() {
     return () => clearInterval(interval);
   }, [isHovered]);
 
-  /* listen for scroll to update arrow state */
   useEffect(() => {
     const el = scrollRef.current;
     if (!el) return;
@@ -50,9 +48,8 @@ export default function TestimonialsCarousel() {
   const scroll = (direction: "left" | "right") => {
     const el = scrollRef.current;
     if (!el) return;
-    const amount = 340;
     el.scrollBy({
-      left: direction === "left" ? -amount : amount,
+      left: direction === "left" ? -340 : 340,
       behavior: "smooth",
     });
   };
@@ -63,57 +60,30 @@ export default function TestimonialsCarousel() {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Left arrow */}
       {canScrollLeft && (
         <button
           onClick={() => scroll("left")}
           aria-label="Előző visszajelzés"
           className="absolute left-0 top-1/2 z-10 -translate-y-1/2 -translate-x-3 flex h-9 w-9 items-center justify-center rounded-full border border-border bg-surface shadow-[var(--shadow-md)] text-muted-foreground hover:text-foreground transition-colors"
         >
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 16 16"
-            fill="none"
-            className="shrink-0"
-          >
-            <path
-              d="M10 12L6 8L10 4"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="shrink-0">
+            <path d="M10 12L6 8L10 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </button>
       )}
 
-      {/* Right arrow */}
       {canScrollRight && (
         <button
           onClick={() => scroll("right")}
           aria-label="Következő visszajelzés"
           className="absolute right-0 top-1/2 z-10 -translate-y-1/2 translate-x-3 flex h-9 w-9 items-center justify-center rounded-full border border-border bg-surface shadow-[var(--shadow-md)] text-muted-foreground hover:text-foreground transition-colors"
         >
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 16 16"
-            fill="none"
-            className="shrink-0"
-          >
-            <path
-              d="M6 4L10 8L6 12"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="shrink-0">
+            <path d="M6 4L10 8L6 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </button>
       )}
 
-      {/* Scrollable track */}
       <div
         ref={scrollRef}
         className="flex gap-4 overflow-x-auto scroll-smooth pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
@@ -123,9 +93,14 @@ export default function TestimonialsCarousel() {
             key={t.name}
             className="flex w-[320px] shrink-0 flex-col justify-between rounded-xl border border-border bg-surface p-5 sm:p-6 shadow-[var(--shadow-xs)]"
           >
-            <blockquote className="text-sm leading-relaxed text-muted-foreground">
-              {`\u201E${t.quote}\u201D`}
-            </blockquote>
+            <div>
+              <span className="inline-block rounded-md bg-accent-muted px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-accent">
+                Kivonat
+              </span>
+              <blockquote className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                {`\u201E${t.quote}\u201D`}
+              </blockquote>
+            </div>
             <figcaption className="mt-4 text-sm font-medium text-foreground">
               {"— "}
               {t.name}

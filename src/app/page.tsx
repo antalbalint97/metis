@@ -295,7 +295,7 @@ export default function HomePage() {
 
             <div className="mt-8">
               <Link
-                href="/"
+                href="/mentorprogram"
                 className="inline-flex items-center justify-center rounded-lg border border-primary bg-primary px-5 py-3 text-sm sm:text-base font-medium text-primary-foreground hover:bg-primary-hover transition-colors"
               >
                 Mentorprogram részletei
