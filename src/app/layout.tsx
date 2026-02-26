@@ -39,21 +39,15 @@ export default function RootLayout({
           {/* Header band */}
           <header className="border-b border-border bg-surface">
             <div className="mx-auto w-full max-w-[1040px] px-4 sm:px-6 py-5 sm:py-6 flex items-center justify-between">
-              <Link href="/" className="flex items-center gap-3 sm:gap-4">
-                <div className="relative h-12 w-16 sm:h-14 sm:w-20">
-                  <Image
-                    src="/images/logo.png"
-                    alt="Metis"
-                    fill
-                    priority
-                    className="object-contain"
-                    sizes="(max-width: 640px) 64px, 80px"
-                  />
-                </div>
-
-                <span className="text-xl sm:text-2xl font-semibold tracking-tight text-foreground">
-                  metis
-                </span>
+              <Link href="/" className="flex items-center">
+                <Image
+                  src="/images/metis-logo.png"
+                  alt="Metis"
+                  width={128}
+                  height={32}
+                  priority
+                  className="h-7 sm:h-8 w-auto object-contain"
+                />
               </Link>
 
               <nav className="flex items-center gap-5 sm:gap-7 text-sm sm:text-base text-muted-foreground">
