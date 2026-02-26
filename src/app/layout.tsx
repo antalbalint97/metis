@@ -42,7 +42,7 @@ export default function RootLayout({
               <Link href="/" className="flex items-center gap-3 sm:gap-4">
                 <div className="relative h-12 w-16 sm:h-14 sm:w-20">
                   <Image
-                    src="/images/logo.png"
+                    src="/images/logo_metis.png"
                     alt="Metis"
                     fill
                     priority
