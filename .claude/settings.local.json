@@ -218,7 +218,8 @@
       "PowerShell(Set-Location \"c:\\\\Users\\\\Balint\\\\Documents\\\\Pet_projects\\\\nullfall-minimal\\\\frontend\"; $env:CI=\"false\"; yarn build 2>&1 | Select-Object -Last 35)",
       "PowerShell(Set-Location \"c:\\\\Users\\\\Balint\\\\Documents\\\\Pet_projects\\\\nullfall-minimal\\\\frontend\"; $env:CI=\"false\"; yarn build 2>&1 | Select-String -Pattern \"Compiled successfully|Failed to compile|Module not found|Error|Line \\\\d|warning\" | Select-Object -First 20)",
       "Bash(echo \"exit:$? \\(1=now tracked/committable\\)\")",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(pnpm install *)"
     ],
     "additionalDirectories": [
       "c:\\Users\\Balint\\Documents\\Pet_projects\\meniva\\src\\app\\demos",
