@@ -91,6 +91,16 @@ export default function HomePage() {
         </div>
       </Card>
 
+      {/* Visszajelzések — közvetlenül a hero alatt (social proof korán) */}
+      <section className="space-y-5">
+        <SectionHeader
+          title="Mit mondanak a tanulók?"
+          description="Néhány rövid visszajelzés korábbi diákoktól."
+        />
+
+        <TestimonialsCarousel />
+      </section>
+
       {/* Mit találsz a Metisen? */}
       <section className="space-y-5">
         <SectionHeader title="Mit találsz a Metisen?" />
@@ -207,15 +217,6 @@ export default function HomePage() {
         </div>
       </Card>
 
-      {/* Visszajelzések */}
-      <section className="space-y-5">
-        <SectionHeader
-          title="Mit mondanak a tanulók?"
-          description="Néhány rövid visszajelzés korábbi diákoktól."
-        />
-
-        <TestimonialsCarousel />
-      </section>
     </div>
   );
 }

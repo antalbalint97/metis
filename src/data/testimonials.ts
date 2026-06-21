@@ -59,4 +59,25 @@ export const testimonials: Testimonial[] = [
     name: "Kata",
     role: "Adatelemzés alapok",
   },
+  {
+    quote:
+      "Nekem mindössze három hetem volt felkészülni, mégis 40 pontból 38 pontot értem el, amit nagy részben neki köszönhetek. Nagyon kedves, türelmes és közvetlen, ért a gyerekek nyelvén.",
+    full: "Bálint egy nagyon jó tanár. Nemcsak érthetően elmagyarázza az anyagot, hanem meg is szeretteti azt a diákokkal. Nekem mindössze három hetem volt felkészülni, mégis 40 pontból 38 pontot értem el, amit nagy részben neki köszönhetek. Nagyon kedves, türelmes és közvetlen, ért a gyerekek nyelvén, ezért könnyű vele tanulni. Szívből ajánlom mindenkinek, aki szeretné megérteni és magabiztosan elsajátítani az anyagot.",
+    name: "Szabi",
+    role: "Vizsga felkészülés",
+  },
+  {
+    quote:
+      "Remek tanár, és nélküle nem hinném, hogy meg tudtam volna érteni az anyagot. Mindig szívesen megválaszolja a kérdéseimet.",
+    full: "Nagyon kedves és segítőkész, mindig végig tartja az órát, még ha később is kezdünk, és mindig szívesen megválaszolja a kérdéseimet. Remek tanár, és nélküle nem hinném, hogy meg tudtam volna érteni az anyagot.",
+    name: "Bence",
+    role: "Vizsga felkészülés",
+  },
+  {
+    quote:
+      "Nagy lemaradással kezdtem az informatikai ágazati vizsgára való felkészülést, és nem gondoltam volna, hogy ilyen rövid idő alatt sikerül felzárkóznom. Érthetően, türelmesen és jól felépítve kaptam meg az anyagot.",
+    full: "Nagy lemaradással kezdtem neki az informatikai ágazati vizsgára való felkészülésnek, és őszintén szólva nem gondoltam volna, hogy ilyen rövid idő alatt sikerül felzárkóznom. A felkészítés viszont rengeteget segített: érthetően, türelmesen és jól felépítve kaptam meg az anyagot. Türelmes, felkészült tanár — nagyon ajánlom Bálintot annak, aki jó tanárt keres!",
+    name: "Milán",
+    role: "Informatikai ágazati vizsga",
+  },
 ];
