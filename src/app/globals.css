@@ -153,6 +153,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Headings use the design-system display font (Metis = warm Fraunces serif).
+   Body text stays Inter for readability. */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+}
+
 /* ── Focus ring utility ── */
 *:focus-visible {
   outline: 2px solid var(--ring);

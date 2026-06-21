@@ -431,7 +431,7 @@ packages:
       react: '>=16'
 
   '@meniva/design-system@file:vendor/meniva-design-system-0.1.0.tgz':
-    resolution: {integrity: sha512-Ckzp38rypqCAThqG9NQDnI7wFMmgkq6VW8W8zz5AasVhbHDgyoi8Jrf4MVkop+ATKyQ/uoI1NAVRHk2kdixbYA==, tarball: file:vendor/meniva-design-system-0.1.0.tgz}
+    resolution: {integrity: sha512-rgOfG3ZwcImu7jRR5FlQye/6rA4M6uasf/d7p4EpuqjD1JNjaF2y7WnUsBaLU5OLCOYRhrHvYJ1KW0ovj2IqEg==, tarball: file:vendor/meniva-design-system-0.1.0.tgz}
     version: 0.1.0
     peerDependencies:
       react: '>=18'

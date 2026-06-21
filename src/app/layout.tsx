@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
-import Image from "next/image";
+import { Inter, JetBrains_Mono, Fraunces } from "next/font/google";
 import Link from "next/link";
 import "./globals.css";
 // Design-system tokens + component styles (tokens before components).
@@ -20,6 +19,15 @@ const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
 });
 
+// Warm display serif for the Metis brand — provided to the design system via
+// the --font-fraunces variable that the DS metis tokens read for --font-display.
+const fraunces = Fraunces({
+  subsets: ["latin", "latin-ext"],
+  display: "swap",
+  variable: "--font-fraunces",
+  weight: ["400", "500", "600", "700"],
+});
+
 export const metadata: Metadata = {
   title: "Metis Blog",
   description: "From questions to understanding.",
@@ -36,7 +44,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="hu" data-brand="metis" className={`${inter.variable} ${jetbrainsMono.variable}`}>
+    <html
+      lang="hu"
+      data-brand="metis"
+      className={`${inter.variable} ${jetbrainsMono.variable} ${fraunces.variable}`}
+    >
       <body className="min-h-screen bg-background text-foreground font-sans antialiased">
         {/* Page shell */}
         <div className="min-h-screen flex flex-col">
@@ -45,22 +57,8 @@ export default function RootLayout({
           <header className="border-b border-border bg-surface">
             <div className="mx-auto w-full max-w-[1040px] px-4 sm:px-6 py-5 sm:py-6 flex items-center justify-between">
               <Link href="/" aria-label="Metis">
-                <LogoLockup
-                  brand="metis"
-                  wordmark="metis"
-                  mark={
-                    <span className="relative block h-12 w-16 sm:h-14 sm:w-20">
-                      <Image
-                        src="/images/logo_metis.png"
-                        alt="Metis"
-                        fill
-                        priority
-                        className="object-contain"
-                        sizes="(max-width: 640px) 64px, 80px"
-                      />
-                    </span>
-                  }
-                />
+                {/* Logo now comes from the design system (Metis mark + wordmark). */}
+                <LogoLockup brand="metis" wordmark="metis" size="lg" />
               </Link>
 
               <nav className="flex items-center gap-5 sm:gap-7 text-sm sm:text-base text-muted-foreground">
