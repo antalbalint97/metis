@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { PageContainer } from "@meniva/design-system";
 
 export const metadata: Metadata = {
   title: "Glossary | Metis",
@@ -297,7 +298,7 @@ function DefinitionList({ items }: { items: Term[] }) {
 
 export default function SzotarPage() {
   return (
-    <article className="max-w-none">
+    <PageContainer as="article" size="wide" className="py-10 sm:py-14">
       <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight text-foreground">Adatos szótár</h1>
       <p className="mt-4 text-muted-foreground leading-relaxed">
         Rövid fogalommagyarázatok azokhoz a kifejezésekhez, amik elemzés közben újra és újra előjönnek.
@@ -311,6 +312,6 @@ export default function SzotarPage() {
           </section>
         ))}
       </div>
-    </article>
+    </PageContainer>
   );
 }

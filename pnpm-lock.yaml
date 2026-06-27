@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@meniva/design-system':
-        specifier: file:./vendor/meniva-design-system-0.1.0.tgz
-        version: file:vendor/meniva-design-system-0.1.0.tgz(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+        specifier: file:./vendor/meniva-design-system-0.3.0.tgz
+        version: file:vendor/meniva-design-system-0.3.0.tgz(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       gray-matter:
         specifier: ^4.0.3
         version: 4.0.3
@@ -430,9 +430,9 @@ packages:
       '@types/react': '>=16'
       react: '>=16'
 
-  '@meniva/design-system@file:vendor/meniva-design-system-0.1.0.tgz':
-    resolution: {integrity: sha512-rgOfG3ZwcImu7jRR5FlQye/6rA4M6uasf/d7p4EpuqjD1JNjaF2y7WnUsBaLU5OLCOYRhrHvYJ1KW0ovj2IqEg==, tarball: file:vendor/meniva-design-system-0.1.0.tgz}
-    version: 0.1.0
+  '@meniva/design-system@file:vendor/meniva-design-system-0.3.0.tgz':
+    resolution: {integrity: sha512-M/mxTGyydUPMAyEy1pZImdlZJ66HkYbW5851xMdJjDOpgpqzDKkMzDbOUAvPrfylaW2BGC+GPepFVCZNirak6Q==, tarball: file:vendor/meniva-design-system-0.3.0.tgz}
+    version: 0.3.0
     peerDependencies:
       react: '>=18'
       react-dom: '>=18'
@@ -3660,7 +3660,7 @@ snapshots:
       '@types/react': 19.2.14
       react: 19.2.3
 
-  '@meniva/design-system@file:vendor/meniva-design-system-0.1.0.tgz(react-dom@19.2.3(react@19.2.3))(react@19.2.3)':
+  '@meniva/design-system@file:vendor/meniva-design-system-0.3.0.tgz(react-dom@19.2.3(react@19.2.3))(react@19.2.3)':
     dependencies:
       react: 19.2.3
       react-dom: 19.2.3(react@19.2.3)

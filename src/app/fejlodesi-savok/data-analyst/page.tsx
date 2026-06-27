@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { PageContainer } from "@meniva/design-system";
 
 export const metadata: Metadata = {
   title: "Data Analyst – Fejlődési sáv | Metis",
@@ -67,7 +68,7 @@ const modules = [
 
 export default function DataAnalystTrackPage() {
   return (
-    <div className="space-y-14 sm:space-y-18">
+    <PageContainer size="wide" className="space-y-14 sm:space-y-18 py-10 sm:py-14">
       {/* Hero */}
       <section>
         <Link
@@ -211,6 +212,6 @@ export default function DataAnalystTrackPage() {
           </Link>
         </div>
       </section>
-    </div>
+    </PageContainer>
   );
 }

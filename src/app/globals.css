@@ -128,9 +128,9 @@
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
 
-  /* Typography */
-  --font-sans: 'Inter', 'Inter Fallback', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
+  /* Typography — shared family fonts loaded via next/font (layout.tsx). */
+  --font-sans: var(--font-ibm-plex-sans), system-ui, sans-serif;
+  --font-mono: var(--font-ibm-plex-mono), ui-monospace, monospace;
 
   /* Radius */
   --radius-sm: 0.375rem;
@@ -138,6 +138,16 @@
   --radius-md: 0.75rem;
   --radius-lg: 1rem;
   --radius-xl: 1.25rem;
+}
+
+/* Wire the shared IBM Plex faces (next/font) into the DS metis font tokens so
+   ds-* components use the loaded faces. `html[data-brand]` outranks the DS
+   `[data-brand]` block regardless of stylesheet import order. Display stays
+   Fraunces via --font-fraunces (set in layout). This is the only token subset
+   migrated in this slice; the rest of the parallel layer is intentionally kept. */
+html[data-brand="metis"] {
+  --font-sans: var(--font-ibm-plex-sans), system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-ibm-plex-mono), ui-monospace, monospace;
 }
 
 /* ── Base styles ── */
