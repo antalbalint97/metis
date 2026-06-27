@@ -1,8 +1,9 @@
 import Image from "next/image";
+import { PageContainer } from "@meniva/design-system";
 
 export default function AboutPage() {
   return (
-    <main className="mx-auto w-full max-w-3xl px-6 pb-20 pt-12">
+    <PageContainer size="wide" className="pb-20 pt-12">
       <header className="mb-10">
         <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl text-foreground">
           Rólam
@@ -89,6 +90,6 @@ export default function AboutPage() {
           </ul>
         </article>
       </section>
-    </main>
+    </PageContainer>
   );
 }

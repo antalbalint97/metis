@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { PageContainer } from "@meniva/design-system";
 import { getAllPosts } from "@/lib/posts";
 
 export const metadata = {
@@ -9,7 +10,7 @@ export default function PostsPage() {
   const posts = getAllPosts();
 
   return (
-    <main className="space-y-6">
+    <PageContainer size="wide" className="space-y-6 py-10 sm:py-14">
       <div className="space-y-2">
         <h1 className="text-2xl font-semibold text-foreground">Cikkek</h1>
         <p className="text-muted-foreground">Minden bejegyzés időrendben.</p>
@@ -28,6 +29,6 @@ export default function PostsPage() {
           </li>
         ))}
       </ul>
-    </main>
+    </PageContainer>
   );
 }

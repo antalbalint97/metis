@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Card, SectionHeader } from "@meniva/design-system";
+import { Card, SectionHeader, PageContainer } from "@meniva/design-system";
 import MentorTestimonialsCarousel from "@/components/MentorTestimonialsCarousel";
 import FullTestimonials from "@/components/FullTestimonials";
 
@@ -38,7 +38,7 @@ const steps = [
 
 export default function MentorprogramPage() {
   return (
-    <div className="space-y-16 sm:space-y-20">
+    <PageContainer size="marketing" className="space-y-16 sm:space-y-20 py-10 sm:py-14">
       {/* 1. HERO */}
       <SectionHeader
         as="h1"
@@ -236,6 +236,6 @@ export default function MentorprogramPage() {
           </Link>
         </div>
       </section>
-    </div>
+    </PageContainer>
   );
 }

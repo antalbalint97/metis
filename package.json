@@ -9,7 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@meniva/design-system": "file:./vendor/meniva-design-system-0.1.0.tgz",
+    "@meniva/design-system": "file:./vendor/meniva-design-system-0.3.0.tgz",
     "gray-matter": "^4.0.3",
     "next": "16.1.4",
     "next-mdx-remote": "^6.0.0",

@@ -1,22 +1,27 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, JetBrains_Mono, Fraunces } from "next/font/google";
+import { IBM_Plex_Sans, IBM_Plex_Mono, Fraunces } from "next/font/google";
 import Link from "next/link";
 import "./globals.css";
 // Design-system tokens + component styles (tokens before components).
 import "@meniva/design-system/styles/tokens.css";
 import "@meniva/design-system/styles/components.css";
-import { LogoLockup, Footer as DSFooter } from "@meniva/design-system";
+import { LogoLockup, Footer as DSFooter, Navbar } from "@meniva/design-system";
 
-const inter = Inter({
+// Shared body/UI font for the MMNC family. The DS only names the family
+// ('IBM Plex Sans'); the app loads the actual faces here via next/font and wires
+// them to the DS --font-sans/--font-mono tokens in globals.css.
+const ibmPlexSans = IBM_Plex_Sans({
   subsets: ["latin", "latin-ext"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
-  variable: "--font-inter",
+  variable: "--font-ibm-plex-sans",
 });
 
-const jetbrainsMono = JetBrains_Mono({
+const ibmPlexMono = IBM_Plex_Mono({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
-  variable: "--font-jetbrains-mono",
+  variable: "--font-ibm-plex-mono",
 });
 
 // Warm display serif for the Metis brand — provided to the design system via
@@ -47,45 +52,35 @@ export default function RootLayout({
     <html
       lang="hu"
       data-brand="metis"
-      className={`${inter.variable} ${jetbrainsMono.variable} ${fraunces.variable}`}
+      className={`${ibmPlexSans.variable} ${ibmPlexMono.variable} ${fraunces.variable}`}
     >
       <body className="min-h-screen bg-background text-foreground font-sans antialiased">
         {/* Page shell */}
         <div className="min-h-screen flex flex-col">
-          {/* Header band — DS LogoLockup with the real Metis mark; Next Link nav
-              is kept so client-side routing is preserved. */}
-          <header className="border-b border-border bg-surface">
-            <div className="mx-auto w-full max-w-[1040px] px-4 sm:px-6 py-5 sm:py-6 flex items-center justify-between">
+          {/* Shared DS shell: Navbar (72/64 height, mobile toggle). Logo is the
+              DS Metis lettermark; wrapped in a Next Link for client-side routing. */}
+          <Navbar
+            sticky
+            container="wide"
+            logo={
               <Link href="/" aria-label="Metis">
-                {/* Logo now comes from the design system (Metis mark + wordmark). */}
-                <LogoLockup brand="metis" wordmark="metis" size="lg" />
+                <LogoLockup brand="metis" />
               </Link>
+            }
+            items={[
+              { label: "Kezdőlap", href: "/" },
+              { label: "Cikkek", href: "/posts" },
+              { label: "Fogalomtár", href: "/glossary" },
+              { label: "Rólam", href: "/about" },
+            ]}
+          />
 
-              <nav className="flex items-center gap-5 sm:gap-7 text-sm sm:text-base text-muted-foreground">
-                <Link href="/" className="hover:text-foreground transition-colors">
-                  Home
-                </Link>
-                <Link href="/posts" className="hover:text-foreground transition-colors">
-                  Blog
-                </Link>
-                <Link href="/glossary" className="hover:text-foreground transition-colors">
-                  Glossary
-                </Link>
-                <Link href="/about" className="hover:text-foreground transition-colors">
-                  About
-                </Link>
-              </nav>
-            </div>
-          </header>
-
-          {/* Content */}
-          <main className="flex-1 mx-auto w-full max-w-[740px] px-4 sm:px-6 py-10 sm:py-14">
-            {children}
-          </main>
+          {/* Content — width is owned per page via PageContainer (no global clamp). */}
+          <main className="flex-1">{children}</main>
 
           {/* Footer band always at bottom */}
           <DSFooter
-            container="content"
+            container="wide"
             copyright={`© ${new Date().getFullYear()} Metis`}
           />
         </div>

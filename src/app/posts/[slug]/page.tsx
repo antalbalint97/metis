@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { PageContainer } from "@meniva/design-system";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
@@ -187,7 +188,7 @@ export default async function PostPage({
     currentSeriesTitle ?? (currentSeries ? "Cikksorozat" : undefined);
 
   return (
-    <article className="space-y-12">
+    <PageContainer as="article" size="prose" className="space-y-12 py-10 sm:py-14">
       <header className="space-y-4">
         <div className="flex items-center gap-3 text-sm text-muted-foreground">
           <span>{post.frontmatter.date}</span>
@@ -391,6 +392,6 @@ export default async function PostPage({
           </div>
         </section>
       ) : null}
-    </article>
+    </PageContainer>
   );
 }
