@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useEffect, useState, useCallback } from "react";
+import { Card } from "@meniva/design-system";
 import { testimonials } from "@/data/testimonials";
 
 export default function TestimonialsCarousel() {
@@ -119,9 +120,11 @@ export default function TestimonialsCarousel() {
         className="flex gap-4 overflow-x-auto scroll-smooth pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
         {testimonials.map((t) => (
-          <figure
+          <Card
             key={t.name}
-            className="flex w-[320px] shrink-0 flex-col justify-between rounded-xl border border-border bg-surface p-5 sm:p-6 shadow-[var(--shadow-xs)]"
+            as="figure"
+            padding="compact"
+            className="flex w-[320px] shrink-0 flex-col justify-between"
           >
             <blockquote className="text-sm leading-relaxed text-muted-foreground">
               {`\u201E${t.quote}\u201D`}
@@ -130,7 +133,7 @@ export default function TestimonialsCarousel() {
               {"— "}
               {t.name}
             </figcaption>
-          </figure>
+          </Card>
         ))}
       </div>
     </div>

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { PageContainer } from "@meniva/design-system";
+import { PageContainer, Card } from "@meniva/design-system";
 
 export const metadata: Metadata = {
   title: "Machine Learning Engineer – Fejlődési sáv | Metis",
@@ -129,7 +129,7 @@ export default function MachineLearningEngineerTrackPage() {
           Ha most találtad meg ezt a sávot, ezekkel a cikkekkel érdemes indítani.
         </p>
 
-        <div className="rounded-xl border border-border bg-surface p-5 sm:p-6 shadow-[var(--shadow-xs)]">
+        <Card padding="md">
           <ol className="space-y-3 text-muted-foreground">
             {starterArticles.map((article, i) => (
               <li key={article.title} className="flex items-start gap-3">
@@ -145,7 +145,7 @@ export default function MachineLearningEngineerTrackPage() {
               </li>
             ))}
           </ol>
-        </div>
+        </Card>
       </section>
 
       {/* Modulok */}
@@ -161,9 +161,10 @@ export default function MachineLearningEngineerTrackPage() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {modules.map((mod) => (
-            <div
+            <Card
               key={mod.title}
-              className="flex flex-col rounded-xl border border-border bg-surface p-5 sm:p-6 shadow-[var(--shadow-xs)]"
+              padding="md"
+              className="flex flex-col"
             >
               <h3 className="font-semibold text-foreground">{mod.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
@@ -183,13 +184,13 @@ export default function MachineLearningEngineerTrackPage() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </Card>
           ))}
         </div>
       </section>
 
       {/* Mentorprogram soft CTA */}
-      <section className="rounded-xl border border-border bg-surface p-6 sm:p-8 shadow-[var(--shadow-xs)]">
+      <Card as="section" padding="feature">
         <p className="text-xs font-semibold uppercase tracking-widest text-accent">
           Mentorprogram
         </p>
@@ -204,12 +205,12 @@ export default function MachineLearningEngineerTrackPage() {
         <div className="mt-6">
           <Link
             href="/"
-            className="inline-flex items-center justify-center rounded-lg border border-primary bg-primary px-5 py-3 text-sm sm:text-base font-medium text-primary-foreground hover:bg-primary-hover transition-colors"
+            className="ds-btn ds-btn--primary ds-btn--lg"
           >
             Mentorprogram részletei
           </Link>
         </div>
-      </section>
+      </Card>
     </PageContainer>
   );
 }
