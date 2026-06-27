@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { PageContainer } from "@meniva/design-system";
+import Link from "next/link";
+import { Card, PageContainer } from "@meniva/design-system";
 
 export default function AboutPage() {
   return (
@@ -90,6 +91,27 @@ export default function AboutPage() {
           </ul>
         </article>
       </section>
+
+      <Card padding="feature" className="mt-14 !bg-accent-muted sm:mt-16">
+        <p className="ds-overline">A teljesebb történet</p>
+        <div className="mt-4 grid gap-6 sm:grid-cols-[1fr_auto] sm:items-end">
+          <div>
+            <h2 className="text-2xl font-semibold tracking-tight text-foreground">
+              Hogyan jutottam el a diákmunkáktól az adatos és AI-rendszerekig?
+            </h2>
+            <p className="mt-3 max-w-2xl leading-relaxed text-muted-foreground">
+              Nem egyenes karrierút volt. Öt szakaszban mutatom meg, mit tanultam közben,
+              és mi az, amit ma mentorként is továbbadok.
+            </p>
+          </div>
+          <Link
+            href="/about/karrier-evolucio"
+            className="ds-btn ds-btn--primary ds-btn--lg whitespace-nowrap"
+          >
+            Megnézem az utat
+          </Link>
+        </div>
+      </Card>
     </PageContainer>
   );
 }

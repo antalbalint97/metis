@@ -17,8 +17,8 @@ Az oldal feladata nem a teljes szakmai múlt felsorolása, hanem annak bizonyít
 
 ## Elhelyezés
 
-- **Javasolt URL:** `/rolam/karrier-evolucio`
-- **Információs hely:** a Rólam oldal aloldala; a prototípus fázisában közvetlen nav-elem nélkül.
+- **Javasolt URL:** `/about/karrier-evolucio`
+- **Információs hely:** a Rólam oldal aloldala; a prototípus fázisában a Rólam oldalról elérhető, közvetlen nav-elem nélkül.
 - **Későbbi nav-elhelyezés:** a „Rólam” lenyíló menüben „Az utam” néven, vagy a Rólam oldal erős belső linkjeként.
 - **Belső linkek:** mentorprogram, fejlődési sávok, releváns módszertani cikkek.
 
