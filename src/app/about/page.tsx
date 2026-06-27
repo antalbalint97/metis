@@ -3,7 +3,7 @@ import { PageContainer } from "@meniva/design-system";
 
 export default function AboutPage() {
   return (
-    <PageContainer size="wide" className="pb-20 pt-12">
+    <PageContainer size="content" className="pb-20 pt-12">
       <header className="mb-10">
         <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl text-foreground">
           Rólam
