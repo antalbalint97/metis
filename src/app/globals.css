@@ -45,17 +45,8 @@
   --primary-hover: #292524;
   --primary-foreground: #FAF8F5;
 
-  /* ── Secondary (outline/ghost) ── */
-  --secondary: #FFFFFF;
-  --secondary-hover: #F5F0EB;
-  --secondary-foreground: #1C1917;
-
   /* ── Interactive / focus ── */
   --ring: #2A7E6E;
-
-  /* ── Destructive ── */
-  --destructive: #B91C1C;
-  --destructive-foreground: #FFFFFF;
 
   /* ── Radius scale ── */
   --radius-sm: 0.375rem;
@@ -94,14 +85,7 @@
   --primary-hover: #E7E0D8;
   --primary-foreground: #18181B;
 
-  --secondary: #27272A;
-  --secondary-hover: #2E2E32;
-  --secondary-foreground: #F5F0EB;
-
   --ring: #3DBDA8;
-
-  --destructive: #EF4444;
-  --destructive-foreground: #18181B;
 }
 
 /* ── Map tokens to Tailwind v4 ── */
@@ -121,12 +105,7 @@
   --color-primary: var(--primary);
   --color-primary-hover: var(--primary-hover);
   --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-hover: var(--secondary-hover);
-  --color-secondary-foreground: var(--secondary-foreground);
   --color-ring: var(--ring);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
 
   /* Typography — shared family fonts loaded via next/font (layout.tsx). */
   --font-sans: var(--font-ibm-plex-sans), system-ui, sans-serif;
@@ -148,6 +127,16 @@
 html[data-brand="metis"] {
   --font-sans: var(--font-ibm-plex-sans), system-ui, -apple-system, sans-serif;
   --font-mono: var(--font-ibm-plex-mono), ui-monospace, monospace;
+}
+
+/* Card titles use the body sans, not the Fraunces display face: short/structured
+   card titles (e.g. "Data Analyst", "Fejlődési sávok") read better as sans than
+   ornamental serif. Fraunces stays for the hero title and SectionHeader
+   display/editorial headings. Scoped override only — the DS package is unchanged. */
+html[data-brand="metis"] .ds-course-card__title,
+html[data-brand="metis"] .ds-service-card__title {
+  font-family: var(--font-sans);
+  letter-spacing: var(--tracking-tight);
 }
 
 /* ── Base styles ── */

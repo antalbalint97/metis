@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { PageContainer } from "@meniva/design-system";
+import { ArticleCard, PageContainer, SectionHeader } from "@meniva/design-system";
 import { getAllPosts } from "@/lib/posts";
 
 export const metadata = {
@@ -10,25 +9,21 @@ export default function PostsPage() {
   const posts = getAllPosts();
 
   return (
-    <PageContainer size="wide" className="space-y-6 py-10 sm:py-14">
-      <div className="space-y-2">
-        <h1 className="text-2xl font-semibold text-foreground">Cikkek</h1>
-        <p className="text-muted-foreground">Minden bejegyzés időrendben.</p>
-      </div>
+    <PageContainer size="wide" className="space-y-8 py-10 sm:py-14">
+      <SectionHeader as="h1" title="Cikkek" description="Minden bejegyzés időrendben." />
 
-      <ul className="space-y-4">
+      <div className="grid gap-4 sm:grid-cols-2">
         {posts.map((p) => (
-          <li key={p.slug} className="rounded-xl border border-border bg-surface p-5 shadow-[var(--shadow-xs)]">
-            <div className="text-sm text-muted-foreground">{p.frontmatter.date}</div>
-            <Link href={`/posts/${p.slug}`} className="block">
-              <div className="mt-1 text-lg font-semibold text-foreground hover:text-accent transition-colors">
-                {p.frontmatter.title}
-              </div>
-            </Link>
-            <p className="mt-2 text-muted-foreground">{p.frontmatter.excerpt}</p>
-          </li>
+          <ArticleCard
+            key={p.slug}
+            href={`/posts/${p.slug}`}
+            title={p.frontmatter.title}
+            excerpt={p.frontmatter.excerpt}
+            date={p.frontmatter.date}
+            cta="Olvasd el"
+          />
         ))}
-      </ul>
+      </div>
     </PageContainer>
   );
 }

@@ -239,6 +239,23 @@ export default function HomePage() {
               <StepList steps={mentorFlow} />
             </Card>
           </section>
+
+          {/* Záró CTA — nyugodt, egyszerű lezárás */}
+          <Card padding="feature" className="text-center">
+            <SectionHeader
+              align="center"
+              title="Tanuljunk együtt gondolkodni."
+              description="Olvass bele a cikkekbe, vagy nézd meg, hogyan segít a mentorprogram a tudatosabb, gyorsabb fejlődésben."
+            />
+            <div className="mt-6 flex flex-wrap justify-center gap-3">
+              <Link href="/posts" className="ds-btn ds-btn--primary ds-btn--lg">
+                Olvasd a cikkeket
+              </Link>
+              <Link href="/mentorprogram" className="ds-btn ds-btn--outline ds-btn--lg">
+                Mentorprogram
+              </Link>
+            </div>
+          </Card>
         </PageContainer>
       </Section>
     </>

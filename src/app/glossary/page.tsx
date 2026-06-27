@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { PageContainer } from "@meniva/design-system";
+import { PageContainer, Card } from "@meniva/design-system";
 
 export const metadata: Metadata = {
   title: "Glossary | Metis",
@@ -287,10 +287,10 @@ function DefinitionList({ items }: { items: Term[] }) {
   return (
     <dl className="mt-5 space-y-5">
       {items.map((it) => (
-        <div key={it.term} className="rounded-xl border border-border bg-surface p-4 sm:p-5 shadow-[var(--shadow-xs)]">
+        <Card key={it.term} padding="compact">
           <dt className="font-semibold text-foreground">{it.term}</dt>
           <dd className="mt-2 text-muted-foreground leading-relaxed">{it.desc}</dd>
-        </div>
+        </Card>
       ))}
     </dl>
   );
