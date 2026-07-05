@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Strukturált tanulási út Junior / Medior Data Scientisteknek: statisztika, Python, modellezés és kísérletezés.",
   alternates: { canonical: "/fejlodesi-savok/data-scientist" },
-  openGraph: { url: "/fejlodesi-savok/data-scientist", images: ["/opengraph-image"] },
+  openGraph: { url: "/fejlodesi-savok/data-scientist", images: ["https://metis.name/brand/og-default.png"] },
 };
 
 const starterArticles = [

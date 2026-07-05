@@ -9,6 +9,7 @@ type Frontmatter = {
   series?: string;
   seriesTitle?: string;
   seriesOrder?: number;
+  ogImage?: string;
 };
 
 export type Post = {
@@ -80,6 +81,7 @@ function parseFrontmatter(raw: string): { frontmatter: Frontmatter; content: str
     series: toOptionalString(fm.series),
     seriesTitle: toOptionalString(fm.seriesTitle),
     seriesOrder: toOptionalNumber(fm.seriesOrder),
+    ogImage: toOptionalString(fm.ogImage ?? fm.image),
   };
 
   return { frontmatter, content };

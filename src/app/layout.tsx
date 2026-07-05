@@ -1,11 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import { IBM_Plex_Sans, IBM_Plex_Mono, Fraunces } from "next/font/google";
 import Link from "next/link";
+import Image from "next/image";
 import "./globals.css";
 // Design-system tokens and component styles (tokens before components).
 import "@meniva/design-system/styles/tokens.css";
 import "@meniva/design-system/styles/components.css";
-import { LogoLockup, Footer as DSFooter, Navbar } from "@meniva/design-system";
+import { Footer as DSFooter, Navbar } from "@meniva/design-system";
 import { SITE_URL } from "@/lib/site";
 import Analytics from "@/components/Analytics";
 
@@ -40,13 +41,44 @@ export const metadata: Metadata = {
   title: "Metis | Mentorálás és tanulás",
   description: "Tanuljunk együtt gondolkodni az adatokról.",
   authors: [{ name: "Antal Bálint", url: `${SITE_URL}/about` }],
+  alternates: { canonical: "/" },
+  icons: {
+    icon: [
+      { url: "/brand/icon-16.png", sizes: "16x16", type: "image/png" },
+      { url: "/brand/icon-32.png", sizes: "32x32", type: "image/png" },
+    ],
+    shortcut: "/brand/favicon.ico",
+    apple: [{ url: "/brand/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+  },
   openGraph: {
     type: "website",
     locale: "hu_HU",
     siteName: "Metis",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Metis" }],
+    title: "Metis | Mentorálás és tanulás",
+    description: "Mentoring and learning paths for data work",
+    url: "/",
+    images: [{ url: `${SITE_URL}/brand/og-default.png`, width: 1200, height: 630, alt: "Metis" }],
   },
-  twitter: { card: "summary_large_image", images: ["/opengraph-image"] },
+  twitter: {
+    card: "summary_large_image",
+    title: "Metis | Mentorálás és tanulás",
+    description: "Mentoring and learning paths for data work",
+    images: [`${SITE_URL}/brand/og-default.png`],
+  },
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Metis",
+  url: SITE_URL,
+  image: `${SITE_URL}/brand/og-default.png`,
+  publisher: {
+    "@type": "Organization",
+    name: "Metis",
+    url: SITE_URL,
+    logo: `${SITE_URL}/brand/logo-horizontal.png`,
+  },
 };
 
 export const viewport: Viewport = {
@@ -67,6 +99,7 @@ export default function RootLayout({
     >
       <body className="min-h-screen bg-background text-foreground font-sans antialiased">
         <Analytics />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }} />
         {/* Page shell */}
         <div className="min-h-screen flex flex-col">
           {/* Shared DS shell: Navbar (72/64 height, mobile toggle). Logo is the
@@ -76,7 +109,7 @@ export default function RootLayout({
             container="wide"
             logo={
               <Link href="/" aria-label="Metis">
-                <LogoLockup brand="metis" />
+                <Image src="/brand/logo-horizontal.svg" alt="Metis" width={154} height={57} priority />
               </Link>
             }
             items={[

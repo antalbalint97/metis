@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Strukturált tanulási út Junior / Medior Software Engineereknek: tiszta kód, architektúra, CI/CD és integrációk.",
   alternates: { canonical: "/fejlodesi-savok/software-engineer" },
-  openGraph: { url: "/fejlodesi-savok/software-engineer", images: ["/opengraph-image"] },
+  openGraph: { url: "/fejlodesi-savok/software-engineer", images: ["https://metis.name/brand/og-default.png"] },
 };
 
 const starterArticles = [
