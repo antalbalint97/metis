@@ -8,7 +8,7 @@ import {
 } from "@/data/career-evolution";
 
 export const metadata: Metadata = {
-  title: "Karrierváltás az adatok felé — egy nem lineáris út | Metis",
+  title: "Karrierváltás az adatok felé: egy nem lineáris út | Metis",
   description:
     "Diákmunkától és szociológiától az adatelemzésen át az ML-rendszerekig: valós karrierút, tanulságokkal azoknak, akik most építik magukat.",
 };
@@ -32,7 +32,7 @@ export default function CareerEvolutionPage() {
               <span className="mt-2 block text-accent">De minden szakasz épített valamit.</span>
             </>
           }
-          description="Diákmunkákból, kommunikációból és szociológiából indultam. Kutatáson és adatelemzésen át jutottam el működő ML-rendszerekig — és közben megtanultam, hogy a fejlődés ritkán egyetlen nagy ugrás."
+          description="Diákmunkákból, kommunikációból és szociológiából indultam. Kutatáson és adatelemzésen át jutottam el működő ML-rendszerekig. Közben megtanultam, hogy a fejlődés ritkán egyetlen nagy ugrás."
           primaryAction={{
             label: "Nézd meg az utat",
             render: ({ className, children }) => (

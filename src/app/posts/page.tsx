@@ -2,7 +2,7 @@ import { ArticleCard, PageContainer, SectionHeader } from "@meniva/design-system
 import { getAllPosts } from "@/lib/posts";
 
 export const metadata = {
-  title: "Cikkek | Metis Blog",
+  title: "Cikkek | Metis",
 };
 
 export default function PostsPage() {

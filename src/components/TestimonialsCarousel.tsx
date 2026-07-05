@@ -1,141 +1,70 @@
 "use client";
 
-import { useRef, useEffect, useState, useCallback } from "react";
+import { useState } from "react";
 import { Card } from "@meniva/design-system";
 import { testimonials } from "@/data/testimonials";
 
+const INITIAL_COUNT = 6;
+
 export default function TestimonialsCarousel() {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(true);
-  const [isHovered, setIsHovered] = useState(false);
-
-  const updateScrollState = useCallback(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-    setCanScrollLeft(el.scrollLeft > 2);
-    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 2);
-  }, []);
-
-  /* auto-scroll */
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-
-    const interval = setInterval(() => {
-      if (isHovered) return;
-      const atEnd = el.scrollLeft >= el.scrollWidth - el.clientWidth - 2;
-      if (atEnd) {
-        el.scrollTo({ left: 0, behavior: "smooth" });
-      } else {
-        el.scrollBy({ left: 1, behavior: "auto" });
-      }
-    }, 30);
-
-    return () => clearInterval(interval);
-  }, [isHovered]);
-
-  /* listen for scroll to update arrow state */
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-    updateScrollState();
-    el.addEventListener("scroll", updateScrollState, { passive: true });
-    window.addEventListener("resize", updateScrollState);
-    return () => {
-      el.removeEventListener("scroll", updateScrollState);
-      window.removeEventListener("resize", updateScrollState);
-    };
-  }, [updateScrollState]);
-
-  const scroll = (direction: "left" | "right") => {
-    const el = scrollRef.current;
-    if (!el) return;
-    const amount = 340;
-    el.scrollBy({
-      left: direction === "left" ? -amount : amount,
-      behavior: "smooth",
-    });
-  };
+  const [showAll, setShowAll] = useState(false);
+  const visibleTestimonials = showAll
+    ? testimonials
+    : testimonials.slice(0, INITIAL_COUNT);
 
   return (
-    <div
-      className="relative"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      {/* Left arrow */}
-      {canScrollLeft && (
-        <button
-          onClick={() => scroll("left")}
-          aria-label="Előző visszajelzés"
-          className="absolute left-0 top-1/2 z-10 -translate-y-1/2 -translate-x-3 flex h-9 w-9 items-center justify-center rounded-full border border-border bg-surface shadow-[var(--shadow-md)] text-muted-foreground hover:text-foreground transition-colors"
-        >
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 16 16"
-            fill="none"
-            className="shrink-0"
-          >
-            <path
-              d="M10 12L6 8L10 4"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </button>
-      )}
-
-      {/* Right arrow */}
-      {canScrollRight && (
-        <button
-          onClick={() => scroll("right")}
-          aria-label="Következő visszajelzés"
-          className="absolute right-0 top-1/2 z-10 -translate-y-1/2 translate-x-3 flex h-9 w-9 items-center justify-center rounded-full border border-border bg-surface shadow-[var(--shadow-md)] text-muted-foreground hover:text-foreground transition-colors"
-        >
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 16 16"
-            fill="none"
-            className="shrink-0"
-          >
-            <path
-              d="M6 4L10 8L6 12"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </button>
-      )}
-
-      {/* Scrollable track */}
-      <div
-        ref={scrollRef}
-        className="flex gap-4 overflow-x-auto scroll-smooth pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-      >
-        {testimonials.map((t) => (
+    <div>
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+        {visibleTestimonials.map((testimonial, index) => (
           <Card
-            key={t.name}
+            key={`${testimonial.name}-${index}`}
             as="figure"
-            padding="compact"
-            className="flex w-[320px] shrink-0 flex-col justify-between"
+            padding="lg"
+            className="flex min-w-0 flex-col"
           >
             <blockquote className="text-sm leading-relaxed text-muted-foreground">
-              {`\u201E${t.quote}\u201D`}
+              „{testimonial.quote}”
             </blockquote>
-            <figcaption className="mt-4 text-sm font-medium text-foreground">
-              {"— "}
-              {t.name}
+
+            {testimonial.full !== testimonial.quote && (
+              <details className="testimonial-details mt-4">
+                <summary>Teljes visszajelzés</summary>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  {testimonial.full}
+                </p>
+              </details>
+            )}
+
+            <figcaption className="mt-auto flex items-center justify-between gap-3 border-t border-border pt-5 text-sm">
+              <span className="min-w-0">
+                <strong className="font-semibold text-foreground">
+                  {testimonial.name}
+                </strong>
+                <span className="text-muted-foreground">
+                  {" · "}
+                  {testimonial.role}
+                </span>
+              </span>
+              <span className="shrink-0 font-mono text-[11px] text-muted-foreground">
+                5/5
+              </span>
             </figcaption>
           </Card>
         ))}
       </div>
+
+      {testimonials.length > INITIAL_COUNT && (
+        <div className="mt-7 flex justify-center">
+          <button
+            type="button"
+            className="ds-btn ds-btn--outline ds-btn--md"
+            onClick={() => setShowAll((current) => !current)}
+            aria-expanded={showAll}
+          >
+            {showAll ? "Kevesebb visszajelzés" : "További visszajelzések"}
+          </button>
+        </div>
+      )}
     </div>
   );
 }

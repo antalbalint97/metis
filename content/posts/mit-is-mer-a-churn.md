@@ -163,7 +163,7 @@ Ha sok előfizető az első hetekben vagy hónapokban eltűnik, az egészen más
 mintha valaki egy év után mondja le az előfizetést.
 
 
-Ugyanaz a szám — teljesen más történet.
+Ugyanaz a szám, teljesen más történet.
 
 
 És ezek a történetek hatással vannak:
@@ -214,7 +214,7 @@ Hanem annak a kérdése, hogy **valóban értéket adunk-e hosszabb távon**.
 
 
 Ha ezt a jelenséget megértjük, akkor lehet értelmesen beszélni számokról,
-összehasonlításokról — és később akár modellekről is.
+összehasonlításokról, és később akár modellekről is.
 
 
 De az első lépés mindig az, hogy megértsük,

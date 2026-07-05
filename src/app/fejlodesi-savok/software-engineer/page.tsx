@@ -3,9 +3,9 @@ import Link from "next/link";
 import { PageContainer, Card } from "@meniva/design-system";
 
 export const metadata: Metadata = {
-  title: "Software Engineer – Fejlődési sáv | Metis",
+  title: "Software Engineer fejlődési sáv | Metis",
   description:
-    "Strukturált tanulási út Junior–Medior Software Engineereknek: tiszta kód, architektúra, CI/CD és integrációk.",
+    "Strukturált tanulási út Junior / Medior Software Engineereknek: tiszta kód, architektúra, CI/CD és integrációk.",
 };
 
 const starterArticles = [
@@ -19,7 +19,7 @@ const modules = [
   {
     title: "Tiszta kód és tervezési minták",
     description:
-      "Hogyan írj karbantartható, olvasható és bővíthető kódot — a valós fejlesztői munkában.",
+      "Hogyan írj karbantartható, olvasható és bővíthető kódot a valós fejlesztői munkában.",
     articles: [
       "Single Responsibility: egy osztály, egy felelősség",
       "Elnevezések ereje: változók, függvények, modulok",
@@ -45,7 +45,7 @@ const modules = [
     articles: [
       "Git workflow: trunk-based vs. feature branch",
       "CI pipeline felépítése: lint, teszt, build, deploy",
-      "Automatikus tesztelés: unit, integráció, e2e — mikor melyik?",
+      "Automatikus tesztelés: unit, integráció, e2e. Mikor melyik?",
       "Release stratégiák: semantic versioning és changelog",
     ],
   },
@@ -75,18 +75,18 @@ export default function SoftwareEngineerTrackPage() {
         </Link>
 
         <h1 className="mt-4 text-3xl sm:text-4xl font-semibold tracking-tight text-foreground text-balance">
-          Software Engineer – Fejlődési sáv
+          Software Engineer fejlődési sáv
         </h1>
 
         <p className="mt-4 text-lg text-muted-foreground leading-relaxed max-w-2xl">
           Strukturált tanulási út azoknak, akik skálázható szoftverrendszereket
           terveznek és szállítanak. Tervezési döntések, tiszta kód, architektúra
-          és megbízható szállítás — a valós fejlesztői munkához igazítva.
+          és megbízható szállítás, a valós fejlesztői munkához igazítva.
         </p>
 
         <div className="mt-4 flex items-center gap-2">
           <span className="rounded-md bg-accent-muted px-2.5 py-1 text-xs font-medium text-accent">
-            JUNIOR–MEDIOR
+            JUNIOR / MEDIOR
           </span>
           <span className="text-sm text-muted-foreground">Ingyenes tartalom</span>
         </div>
@@ -101,7 +101,7 @@ export default function SoftwareEngineerTrackPage() {
         <ul className="space-y-2.5 text-muted-foreground">
           <li className="flex items-start gap-2.5">
             <span className="mt-1.5 block h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
-            Junior fejlesztőknek, akik szeretnének túllépni a „működik" szinten
+            Junior fejlesztőknek, akik szeretnének túllépni a „működik” szinten
           </li>
           <li className="flex items-start gap-2.5">
             <span className="mt-1.5 block h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
@@ -197,7 +197,7 @@ export default function SoftwareEngineerTrackPage() {
         </h2>
         <p className="mt-3 text-muted-foreground leading-relaxed max-w-xl">
           A mentorprogram keretében egyéni fejlődési tervet készítünk, és
-          rendszeres beszélgetésekkel segítem a haladásodat — valódi problémákon
+          rendszeres beszélgetésekkel segítem a haladásodat, valódi problémákon
           keresztül.
         </p>
         <div className="mt-6">

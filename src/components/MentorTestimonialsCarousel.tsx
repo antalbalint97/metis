@@ -102,7 +102,6 @@ export default function MentorTestimonialsCarousel() {
               </blockquote>
             </div>
             <figcaption className="mt-4 text-sm font-medium text-foreground">
-              {"— "}
               {t.name}
             </figcaption>
           </figure>

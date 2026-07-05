@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+.zip*
+Metis Redesign Brief/
+Metis Redesign Brief.zip

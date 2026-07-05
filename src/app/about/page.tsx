@@ -65,7 +65,7 @@ export default function AboutPage() {
           <h2>Tanítás</h2>
 
           <blockquote>
-            Hiszek abban, hogy a megértés építi a legnagyobb önbizalmat - legyen szó
+            Hiszek abban, hogy a megértés építi a legnagyobb önbizalmat, legyen szó
             vizsgáról, beadandóról vagy egy új technológia elsajátításáról.
           </blockquote>
 
@@ -81,7 +81,7 @@ export default function AboutPage() {
 
           <p>
             Ha szeretnél stresszmentesebben tanulni, karrierváltáson gondolkozol, vagy csak magabiztosabban szeretnéd érteni
-            a statisztikát, a matematikát vagy a Python logikáját, szívesen segítek - lépésről lépésre.
+            a statisztikát, a matematikát vagy a Python logikáját, szívesen segítek, lépésről lépésre.
           </p>
 
           <ul>
@@ -92,7 +92,7 @@ export default function AboutPage() {
         </article>
       </section>
 
-      <Card padding="feature" className="mt-14 !bg-accent-muted sm:mt-16">
+      <Card padding="feature" className="journey-card mt-14 sm:mt-16">
         <p className="ds-overline">A teljesebb történet</p>
         <div className="mt-4 grid gap-6 sm:grid-cols-[1fr_auto] sm:items-end">
           <div>
@@ -101,7 +101,8 @@ export default function AboutPage() {
             </h2>
             <p className="mt-3 max-w-2xl leading-relaxed text-muted-foreground">
               Nem egyenes karrierút volt. Öt szakaszban mutatom meg, mit tanultam közben,
-              és mi az, amit ma mentorként is továbbadok.
+              és mi az, amit ma mentorként is továbbadok. Ez a háttér adja a
+              mentorálás alapját.
             </p>
           </div>
           <Link
