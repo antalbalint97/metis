@@ -13,9 +13,8 @@ import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 import { CTRLPLANE_URL, NULLFAL_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Metis | Mentorálás és tanulás",
-  description:
-    "Magyar tanulótér adatelemzéshez, statisztikához, Pythonhoz és SQL-hez.",
+  title: "Metis | Adatos mentorálás és tanulás",
+  description: "Mentorálás és tanulási utak adatelemzéshez, data science-hez és ML-hez.",
   alternates: { canonical: "/" },
   openGraph: { url: "/", images: ["https://metis.name/brand/og-default.png"] },
 };
