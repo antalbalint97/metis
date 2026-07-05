@@ -5,7 +5,7 @@ export const metadata = {
   title: "Cikkek | Metis",
   description: "Magyar cikkek adatelemzésről, statisztikáról, SQL-ről és Pythonról.",
   alternates: { canonical: "/posts" },
-  openGraph: { url: "/posts", images: ["/opengraph-image"] },
+  openGraph: { url: "/posts", images: ["https://metis.name/brand/og-default.png"] },
 };
 
 export default function PostsPage() {

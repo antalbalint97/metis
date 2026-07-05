@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description:
     "Diákmunkától és szociológiától az adatelemzésen át az ML-rendszerekig: valós karrierút, tanulságokkal azoknak, akik most építik magukat.",
   alternates: { canonical: "/about/karrier-evolucio" },
-  openGraph: { url: "/about/karrier-evolucio", images: ["/opengraph-image"] },
+  openGraph: { url: "/about/karrier-evolucio", images: ["https://metis.name/brand/og-default.png"] },
 };
 
 const stageLabels = careerStages.map((stage) => ({

@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Glossary | Metis",
   description: "Adatos fogalmak rövid, gyakorlati magyarázata.",
   alternates: { canonical: "/glossary" },
-  openGraph: { url: "/glossary", images: ["/opengraph-image"] },
+  openGraph: { url: "/glossary", images: ["https://metis.name/brand/og-default.png"] },
 };
 
 type Term = {

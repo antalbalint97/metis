@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Rólam | Metis",
   description: "Antal Bálint adattudós és mentor szakmai háttere, tapasztalata és tanítási szemlélete.",
   alternates: { canonical: "/about" },
-  openGraph: { url: "/about", images: ["/opengraph-image"] },
+  openGraph: { url: "/about", images: ["https://metis.name/brand/og-default.png"] },
 };
 
 export default function AboutPage() {

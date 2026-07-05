@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Strukturált tanulási út Junior / Medior Data Analysteknek: SQL, statisztika, vizualizáció és üzleti gondolkodás.",
   alternates: { canonical: "/fejlodesi-savok/data-analyst" },
-  openGraph: { url: "/fejlodesi-savok/data-analyst", images: ["/opengraph-image"] },
+  openGraph: { url: "/fejlodesi-savok/data-analyst", images: ["https://metis.name/brand/og-default.png"] },
 };
 
 const starterArticles = [

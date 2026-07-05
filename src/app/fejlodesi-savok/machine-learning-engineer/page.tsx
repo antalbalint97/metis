@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Strukturált tanulási út Junior / Medior ML Engineereknek: pipeline-ok, MLOps, deployment és feature-rendszerek.",
   alternates: { canonical: "/fejlodesi-savok/machine-learning-engineer" },
-  openGraph: { url: "/fejlodesi-savok/machine-learning-engineer", images: ["/opengraph-image"] },
+  openGraph: { url: "/fejlodesi-savok/machine-learning-engineer", images: ["https://metis.name/brand/og-default.png"] },
 };
 
 const starterArticles = [

@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   description:
     "Magyar tanulótér adatelemzéshez, statisztikához, Pythonhoz és SQL-hez.",
   alternates: { canonical: "/" },
-  openGraph: { url: "/", images: ["/opengraph-image"] },
+  openGraph: { url: "/", images: ["https://metis.name/brand/og-default.png"] },
 };
 
 const learningSteps = [
