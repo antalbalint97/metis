@@ -13,8 +13,8 @@ import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 import { CTRLPLANE_URL, NULLFAL_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Metis | Adatos mentorálás és tanulás",
-  description: "Mentorálás és tanulási utak adatelemzéshez, data science-hez és ML-hez.",
+  title: "Metis | Adatelemzés és mentorálás",
+  description: "Antal Bálint mentor- és tanulótere adatelemzéshez, statisztikához, data science-hez és ML-hez.",
   alternates: { canonical: "/" },
   openGraph: { url: "/", images: ["https://metis.name/brand/og-default.png"] },
 };
@@ -155,11 +155,11 @@ export default function HomePage() {
           variant="split"
           align="left"
           overline="Mentorálás és tanulás · Adatelemzés"
-          title="Tanuljunk együtt gondolkodni az adatokról."
+          title="Metis – mentorálás és tanulási utak adatelemzéshez"
           description={
             <>
-              A Metis nem cikkgyűjtemény, hanem tanulótér. Jó kérdések,
-              tiszta problémalátás, valódi megértés.
+              A Metis Antal Bálint magyar nyelvű mentor- és tanulótere
+              adatelemzéshez, statisztikához, Pythonhoz és SQL-hez.
               <span className="mt-4 block font-medium text-foreground">
                 A jó elemző nem attól jó, hogy sok eszközt ismer, hanem attól,
                 hogy érti, mit csinál és miért.
@@ -348,7 +348,7 @@ export default function HomePage() {
             </p>
           </section>
 
-          <section className="space-y-6">
+          <section className="space-y-6" data-nosnippet>
             <SectionHeader
               overline="A Metis ökoszisztémája"
               title="Ha más tanulási forma illik hozzád"

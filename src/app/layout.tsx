@@ -38,47 +38,62 @@ const fraunces = Fraunces({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Metis | Adatos mentorálás és tanulás",
-  description: "Mentorálás és tanulási utak adatelemzéshez, data science-hez és ML-hez.",
+  title: "Metis | Adatelemzés és mentorálás",
+  description: "Antal Bálint mentor- és tanulótere adatelemzéshez, statisztikához, data science-hez és ML-hez.",
   authors: [{ name: "Antal Bálint", url: `${SITE_URL}/about` }],
   alternates: { canonical: "/" },
   icons: {
     icon: [
+      { url: "/brand/icon-96.png", sizes: "96x96", type: "image/png" },
+      { url: "/brand/icon-48.png", sizes: "48x48", type: "image/png" },
       { url: "/brand/icon-16.png", sizes: "16x16", type: "image/png" },
       { url: "/brand/icon-32.png", sizes: "32x32", type: "image/png" },
     ],
-    shortcut: "/brand/favicon.ico",
+    shortcut: "/favicon.ico",
     apple: [{ url: "/brand/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
   openGraph: {
     type: "website",
     locale: "hu_HU",
     siteName: "Metis",
-    title: "Metis | Adatos mentorálás és tanulás",
-    description: "Mentorálás és tanulási utak adatelemzéshez, data science-hez és ML-hez.",
+    title: "Metis | Adatelemzés és mentorálás",
+    description: "Antal Bálint mentor- és tanulótere adatelemzéshez, statisztikához, data science-hez és ML-hez.",
     url: "/",
     images: [{ url: `${SITE_URL}/brand/og-default.png`, width: 1200, height: 630, alt: "Metis" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Metis | Adatos mentorálás és tanulás",
-    description: "Mentorálás és tanulási utak adatelemzéshez, data science-hez és ML-hez.",
+    title: "Metis | Adatelemzés és mentorálás",
+    description: "Antal Bálint mentor- és tanulótere adatelemzéshez, statisztikához, data science-hez és ML-hez.",
     images: [`${SITE_URL}/brand/og-default.png`],
   },
 };
 
-const websiteJsonLd = {
+const PERSON_ID = `${SITE_URL}/#antal-balint`;
+const structuredData = {
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  name: "Metis",
-  url: SITE_URL,
-  image: `${SITE_URL}/brand/og-default.png`,
-  publisher: {
-    "@type": "Organization",
-    name: "Metis",
-    url: SITE_URL,
-    logo: `${SITE_URL}/brand/logo-horizontal.png`,
-  },
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      name: "Metis",
+      alternateName: "Metis Data Mentoring",
+      url: SITE_URL,
+      description: "Antal Bálint mentor- és tanulótere adatelemzéshez, statisztikához, data science-hez és ML-hez.",
+      inLanguage: "hu-HU",
+      image: `${SITE_URL}/brand/og-default.png`,
+      publisher: { "@id": PERSON_ID },
+    },
+    {
+      "@type": "Person",
+      "@id": PERSON_ID,
+      name: "Antal Bálint",
+      url: `${SITE_URL}/about`,
+      image: `${SITE_URL}/images/balint.jpg`,
+      jobTitle: "Data Scientist and Mentor",
+      knowsAbout: ["Adatelemzés", "Statisztika", "Python", "SQL", "Data science", "Machine learning"],
+    },
+  ],
 };
 
 export const viewport: Viewport = {
@@ -99,7 +114,7 @@ export default function RootLayout({
     >
       <body className="min-h-screen bg-background text-foreground font-sans antialiased">
         <Analytics />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
         {/* Page shell */}
         <div className="min-h-screen flex flex-col">
           {/* Shared DS shell: Navbar (72/64 height, mobile toggle). Logo is the
