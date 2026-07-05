@@ -11,6 +11,12 @@ const nextConfig: NextConfig = {
         destination: "https://metis.name/:path*",
         permanent: true,
       },
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.metis.name" }],
+        destination: "https://metis.name/:path*",
+        permanent: true,
+      },
     ];
   },
   async headers() {
