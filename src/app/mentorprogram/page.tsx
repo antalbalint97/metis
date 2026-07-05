@@ -48,7 +48,7 @@ export default function MentorprogramPage() {
         title="Személyre szabott fejlődés technikai szakembereknek"
         description="Junior / Medior Data Analysteknek, Data Scientisteknek, Machine Learning Engineer-eknek és Software Engineer-eknek, akik gyorsabban és tudatosabban szeretnének fejlődni."
         actions={
-          <a href="#jelentkezes" data-analytics-event="metis_mentor_interest" data-cta-id="mentor_hero" className="ds-btn ds-btn--primary ds-btn--lg">
+          <a href="#jelentkezes" data-analytics-event="mentoring_cta_click" data-cta-id="mentor_hero" className="ds-btn ds-btn--primary ds-btn--lg">
             Jelentkezés mentorprogramra
           </a>
         }
@@ -123,7 +123,7 @@ export default function MentorprogramPage() {
             <div className="mt-auto pt-8">
               <a
                 href="#jelentkezes"
-                data-analytics-event="metis_mentor_interest"
+                data-analytics-event="mentoring_cta_click"
                 data-cta-id="mentor_light"
                 className="ds-btn ds-btn--secondary ds-btn--md ds-btn--full"
               >
@@ -168,7 +168,7 @@ export default function MentorprogramPage() {
             <div className="mt-auto pt-8">
               <a
                 href="#jelentkezes"
-                data-analytics-event="metis_mentor_interest"
+                data-analytics-event="mentoring_cta_click"
                 data-cta-id="mentor_pro"
                 className="ds-btn ds-btn--primary ds-btn--md ds-btn--full"
               >
@@ -237,7 +237,7 @@ export default function MentorprogramPage() {
         </ol>
 
         <div>
-          <Link href="/" data-analytics-event="metis_mentor_interest" data-cta-id="mentor_apply" className="ds-btn ds-btn--primary ds-btn--lg">
+          <Link href="/" data-analytics-event="mentoring_cta_click" data-cta-id="mentor_apply" className="ds-btn ds-btn--primary ds-btn--lg">
             Jelentkezés mentorprogramra
           </Link>
         </div>

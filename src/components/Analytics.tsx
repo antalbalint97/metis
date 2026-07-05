@@ -13,7 +13,13 @@ const ALLOWED_EVENTS = new Set([
   "outbound_social_click", "file_download", "external_link_click",
   "form_start", "form_submit", "form_error", "newsletter_form_start",
   "newsletter_signup", "article_view", "article_read_25", "article_read_50",
-  "article_read_75", "article_read_90",
+  "article_read_75", "article_read_100", "article_cta_click",
+  "article_share_click", "article_crosslink_click", "contact_click",
+  "canvas_cta_click", "canvas_download", "consultation_click",
+  "service_card_click", "case_study_click", "mentoring_cta_click",
+  "testimonial_expand", "free_resource_click", "metis_contact_click",
+  "youtube_click", "tutor_cta_click", "roadmap_click", "waitlist_click",
+  "practice_module_click",
   "metis_mentor_interest", "metis_mentor_form_start",
   "metis_mentor_form_submit", "metis_testimonial_expand", "metis_role_view",
 ]);
@@ -50,12 +56,16 @@ export function trackAnalyticsEvent(name: string, params: AnalyticsParams = {}) 
       .filter(([, value]) => value !== undefined)
       .map(([key, value]) => [key, typeof value === "string" ? value.slice(0, 120) : value]),
   );
-  dataLayer().push({ brand_id: BRAND_ID, ...safeParams, event: name });
+  dataLayer().push({ brand: BRAND_ID, brand_id: BRAND_ID, ...safeParams, event: name });
   return true;
 }
 
 function pageType(pathname: string) {
   if (pathname.startsWith("/posts/")) return "article";
+  if (pathname === "/posts") return "article_index";
+  if (pathname === "/mentorprogram") return "mentor_program";
+  if (pathname === "/glossary") return "glossary";
+  if (pathname.startsWith("/fejlodesi-savok/")) return "resource";
   if (pathname === "/privacy") return "privacy";
   return pathname === "/" ? "home" : "content";
 }
@@ -96,12 +106,17 @@ export default function Analytics() {
   }, []);
 
   useEffect(() => {
+    const isArticle = pathname.startsWith("/posts/");
     const context = {
       event: "page_context",
+      brand: BRAND_ID,
       brand_id: BRAND_ID,
       page_type: pageType(pathname),
+      page_title: document.title.slice(0, 120),
       page_path: pathname,
-      content_id: pathname.startsWith("/posts/") ? pathname.split("/").pop() : undefined,
+      canonical_url: document.querySelector<HTMLLinkElement>('link[rel="canonical"]')?.href || `${SITE_URL}${pathname}`,
+      content_id: isArticle ? pathname.split("/").pop() : undefined,
+      content_title: isArticle ? document.querySelector("h1")?.textContent?.trim().slice(0, 120) : undefined,
     };
     dataLayer().push(context);
     if (consent === "granted") trackAnalyticsEvent("page_view", context);
@@ -113,17 +128,21 @@ export default function Analytics() {
       if (!element) return;
       const explicit = element.dataset.analyticsEvent;
       if (explicit) {
-        trackAnalyticsEvent(explicit, { cta_id: element.dataset.ctaId, placement: element.dataset.analyticsPlacement });
-        return;
+        const ctaParams = { cta_id: element.dataset.ctaId, cta_location: element.dataset.analyticsPlacement };
+        if (explicit !== "cta_click") trackAnalyticsEvent("cta_click", ctaParams);
+        trackAnalyticsEvent(explicit, ctaParams);
+        if (!(element instanceof HTMLAnchorElement)) return;
       }
       if (!(element instanceof HTMLAnchorElement)) return;
       const url = new URL(element.href, window.location.href);
-      const ecosystem = ["www.meniva.net", "ctrplane.com", "metis.name", "nullfal.com"];
-      if (url.protocol === "mailto:") trackAnalyticsEvent("email_click", { placement: element.dataset.analyticsPlacement || "link" });
+      const ecosystem: Record<string, string> = { "www.meniva.net": "meniva", "meniva.net": "meniva", "ctrplane.com": "ctrlplane", "www.ctrplane.com": "ctrlplane", "metis.name": "metis", "www.metis.name": "metis", "nullfal.com": "nullfal", "www.nullfal.com": "nullfal" };
+      const destinationUrl = `${url.origin}${url.pathname}`;
+      if (url.protocol === "mailto:") trackAnalyticsEvent("email_click", { cta_location: element.dataset.analyticsPlacement || "link" });
+      else if (url.protocol === "tel:") trackAnalyticsEvent("contact_click", { method: "phone" });
       else if (/\.(pdf|docx?|xlsx?|csv|zip)$/i.test(url.pathname)) trackAnalyticsEvent("file_download", { file_name: url.pathname.split("/").pop() });
-      else if (["linkedin.com", "www.linkedin.com", "github.com", "www.github.com", "x.com", "www.x.com"].includes(url.hostname)) trackAnalyticsEvent("outbound_social_click", { destination_host: url.hostname });
-      else if (ecosystem.includes(url.hostname) && url.hostname !== window.location.hostname) trackAnalyticsEvent("cross_brand_click", { destination_brand: url.hostname });
-      else if (url.origin !== window.location.origin) trackAnalyticsEvent("external_link_click", { destination_host: url.hostname });
+      else if (["linkedin.com", "www.linkedin.com", "github.com", "www.github.com", "x.com", "www.x.com"].includes(url.hostname)) trackAnalyticsEvent("outbound_social_click", { link_domain: url.hostname, destination_url: destinationUrl });
+      else if (ecosystem[url.hostname] && url.hostname !== window.location.hostname) trackAnalyticsEvent("cross_brand_click", { source_brand: BRAND_ID, destination_brand: ecosystem[url.hostname], destination_url: destinationUrl, cta_id: element.dataset.ctaId, cta_location: element.dataset.analyticsPlacement });
+      else if (url.origin !== window.location.origin) trackAnalyticsEvent("external_link_click", { link_domain: url.hostname, destination_url: destinationUrl });
     };
     document.addEventListener("click", handler);
     return () => document.removeEventListener("click", handler);
@@ -154,4 +173,3 @@ export default function Analytics() {
     </>
   );
 }
-

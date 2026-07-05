@@ -32,7 +32,7 @@ export default function TestimonialsCarousel() {
                 className="testimonial-details mt-4"
                 onToggle={(event) => {
                   if (event.currentTarget.open) {
-                    trackAnalyticsEvent("metis_testimonial_expand", { testimonial_index: index + 1 });
+                    trackAnalyticsEvent("testimonial_expand", { testimonial_index: index + 1 });
                   }
                 }}
               >
