@@ -374,12 +374,12 @@ export default function HomePage() {
               <Card padding="lg" className="ecosystem-card">
                 <p className="ds-overline text-muted-foreground">AI tutor</p>
                 <h3 className="mt-3 text-xl font-semibold text-foreground">
-                  Nullfall
+                  Nullfal
                 </h3>
                 <p className="mt-3 leading-relaxed text-muted-foreground">
                   Ha még nem állsz készen mentorprogramra, de AI tutorral, egyedi
                   roadmapekkel, technikai gyakorlással, szimulált interjúkkal és
-                  projektekkel mélyítenéd a tudásod, próbáld ki a Nullfallt.
+                  projektekkel mélyítenéd a tudásod, próbáld ki a Nullfalt.
                 </p>
                 <a
                   href="https://nullfall.vercel.app/"
@@ -387,7 +387,7 @@ export default function HomePage() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  Nullfall megnyitása <span aria-hidden="true">→</span>
+                  Nullfal megnyitása <span aria-hidden="true">→</span>
                 </a>
               </Card>
             </div>
