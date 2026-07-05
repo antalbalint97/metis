@@ -363,7 +363,7 @@ export default function HomePage() {
                   CtrlPlane szakmai blogot.
                 </p>
                 <a
-                  href="https://ctrlplane.dev"
+                  href="https://ctrlplane.vercel.app/"
                   className="learning-link mt-5"
                   target="_blank"
                   rel="noreferrer"
@@ -382,7 +382,7 @@ export default function HomePage() {
                   projektekkel mélyítenéd a tudásod, próbáld ki a Nullfallt.
                 </p>
                 <a
-                  href="https://nullfal.dev"
+                  href="https://nullfall.vercel.app/"
                   className="learning-link mt-5"
                   target="_blank"
                   rel="noreferrer"
