@@ -7,6 +7,7 @@ import "@meniva/design-system/styles/tokens.css";
 import "@meniva/design-system/styles/components.css";
 import { LogoLockup, Footer as DSFooter, Navbar } from "@meniva/design-system";
 import { SITE_URL } from "@/lib/site";
+import Analytics from "@/components/Analytics";
 
 // Shared body/UI font for the MMNC family. The DS only names the family
 // ('IBM Plex Sans'); the app loads the actual faces here via next/font and wires
@@ -65,6 +66,7 @@ export default function RootLayout({
       className={`${ibmPlexSans.variable} ${ibmPlexMono.variable} ${fraunces.variable}`}
     >
       <body className="min-h-screen bg-background text-foreground font-sans antialiased">
+        <Analytics />
         {/* Page shell */}
         <div className="min-h-screen flex flex-col">
           {/* Shared DS shell: Navbar (72/64 height, mobile toggle). Logo is the

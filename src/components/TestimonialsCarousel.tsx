@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Card } from "@meniva/design-system";
 import { testimonials } from "@/data/testimonials";
+import { trackAnalyticsEvent } from "@/components/Analytics";
 
 const INITIAL_COUNT = 6;
 
@@ -27,7 +28,14 @@ export default function TestimonialsCarousel() {
             </blockquote>
 
             {testimonial.full !== testimonial.quote && (
-              <details className="testimonial-details mt-4">
+              <details
+                className="testimonial-details mt-4"
+                onToggle={(event) => {
+                  if (event.currentTarget.open) {
+                    trackAnalyticsEvent("metis_testimonial_expand", { testimonial_index: index + 1 });
+                  }
+                }}
+              >
                 <summary>Teljes visszajelzés</summary>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                   {testimonial.full}

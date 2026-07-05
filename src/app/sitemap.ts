@@ -4,6 +4,7 @@ import { SITE_URL } from "@/lib/site";
 
 const staticPaths = [
   "/",
+  "/privacy",
   "/about",
   "/about/karrier-evolucio",
   "/mentorprogram",
