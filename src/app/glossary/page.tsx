@@ -4,6 +4,8 @@ import { PageContainer, Card } from "@meniva/design-system";
 export const metadata: Metadata = {
   title: "Glossary | Metis",
   description: "Adatos fogalmak rövid, gyakorlati magyarázata.",
+  alternates: { canonical: "/glossary" },
+  openGraph: { url: "/glossary", images: ["/opengraph-image"] },
 };
 
 type Term = {

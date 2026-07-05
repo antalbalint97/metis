@@ -6,6 +6,8 @@ export const metadata: Metadata = {
   title: "Software Engineer fejlődési sáv | Metis",
   description:
     "Strukturált tanulási út Junior / Medior Software Engineereknek: tiszta kód, architektúra, CI/CD és integrációk.",
+  alternates: { canonical: "/fejlodesi-savok/software-engineer" },
+  openGraph: { url: "/fejlodesi-savok/software-engineer", images: ["/opengraph-image"] },
 };
 
 const starterArticles = [

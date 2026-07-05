@@ -11,6 +11,8 @@ export const metadata: Metadata = {
   title: "Karrierváltás az adatok felé: egy nem lineáris út | Metis",
   description:
     "Diákmunkától és szociológiától az adatelemzésen át az ML-rendszerekig: valós karrierút, tanulságokkal azoknak, akik most építik magukat.",
+  alternates: { canonical: "/about/karrier-evolucio" },
+  openGraph: { url: "/about/karrier-evolucio", images: ["/opengraph-image"] },
 };
 
 const stageLabels = careerStages.map((stage) => ({

@@ -6,6 +6,8 @@ import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import { isValidElement } from "react";
 import { getAllSlugs, getPostBySlug } from "@/lib/posts";
+import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site";
 
 import { Callout } from "@/components/md/Callout";
 import { Code } from "@/components/md/CodeBlock";
@@ -15,6 +17,37 @@ export const dynamicParams = true;
 
 export function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
+  if (!post) return {};
+
+  return {
+    title: `${post.frontmatter.title} | Metis`,
+    description: post.frontmatter.excerpt,
+    alternates: { canonical: `/posts/${slug}` },
+    openGraph: {
+      type: "article",
+      locale: "hu_HU",
+      url: `/posts/${slug}`,
+      title: post.frontmatter.title,
+      description: post.frontmatter.excerpt,
+      publishedTime: post.frontmatter.date || undefined,
+      images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: post.frontmatter.title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.frontmatter.title,
+      description: post.frontmatter.excerpt,
+      images: ["/opengraph-image"],
+    },
+  };
 }
 
 function estimateReadingTimeMinutes(text: string) {
@@ -186,9 +219,24 @@ export default async function PostPage({
 
   const seriesTitleToShow =
     currentSeriesTitle ?? (currentSeries ? "Cikksorozat" : undefined);
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.frontmatter.title,
+    description: post.frontmatter.excerpt,
+    datePublished: post.frontmatter.date || undefined,
+    inLanguage: "hu-HU",
+    url: `${SITE_URL}/posts/${slug}`,
+    mainEntityOfPage: `${SITE_URL}/posts/${slug}`,
+    author: { "@type": "Person", name: "Antal Bálint", url: `${SITE_URL}/about` },
+  };
 
   return (
     <PageContainer as="article" size="prose" className="space-y-12 py-10 sm:py-14">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
       <header className="space-y-4">
         <div className="flex items-center gap-3 text-sm text-muted-foreground">
           <span>{post.frontmatter.date}</span>

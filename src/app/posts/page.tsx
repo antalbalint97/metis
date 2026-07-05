@@ -3,6 +3,9 @@ import { getAllPosts } from "@/lib/posts";
 
 export const metadata = {
   title: "Cikkek | Metis",
+  description: "Magyar cikkek adatelemzésről, statisztikáról, SQL-ről és Pythonról.",
+  alternates: { canonical: "/posts" },
+  openGraph: { url: "/posts", images: ["/opengraph-image"] },
 };
 
 export default function PostsPage() {

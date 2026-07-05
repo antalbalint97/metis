@@ -6,6 +6,8 @@ export const metadata: Metadata = {
   title: "Data Analyst fejlődési sáv | Metis",
   description:
     "Strukturált tanulási út Junior / Medior Data Analysteknek: SQL, statisztika, vizualizáció és üzleti gondolkodás.",
+  alternates: { canonical: "/fejlodesi-savok/data-analyst" },
+  openGraph: { url: "/fejlodesi-savok/data-analyst", images: ["/opengraph-image"] },
 };
 
 const starterArticles = [

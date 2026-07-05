@@ -1,6 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Card, PageContainer } from "@meniva/design-system";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Rólam | Metis",
+  description: "Antal Bálint adattudós és mentor szakmai háttere, tapasztalata és tanítási szemlélete.",
+  alternates: { canonical: "/about" },
+  openGraph: { url: "/about", images: ["/opengraph-image"] },
+};
 
 export default function AboutPage() {
   return (

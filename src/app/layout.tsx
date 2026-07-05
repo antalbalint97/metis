@@ -6,6 +6,7 @@ import "./globals.css";
 import "@meniva/design-system/styles/tokens.css";
 import "@meniva/design-system/styles/components.css";
 import { LogoLockup, Footer as DSFooter, Navbar } from "@meniva/design-system";
+import { SITE_URL } from "@/lib/site";
 
 // Shared body/UI font for the MMNC family. The DS only names the family
 // ('IBM Plex Sans'); the app loads the actual faces here via next/font and wires
@@ -34,8 +35,17 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "Metis | Mentorálás és tanulás",
   description: "Tanuljunk együtt gondolkodni az adatokról.",
+  authors: [{ name: "Antal Bálint", url: `${SITE_URL}/about` }],
+  openGraph: {
+    type: "website",
+    locale: "hu_HU",
+    siteName: "Metis",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Metis" }],
+  },
+  twitter: { card: "summary_large_image", images: ["/opengraph-image"] },
 };
 
 export const viewport: Viewport = {

@@ -8,6 +8,8 @@ export const metadata: Metadata = {
   title: "Mentorprogram | Metis",
   description:
     "Személyre szabott fejlődés technikai szakembereknek. Junior / Medior Data Analysteknek, Data Scientisteknek, ML Engineer-eknek és Software Engineer-eknek.",
+  alternates: { canonical: "/mentorprogram" },
+  openGraph: { url: "/mentorprogram", images: ["/opengraph-image"] },
 };
 
 const benefits = [

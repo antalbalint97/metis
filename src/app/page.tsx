@@ -10,11 +10,14 @@ import {
   SectionHeader,
 } from "@meniva/design-system";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
+import { CTRLPLANE_URL, NULLFAL_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Metis | Mentorálás és tanulás",
   description:
     "Magyar tanulótér adatelemzéshez, statisztikához, Pythonhoz és SQL-hez.",
+  alternates: { canonical: "/" },
+  openGraph: { url: "/", images: ["/opengraph-image"] },
 };
 
 const learningSteps = [
@@ -363,7 +366,7 @@ export default function HomePage() {
                   CtrlPlane szakmai blogot.
                 </p>
                 <a
-                  href="https://ctrlplane.vercel.app/"
+                  href={CTRLPLANE_URL}
                   className="learning-link mt-5"
                   target="_blank"
                   rel="noreferrer"
@@ -382,7 +385,7 @@ export default function HomePage() {
                   projektekkel mélyítenéd a tudásod, próbáld ki a Nullfalt.
                 </p>
                 <a
-                  href="https://nullfall.vercel.app/"
+                  href={NULLFAL_URL}
                   className="learning-link mt-5"
                   target="_blank"
                   rel="noreferrer"
