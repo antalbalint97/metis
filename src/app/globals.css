@@ -1,52 +1,52 @@
 @import "tailwindcss";
 
 /* ──────────────────────────────────────────────
-   METIS DESIGN SYSTEM — Tokens
+   METIS DESIGN SYSTEM: Tokens
    ────────────────────────────────────────────── */
 
 /*
   Color palette
   ─────────────
-  Background : warm off-white   #FAF8F5
+  Background : warm off-white   #FAF7F1
   Surface    : clean white       #FFFFFF
   Foreground : deep charcoal     #1C1917
   Muted fg   : warm gray         #57534E
-  Muted bg   : stone tint        #F5F0EB
-  Border     : subtle warm gray  #E7E0D8
-  Accent     : muted teal        #2A7E6E
+  Muted bg   : stone tint        #F3EFE7
+  Border     : subtle warm gray  #E4DDD2
+  Accent     : forest green      #35694E
   Accent fg  : white on accent   #FFFFFF
-  Ring       : focus ring teal   #2A7E6E (with alpha)
+  Ring       : focus ring forest #35694E (with alpha)
 */
 
 :root {
   color-scheme: light;
 
   /* ── Core surfaces ── */
-  --background: #FAF8F5;
+  --background: #FAF7F1;
   --foreground: #1C1917;
   --surface: #FFFFFF;
 
   /* ── Muted / secondary ── */
-  --muted: #F5F0EB;
+  --muted: #F3EFE7;
   --muted-foreground: #57534E;
 
   /* ── Borders ── */
-  --border: #E7E0D8;
-  --border-strong: #D4CCC3;
+  --border: #E4DDD2;
+  --border-strong: #CDC4B7;
 
-  /* ── Accent (muted teal) ── */
-  --accent: #2A7E6E;
-  --accent-hover: #237064;
+  /* ── Accent (forest) ── */
+  --accent: #35694E;
+  --accent-hover: #2B5941;
   --accent-foreground: #FFFFFF;
-  --accent-muted: #E8F4F1;
+  --accent-muted: #E7EFE8;
 
   /* ── Primary (charcoal for buttons) ── */
   --primary: #1C1917;
   --primary-hover: #292524;
-  --primary-foreground: #FAF8F5;
+  --primary-foreground: #FAF7F1;
 
   /* ── Interactive / focus ── */
-  --ring: #2A7E6E;
+  --ring: #35694E;
 
   /* ── Radius scale ── */
   --radius-sm: 0.375rem;
@@ -60,32 +60,6 @@
   --shadow-sm: 0 1px 3px 0 rgba(28, 25, 23, 0.06), 0 1px 2px -1px rgba(28, 25, 23, 0.06);
   --shadow-md: 0 4px 6px -1px rgba(28, 25, 23, 0.06), 0 2px 4px -2px rgba(28, 25, 23, 0.04);
   --shadow-lg: 0 10px 15px -3px rgba(28, 25, 23, 0.06), 0 4px 6px -4px rgba(28, 25, 23, 0.04);
-}
-
-/* ── Dark mode ── */
-.dark {
-  color-scheme: dark;
-
-  --background: #18181B;
-  --foreground: #F5F0EB;
-  --surface: #1F1F23;
-
-  --muted: #27272A;
-  --muted-foreground: #A8A29E;
-
-  --border: #2E2E32;
-  --border-strong: #3F3F46;
-
-  --accent: #3DBDA8;
-  --accent-hover: #34A694;
-  --accent-foreground: #18181B;
-  --accent-muted: #1A2E2A;
-
-  --primary: #F5F0EB;
-  --primary-hover: #E7E0D8;
-  --primary-foreground: #18181B;
-
-  --ring: #3DBDA8;
 }
 
 /* ── Map tokens to Tailwind v4 ── */
@@ -107,7 +81,7 @@
   --color-primary-foreground: var(--primary-foreground);
   --color-ring: var(--ring);
 
-  /* Typography — shared family fonts loaded via next/font (layout.tsx). */
+  /* Typography: shared family fonts loaded via next/font (layout.tsx). */
   --font-sans: var(--font-ibm-plex-sans), system-ui, sans-serif;
   --font-mono: var(--font-ibm-plex-mono), ui-monospace, monospace;
 
@@ -132,7 +106,7 @@ html[data-brand="metis"] {
 /* Card titles use the body sans, not the Fraunces display face: short/structured
    card titles (e.g. "Data Analyst", "Fejlődési sávok") read better as sans than
    ornamental serif. Fraunces stays for the hero title and SectionHeader
-   display/editorial headings. Scoped override only — the DS package is unchanged. */
+   display/editorial headings. Scoped override only; the DS package is unchanged. */
 html[data-brand="metis"] .ds-course-card__title,
 html[data-brand="metis"] .ds-service-card__title {
   font-family: var(--font-sans);
@@ -169,4 +143,97 @@ h1, h2, h3, h4 {
 ::selection {
   background-color: var(--accent-muted);
   color: var(--foreground);
+}
+
+/* Homepage learning surfaces */
+.learning-card,
+.journey-card {
+  background: var(--accent-muted) !important;
+  border-color: color-mix(in srgb, var(--accent) 20%, var(--border)) !important;
+}
+
+.learning-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  width: fit-content;
+  color: var(--accent);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: gap 160ms ease, color 160ms ease;
+}
+
+.learning-link:hover {
+  gap: 0.55rem;
+  color: var(--accent-hover);
+}
+
+.rating-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  width: fit-content;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  padding: 0.45rem 0.75rem;
+  color: var(--muted-foreground);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.02em;
+}
+
+.rating-dots {
+  display: flex;
+  gap: 0.18rem;
+}
+
+.rating-dots i {
+  display: block;
+  width: 0.42rem;
+  height: 0.42rem;
+  border-radius: 0.12rem;
+  background: var(--accent);
+}
+
+.testimonial-details summary {
+  width: fit-content;
+  cursor: pointer;
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 600;
+  list-style: none;
+}
+
+.testimonial-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.testimonial-details summary::after {
+  content: " +";
+}
+
+.testimonial-details[open] summary::after {
+  content: " −";
+}
+
+.soon-badge {
+  flex-shrink: 0;
+  border-radius: 999px;
+  background: var(--muted);
+  padding: 0.2rem 0.55rem;
+  color: var(--muted-foreground);
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ecosystem-card {
+  border-left: 3px solid var(--accent) !important;
+}
+
+.final-cta {
+  background: var(--muted) !important;
 }

@@ -3,9 +3,9 @@ import Link from "next/link";
 import { PageContainer, Card } from "@meniva/design-system";
 
 export const metadata: Metadata = {
-  title: "Machine Learning Engineer – Fejlődési sáv | Metis",
+  title: "Machine Learning Engineer fejlődési sáv | Metis",
   description:
-    "Strukturált tanulási út Junior–Medior ML Engineereknek: pipeline-ok, MLOps, deployment és feature-rendszerek.",
+    "Strukturált tanulási út Junior / Medior ML Engineereknek: pipeline-ok, MLOps, deployment és feature-rendszerek.",
 };
 
 const starterArticles = [
@@ -77,18 +77,18 @@ export default function MachineLearningEngineerTrackPage() {
         </Link>
 
         <h1 className="mt-4 text-3xl sm:text-4xl font-semibold tracking-tight text-foreground text-balance">
-          Machine Learning Engineer – Fejlődési sáv
+          Machine Learning Engineer fejlődési sáv
         </h1>
 
         <p className="mt-4 text-lg text-muted-foreground leading-relaxed max-w-2xl">
           Strukturált tanulási út azoknak, akik ML-modelleket építenek, üzembe
           helyeznek és skáláznak produkciós környezetben. Pipeline-ok, MLOps,
-          deployment és feature-rendszerek — a valós mérnöki munkához igazítva.
+          deployment és feature-rendszerek, a valós mérnöki munkához igazítva.
         </p>
 
         <div className="mt-4 flex items-center gap-2">
           <span className="rounded-md bg-accent-muted px-2.5 py-1 text-xs font-medium text-accent">
-            JUNIOR–MEDIOR
+            JUNIOR / MEDIOR
           </span>
           <span className="text-sm text-muted-foreground">Ingyenes tartalom</span>
         </div>
@@ -199,7 +199,7 @@ export default function MachineLearningEngineerTrackPage() {
         </h2>
         <p className="mt-3 text-muted-foreground leading-relaxed max-w-xl">
           A mentorprogram keretében egyéni fejlődési tervet készítünk, és
-          rendszeres beszélgetésekkel segítem a haladásodat — valódi problémákon
+          rendszeres beszélgetésekkel segítem a haladásodat, valódi problémákon
           keresztül.
         </p>
         <div className="mt-6">

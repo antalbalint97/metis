@@ -126,7 +126,7 @@ Ez üzleti döntés.
 
 Melyik érdekel?
 
-## 6. KPI nevezők – itt csúszik el igazán
+## 6. KPI nevezők: itt csúszik el igazán
 
 Egy KPI mindig tört:
 

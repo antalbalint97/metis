@@ -31,7 +31,7 @@ Ez az úgynevezett *grain*.
 
 Ha a grain nincs tisztázva, akkor a számolás lutri.
 
-## 3. Fact és dimension – két külön szerep
+## 3. Fact és dimension: két külön szerep
 
 ### Fact tábla
 

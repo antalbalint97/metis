@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { IBM_Plex_Sans, IBM_Plex_Mono, Fraunces } from "next/font/google";
 import Link from "next/link";
 import "./globals.css";
-// Design-system tokens + component styles (tokens before components).
+// Design-system tokens and component styles (tokens before components).
 import "@meniva/design-system/styles/tokens.css";
 import "@meniva/design-system/styles/components.css";
 import { LogoLockup, Footer as DSFooter, Navbar } from "@meniva/design-system";
@@ -24,7 +24,7 @@ const ibmPlexMono = IBM_Plex_Mono({
   variable: "--font-ibm-plex-mono",
 });
 
-// Warm display serif for the Metis brand — provided to the design system via
+// Warm display serif for the Metis brand, provided to the design system via
 // the --font-fraunces variable that the DS metis tokens read for --font-display.
 const fraunces = Fraunces({
   subsets: ["latin", "latin-ext"],
@@ -34,12 +34,12 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "Metis Blog",
-  description: "From questions to understanding.",
+  title: "Metis | Mentorálás és tanulás",
+  description: "Tanuljunk együtt gondolkodni az adatokról.",
 };
 
 export const viewport: Viewport = {
-  themeColor: "#FAF8F5",
+  themeColor: "#FAF7F1",
   colorScheme: "light",
 };
 
@@ -75,7 +75,7 @@ export default function RootLayout({
             ]}
           />
 
-          {/* Content — width is owned per page via PageContainer (no global clamp). */}
+          {/* Content width is owned per page via PageContainer. */}
           <main className="flex-1">{children}</main>
 
           {/* Footer band always at bottom */}

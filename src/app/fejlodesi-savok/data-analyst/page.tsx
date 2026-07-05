@@ -3,9 +3,9 @@ import Link from "next/link";
 import { PageContainer, Card } from "@meniva/design-system";
 
 export const metadata: Metadata = {
-  title: "Data Analyst – Fejlődési sáv | Metis",
+  title: "Data Analyst fejlődési sáv | Metis",
   description:
-    "Strukturált tanulási út Junior–Medior Data Analysteknek: SQL, statisztika, vizualizáció és üzleti gondolkodás.",
+    "Strukturált tanulási út Junior / Medior Data Analysteknek: SQL, statisztika, vizualizáció és üzleti gondolkodás.",
 };
 
 const starterArticles = [
@@ -44,7 +44,7 @@ const modules = [
   {
     title: "Statisztika elemzőknek",
     description:
-      "Leíró statisztika, eloszlások és összehasonlítások — nem tankönyvi, hanem elemzői szemmel.",
+      "Leíró statisztika, eloszlások és összehasonlítások, nem tankönyvi, hanem elemzői szemmel.",
     articles: [
       "Átlag, medián, szórás: mikor melyik számít?",
       "Eloszlások felismerése a gyakorlatban",
@@ -79,18 +79,18 @@ export default function DataAnalystTrackPage() {
         </Link>
 
         <h1 className="mt-4 text-3xl sm:text-4xl font-semibold tracking-tight text-foreground text-balance">
-          Data Analyst – Fejlődési sáv
+          Data Analyst fejlődési sáv
         </h1>
 
         <p className="mt-4 text-lg text-muted-foreground leading-relaxed max-w-2xl">
           Strukturált tanulási út azoknak, akik adatokból szeretnének döntéseket
-          támogatni. SQL, statisztika, vizualizáció és üzleti gondolkodás — a
+          támogatni. SQL, statisztika, vizualizáció és üzleti gondolkodás a
           valós munkához igazítva, nem tankönyvi sorrendben.
         </p>
 
         <div className="mt-4 flex items-center gap-2">
           <span className="rounded-md bg-accent-muted px-2.5 py-1 text-xs font-medium text-accent">
-            JUNIOR–MEDIOR
+            JUNIOR / MEDIOR
           </span>
           <span className="text-sm text-muted-foreground">Ingyenes tartalom</span>
         </div>
@@ -201,7 +201,7 @@ export default function DataAnalystTrackPage() {
         </h2>
         <p className="mt-3 text-muted-foreground leading-relaxed max-w-xl">
           A mentorprogram keretében egyéni fejlődési tervet készítünk, és
-          rendszeres beszélgetésekkel segítem a haladasodat — valódi problémákon
+          rendszeres beszélgetésekkel segítem a haladasodat, valódi problémákon
           keresztül.
         </p>
         <div className="mt-6">

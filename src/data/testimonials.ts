@@ -76,7 +76,7 @@ export const testimonials: Testimonial[] = [
   {
     quote:
       "Nagy lemaradással kezdtem az informatikai ágazati vizsgára való felkészülést, és nem gondoltam volna, hogy ilyen rövid idő alatt sikerül felzárkóznom. Érthetően, türelmesen és jól felépítve kaptam meg az anyagot.",
-    full: "Nagy lemaradással kezdtem neki az informatikai ágazati vizsgára való felkészülésnek, és őszintén szólva nem gondoltam volna, hogy ilyen rövid idő alatt sikerül felzárkóznom. A felkészítés viszont rengeteget segített: érthetően, türelmesen és jól felépítve kaptam meg az anyagot. Türelmes, felkészült tanár — nagyon ajánlom Bálintot annak, aki jó tanárt keres!",
+    full: "Nagy lemaradással kezdtem neki az informatikai ágazati vizsgára való felkészülésnek, és őszintén szólva nem gondoltam volna, hogy ilyen rövid idő alatt sikerül felzárkóznom. A felkészítés viszont rengeteget segített: érthetően, türelmesen és jól felépítve kaptam meg az anyagot. Türelmes, felkészült tanár, nagyon ajánlom Bálintot annak, aki jó tanárt keres!",
     name: "Milán",
     role: "Informatikai ágazati vizsga",
   },

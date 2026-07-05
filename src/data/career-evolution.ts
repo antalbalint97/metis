@@ -25,7 +25,7 @@ export const careerStages: CareerStage[] = [
   {
     id: "valosagkozeli-kezdetek",
     order: 1,
-    period: "2013–2016",
+    period: "2013 / 2016",
     startYear: 2013,
     endYear: 2016,
     title: "Valóságközeli kezdetek",
@@ -43,7 +43,7 @@ export const careerStages: CareerStage[] = [
   {
     id: "kerdesekbol-modszer",
     order: 2,
-    period: "2016–2021",
+    period: "2016 / 2021",
     startYear: 2016,
     endYear: 2021,
     title: "Kérdésekből kutatási módszer",
@@ -61,7 +61,7 @@ export const careerStages: CareerStage[] = [
   {
     id: "elmeletbol-adat",
     order: 3,
-    period: "2021–2023",
+    period: "2021 / 2023",
     startYear: 2021,
     endYear: 2023,
     title: "Elméletből használható adat",
@@ -79,7 +79,7 @@ export const careerStages: CareerStage[] = [
   {
     id: "elemzesbol-rendszer",
     order: 4,
-    period: "2023–2025",
+    period: "2023 / 2025",
     startYear: 2023,
     endYear: 2025,
     title: "Elemzésből működő rendszer",
@@ -97,7 +97,7 @@ export const careerStages: CareerStage[] = [
   {
     id: "szintezis-es-tudasatadas",
     order: 5,
-    period: "2025–",
+    period: "2025 óta",
     startYear: 2025,
     endYear: null,
     title: "Szintézis és tudásátadás",

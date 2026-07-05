@@ -5,9 +5,9 @@ import MentorTestimonialsCarousel from "@/components/MentorTestimonialsCarousel"
 import FullTestimonials from "@/components/FullTestimonials";
 
 export const metadata: Metadata = {
-  title: "Mentorprogram – Metis",
+  title: "Mentorprogram | Metis",
   description:
-    "Személyre szabott fejlődés technikai szakembereknek. Junior–Medior Data Analysteknek, Data Scientisteknek, ML Engineer-eknek és Software Engineer-eknek.",
+    "Személyre szabott fejlődés technikai szakembereknek. Junior / Medior Data Analysteknek, Data Scientisteknek, ML Engineer-eknek és Software Engineer-eknek.",
 };
 
 const benefits = [
@@ -32,7 +32,7 @@ const benefits = [
 const steps = [
   { step: "1", title: "Jelentkezési űrlap kitöltése", desc: "Rövid kérdőív a hátteredről és céljaidról." },
   { step: "2", title: "Rövid beszélgetés", desc: "Megismerjük egymást és megnézzük, a program neked való-e." },
-  { step: "3", title: "Csomag kiválasztása", desc: "Light vagy Pro — az igényeid alapján." },
+  { step: "3", title: "Csomag kiválasztása", desc: "Light vagy Pro, az igényeid alapján." },
   { step: "4", title: "Kezdés", desc: "Elkezdünk dolgozni a fejlődési terveden." },
 ];
 
@@ -44,7 +44,7 @@ export default function MentorprogramPage() {
         as="h1"
         overline="Mentorprogram"
         title="Személyre szabott fejlődés technikai szakembereknek"
-        description="Junior–Medior Data Analysteknek, Data Scientisteknek, Machine Learning Engineer-eknek és Software Engineer-eknek, akik gyorsabban és tudatosabban szeretnének fejlődni."
+        description="Junior / Medior Data Analysteknek, Data Scientisteknek, Machine Learning Engineer-eknek és Software Engineer-eknek, akik gyorsabban és tudatosabban szeretnének fejlődni."
         actions={
           <a href="#jelentkezes" className="ds-btn ds-btn--primary ds-btn--lg">
             Jelentkezés mentorprogramra
@@ -102,7 +102,7 @@ export default function MentorprogramPage() {
           {/* Light */}
           <Card padding="lg" className="flex flex-col">
             <h3 className="text-lg font-semibold text-foreground">
-              Mentorprogram – Light
+              Mentorprogram: Light
             </h3>
             <p className="mt-2 text-2xl sm:text-3xl font-semibold tracking-tight text-foreground">
               49 000 Ft
@@ -128,7 +128,7 @@ export default function MentorprogramPage() {
             </div>
           </Card>
 
-          {/* Pro — highlighted */}
+          {/* Pro package, highlighted */}
           <Card
             padding="lg"
             className="relative flex flex-col !border-2 !border-accent shadow-[var(--shadow-md)]"
@@ -138,7 +138,7 @@ export default function MentorprogramPage() {
             </span>
 
             <h3 className="text-lg font-semibold text-foreground">
-              Mentorprogram – Pro
+              Mentorprogram: Pro
             </h3>
             <p className="mt-2 text-2xl sm:text-3xl font-semibold tracking-tight text-foreground">
               89 000 Ft
