@@ -38,8 +38,8 @@ const fraunces = Fraunces({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Metis | Mentorálás és tanulás",
-  description: "Tanuljunk együtt gondolkodni az adatokról.",
+  title: "Metis | Adatos mentorálás és tanulás",
+  description: "Mentorálás és tanulási utak adatelemzéshez, data science-hez és ML-hez.",
   authors: [{ name: "Antal Bálint", url: `${SITE_URL}/about` }],
   alternates: { canonical: "/" },
   icons: {
@@ -54,15 +54,15 @@ export const metadata: Metadata = {
     type: "website",
     locale: "hu_HU",
     siteName: "Metis",
-    title: "Metis | Mentorálás és tanulás",
-    description: "Mentoring and learning paths for data work",
+    title: "Metis | Adatos mentorálás és tanulás",
+    description: "Mentorálás és tanulási utak adatelemzéshez, data science-hez és ML-hez.",
     url: "/",
     images: [{ url: `${SITE_URL}/brand/og-default.png`, width: 1200, height: 630, alt: "Metis" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Metis | Mentorálás és tanulás",
-    description: "Mentoring and learning paths for data work",
+    title: "Metis | Adatos mentorálás és tanulás",
+    description: "Mentorálás és tanulási utak adatelemzéshez, data science-hez és ML-hez.",
     images: [`${SITE_URL}/brand/og-default.png`],
   },
 };
@@ -109,7 +109,7 @@ export default function RootLayout({
             container="wide"
             logo={
               <Link href="/" aria-label="Metis">
-                <Image src="/brand/logo-horizontal.svg" alt="Metis" width={154} height={57} priority />
+                <Image src="/brand/logo-horizontal.svg" alt="Metis" width={108} height={40} style={{ height: 32, width: "auto" }} priority />
               </Link>
             }
             items={[

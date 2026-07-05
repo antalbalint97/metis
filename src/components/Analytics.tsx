@@ -159,16 +159,16 @@ export default function Analytics() {
   return (
     <>
       {showBanner ? (
-        <aside role="dialog" aria-label="Analitikai sĂĽtik" style={{ position: "fixed", zIndex: 1000, left: 16, right: 16, bottom: 16, maxWidth: 680, margin: "auto", padding: 20, borderRadius: 12, background: "#111827", color: "white", boxShadow: "0 16px 48px rgba(0,0,0,.3)" }}>
-          <strong>Analitikai sĂĽtik</strong>
-          <p style={{ margin: "8px 0 16px", lineHeight: 1.5 }}>NĂ©vtelen hasznĂˇlati adatokat csak a beleegyezĂ©sed utĂˇn gyĹ±jtĂĽnk. HirdetĂ©si cĂ©lĂş tĂˇrolĂˇst nem hasznĂˇlunk. <a href="/privacy" style={{ color: "#93c5fd" }}>AdatvĂ©delmi tĂˇjĂ©koztatĂł</a></p>
+        <aside role="dialog" aria-label="Analitikai sütik" style={{ position: "fixed", zIndex: 1000, left: 16, right: 16, bottom: 16, maxWidth: 680, margin: "auto", padding: 20, borderRadius: 12, background: "#111827", color: "white", boxShadow: "0 16px 48px rgba(0,0,0,.3)" }}>
+          <strong>Analitikai sütik</strong>
+          <p style={{ margin: "8px 0 16px", lineHeight: 1.5 }}>Névtelen használati adatokat csak a beleegyezésed után gyűjtünk. Hirdetési célú tárolást nem használunk. <a href="/privacy" style={{ color: "#93c5fd" }}>Adatvédelmi tájékoztató</a></p>
           <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
             <button type="button" onClick={() => choose("granted")} className="ds-btn ds-btn--primary ds-btn--sm">Elfogadom</button>
-            <button type="button" onClick={() => choose("denied")} className="ds-btn ds-btn--outline ds-btn--sm" style={{ color: "white" }}>ElutasĂ­tom</button>
+            <button type="button" onClick={() => choose("denied")} className="ds-btn ds-btn--outline ds-btn--sm" style={{ color: "white" }}>Elutasítom</button>
           </div>
         </aside>
       ) : (
-        <button type="button" onClick={() => setShowBanner(true)} style={{ position: "fixed", zIndex: 900, right: 12, bottom: 12, padding: "7px 10px", borderRadius: 8, border: "1px solid #9ca3af", background: "#fff", color: "#111827", fontSize: 12 }}>SĂĽti beĂˇllĂ­tĂˇsok</button>
+        <button type="button" onClick={() => setShowBanner(true)} style={{ position: "fixed", zIndex: 900, right: 12, bottom: 12, padding: "7px 10px", borderRadius: 8, border: "1px solid #9ca3af", background: "#fff", color: "#111827", fontSize: 12 }}>Süti beállítások</button>
       )}
     </>
   );
