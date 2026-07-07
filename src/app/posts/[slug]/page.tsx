@@ -236,10 +236,11 @@ export default async function PostPage({
       : `${SITE_URL}/brand/og-article-default.png`,
     author: { "@type": "Person", name: "Antal Bálint", url: `${SITE_URL}/about` },
     publisher: {
-      "@type": "Organization",
-      name: "Metis",
-      url: SITE_URL,
-      logo: `${SITE_URL}/brand/logo-horizontal.png`,
+      "@type": "Person",
+      "@id": `${SITE_URL}/#antal-balint`,
+      name: "Antal Bálint",
+      url: `${SITE_URL}/about`,
+      image: `${SITE_URL}/images/balint.jpg`,
     },
   };
 

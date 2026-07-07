@@ -13,8 +13,8 @@ import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 import { CTRLPLANE_URL, NULLFAL_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Metis | Adatos mentorálás és tanulás",
-  description: "Mentorálás és tanulási utak adatelemzéshez, data science-hez és ML-hez.",
+  title: "Metis | Adatelemzés és mentorálás",
+  description: "Antal Bálint mentor- és tanulótere adatelemzéshez, statisztikához, data science-hez és ML-hez.",
   alternates: { canonical: "/" },
   openGraph: { url: "/", images: ["https://metis.name/brand/og-default.png"] },
 };
@@ -155,11 +155,11 @@ export default function HomePage() {
           variant="split"
           align="left"
           overline="Mentorálás és tanulás · Adatelemzés"
-          title="Tanuljunk együtt gondolkodni az adatokról."
+          title="Metis – mentorálás és tanulási utak adatelemzéshez"
           description={
             <>
-              A Metis nem cikkgyűjtemény, hanem tanulótér. Jó kérdések,
-              tiszta problémalátás, valódi megértés.
+              A Metis Antal Bálint magyar nyelvű mentor- és tanulótere
+              adatelemzéshez, statisztikához, Pythonhoz és SQL-hez.
               <span className="mt-4 block font-medium text-foreground">
                 A jó elemző nem attól jó, hogy sok eszközt ismer, hanem attól,
                 hogy érti, mit csinál és miért.
@@ -210,12 +210,12 @@ export default function HomePage() {
                   <p className="ds-overline">A teljesebb történet</p>
                   <h2
                     id="journey-title"
-                    className="mt-3 text-2xl font-semibold leading-tight tracking-tight text-foreground sm:text-3xl"
+                    className="ds-section-header__title mt-3"
                   >
                     Hogyan jutottam el a diákmunkáktól az adatos és
                     AI-rendszerekig?
                   </h2>
-                  <p className="mt-4 max-w-2xl leading-relaxed text-muted-foreground">
+                  <p className="ds-section-header__desc mt-4 max-w-2xl">
                     Nem egyenes karrierút volt. Öt szakaszban mutatom meg, mit
                     tanultam közben, és mi az, amit ma mentorként is továbbadok.
                     Ez a háttér adja a mentorálás alapját.
@@ -246,10 +246,10 @@ export default function HomePage() {
                   className="flex flex-col"
                 >
                   <p className="ds-overline">{offering.label}</p>
-                  <h3 className="mt-3 text-xl font-semibold text-foreground">
+                  <h3 className="ds-card-title mt-3">
                     {offering.title}
                   </h3>
-                  <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
+                  <p className="ds-card-body mt-3 flex-1 text-sm">
                     {offering.desc}
                   </p>
                   <Link href={offering.href} className="learning-link mt-5">
@@ -330,10 +330,10 @@ export default function HomePage() {
                     <p className="ds-overline">{resource.label}</p>
                     <span className="soon-badge">Hamarosan</span>
                   </div>
-                  <h3 className="mt-4 text-lg font-semibold text-foreground">
+                  <h3 className="ds-card-title mt-4 text-lg">
                     {resource.title}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  <p className="ds-card-body mt-2 text-sm">
                     {resource.desc}
                   </p>
                 </Card>
@@ -348,7 +348,7 @@ export default function HomePage() {
             </p>
           </section>
 
-          <section className="space-y-6">
+          <section className="space-y-6" data-nosnippet>
             <SectionHeader
               overline="A Metis ökoszisztémája"
               title="Ha más tanulási forma illik hozzád"
@@ -357,10 +357,10 @@ export default function HomePage() {
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
               <Card padding="lg" className="ecosystem-card">
                 <p className="ds-overline text-muted-foreground">Szakmai blog</p>
-                <h3 className="mt-3 text-xl font-semibold text-foreground">
+                <h3 className="ds-card-title mt-3">
                   CtrlPlane
                 </h3>
-                <p className="mt-3 leading-relaxed text-muted-foreground">
+                <p className="ds-card-body mt-3">
                   Ha az AI, az adatmunka és az iparág alakulása érdekel, olvasd a
                   CtrlPlane szakmai blogot.
                 </p>
@@ -375,10 +375,10 @@ export default function HomePage() {
               </Card>
               <Card padding="lg" className="ecosystem-card">
                 <p className="ds-overline text-muted-foreground">AI tutor</p>
-                <h3 className="mt-3 text-xl font-semibold text-foreground">
+                <h3 className="ds-card-title mt-3">
                   Nullfal
                 </h3>
-                <p className="mt-3 leading-relaxed text-muted-foreground">
+                <p className="ds-card-body mt-3">
                   Ha még nem állsz készen mentorprogramra, de AI tutorral, egyedi
                   roadmapekkel, technikai gyakorlással, szimulált interjúkkal és
                   projektekkel mélyítenéd a tudásod, próbáld ki a Nullfalt.
