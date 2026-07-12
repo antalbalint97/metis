@@ -155,7 +155,7 @@ export default function HomePage() {
           variant="split"
           align="left"
           overline="Mentorálás és tanulás · Adatelemzés"
-          title="Metis – mentorálás és tanulási utak adatelemzéshez"
+          title="Metis - mentorálás és tanulási utak adatelemzéshez"
           description={
             <>
               A Metis Antal Bálint magyar nyelvű mentor- és tanulótere

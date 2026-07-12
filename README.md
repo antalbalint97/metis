@@ -8,7 +8,7 @@ hogyan tegyél fel jó kérdéseket, hogyan nézz rá egy problémára, és hogy
 A tartalmak rövid, gyakorlati jegyzetekből, példákból és cikkekből állnak.  
 Nem „gyorstalpalók”, hanem **kapaszkodók**: SQL, Python, statisztika, üzleti gondolkodás és elemzői döntések ott találkoznak, ahol a valós munkában is.
 
-A Metis célja nem az, hogy válaszokat adjon helyetted – hanem hogy megtanítson **jól gondolkodni**.  
+A Metis célja nem az, hogy válaszokat adjon helyetted - hanem hogy megtanítson **jól gondolkodni**.
 Mert a jó elemző nem attól jó, hogy sok eszközt ismer, hanem attól, hogy érti, mit csinál és miért.
 
 ---

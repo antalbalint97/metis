@@ -36,7 +36,7 @@
 
 - **Cél:** explicitté tenni a transzferálható készségeket.
 - **Tartalom:** valóságérzék, problémakeretezés, mérési fegyelem, rendszerépítés, érthető magyarázat.
-- **Layout:** ötoszlopos készségsor nagy képernyőn, 1–2 oszlop mobilon/tableten.
+- **Layout:** ötoszlopos készségsor nagy képernyőn, 1-2 oszlop mobilon/tableten.
 - **DS:** egyszerű token-alapú elemek vagy `Card`.
 - **Jelleg:** skimmelhető, nem „skill cloud”.
 
