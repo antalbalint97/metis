@@ -10,7 +10,7 @@ Az eredeti Claude-koncepció öt fázisa jó tartalmi kiindulópont, de a „Fro
 
 ### 1. Valóságközeli kezdetek
 
-- **Időszak:** körülbelül 2013–2016
+- **Időszak:** körülbelül 2013-2016
 - **Szerep / közeg:** diákmunkák és alkalmi munkák; árufeltöltés, gyorsétterem, csomagolás, pénztár, recepció, adatrögzítés; kommunikációs és vitaképzések
 - **Mit csinált:** sokféle, nem idealizált belépőszintű munkát végzett, közben történelmet, társadalmi kérdéseket, gazdaságot és kommunikációt tanult.
 - **Mit tanult:** pontosság, tempó, felelősség, megbízhatóság, emberekkel való kommunikáció.
@@ -19,7 +19,7 @@ Az eredeti Claude-koncepció öt fázisa jó tartalmi kiindulópont, de a „Fro
 
 ### 2. Kérdésekből kutatási módszer
 
-- **Időszak:** 2016–2021, az MA lezárása 2023-ban
+- **Időszak:** 2016-2021, az MA lezárása 2023-ban
 - **Szerep / közeg:** szociológia BA és MA; Rajk Szakkollégium; kutatási asszisztensi és közösségi feladatok.
 - **Mit csinált:** társadalmi státusz, mentális egészség, jólét, fogyasztás és egyenlőtlenség témáival dolgozott; kvantitatív és kvalitatív kutatási módszereket használt.
 - **Mit tanult:** jó kérdés nélkül nincs jó elemzés; egy mérőszám mögött mindig definíciók, feltételezések és emberi helyzetek vannak.
@@ -28,7 +28,7 @@ Az eredeti Claude-koncepció öt fázisa jó tartalmi kiindulópont, de a „Fro
 
 ### 3. Átmenet az elemzésbe
 
-- **Időszak:** 2021–2023
+- **Időszak:** 2021-2023
 - **Szerep / közeg:** kutatói gyakornok, kutatási asszisztens, majd adatelemző a médiában.
 - **Mit csinált:** adat-előkészítés, Stata, irodalomfeldolgozás, több adatforrás összekötése, riportfolyamatok, szegmentáció és Python-alapú dashboardok.
 - **Mit tanult:** a módszertant reprodukálható folyamattá kell alakítani; az elemzés akkor ér valamit, ha használható döntési helyzetben.
@@ -37,7 +37,7 @@ Az eredeti Claude-koncepció öt fázisa jó tartalmi kiindulópont, de a „Fro
 
 ### 4. Elemzésből rendszerek
 
-- **Időszak:** 2023–2025
+- **Időszak:** 2023-2025
 - **Szerep / közeg:** Data & ML Engineer a légiközlekedésben; Applied AI & Data Engineer a kiskereskedelmi adatok világában.
 - **Mit csinált:** regressziós modellek, ETL- és ML-pipeline-ok, PySpark/SQL feldolgozás, Azure-környezet, automatizált szegmentáció és Power BI-adattermékek.
 - **Mit tanult:** a modell csak egy része a megoldásnak; megbízhatóság, üzemeltethetőség, skála és az üzleti kontextus együtt számít.

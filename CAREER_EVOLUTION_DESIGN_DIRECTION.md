@@ -11,10 +11,10 @@ Az oldal egyedi eleme az **épülő út**: vékony függőleges vonal, nagy, hal
 ## Tipográfiai hierarchia
 
 - Hero H1: Fraunces, nagy, de nem plakátszerű.
-- Szekciócímek: Fraunces, 2–3 lépcsővel a törzsszöveg fölött.
+- Szekciócímek: Fraunces, 2-3 lépcsővel a törzsszöveg fölött.
 - Timeline-címek: Fraunces vagy a DS display token; a funkcionális alcímek sans.
 - Évek, kategóriák és címkék: IBM Plex Mono kis méretben, visszafogott teal/szürke tónussal.
-- Törzsszöveg: IBM Plex Sans, kényelmes sorköz, 60–75 karakteres sorhossz.
+- Törzsszöveg: IBM Plex Sans, kényelmes sorköz, 60-75 karakteres sorhossz.
 
 ## Felület- és akcentusstratégia
 
@@ -31,7 +31,7 @@ Az idővonal nem infografika és nem interaktív diagram. A vonal a folytonossá
 ## Mozgás
 
 - Első verzióban nincs kötelező kliensoldali animáció.
-- Később opcionális: egyszeri, 150–250 ms-os reveal; timeline-pont finom színváltása; hover a kártyán.
+- Később opcionális: egyszeri, 150-250 ms-os reveal; timeline-pont finom színváltása; hover a kártyán.
 - `prefers-reduced-motion` mellett minden tartalom statikusan jelenik meg.
 - Nincs particle canvas, parallax, automatikus scroll-vezérelt fejezetváltás vagy tartalmat elrejtő animáció.
 
