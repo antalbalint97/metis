@@ -101,7 +101,7 @@
       "Bash(ls \"c:/Users/Balint/Documents/Pet_projects/pwc_hackathon/scraper/.env\"*)",
       "Bash(node --enable-source-maps dist/index.mjs)",
       "Bash(curl -s http://localhost:3000/api/healthz)",
-      "Bash(curl -s -N -X POST http://localhost:3000/api/chat/1/messages -H 'Content-Type: application/json' -d '{\"content\": \"Melyik retail lánc növekedett a legjobban 2022–2024 között?\"}' --max-time 30)",
+      "Bash(curl -s -N -X POST http://localhost:3000/api/chat/1/messages -H 'Content-Type: application/json' -d '{\"content\": \"Melyik retail lánc növekedett a legjobban 2022-2024 között?\"}' --max-time 30)",
       "Bash(pkill -f \"dist/index.mjs\")",
       "Bash(node -e \" import\\('./dist/index.mjs'\\).then\\(\\(\\) => { setTimeout\\(async \\(\\) => { try { const { embedQuery } = await import\\('./src/lib/gemini.ts'\\); } catch\\(e\\) { console.error\\(e.message\\); } }, 500\\); }\\); \")",
       "Bash(findstr \":3000\")",
