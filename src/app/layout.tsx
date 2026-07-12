@@ -49,7 +49,7 @@ export const metadata: Metadata = {
       { url: "/brand/icon-16.png", sizes: "16x16", type: "image/png" },
       { url: "/brand/icon-32.png", sizes: "32x32", type: "image/png" },
     ],
-    shortcut: "/favicon.ico",
+    shortcut: [{ url: "/brand/icon-32.png?v=2", sizes: "32x32", type: "image/png" }],
     apple: [{ url: "/brand/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
   openGraph: {
@@ -124,7 +124,7 @@ export default function RootLayout({
             container="wide"
             logo={
               <Link href="/" aria-label="Metis">
-                <Image src="/brand/logo-horizontal.svg" alt="Metis" width={108} height={40} style={{ height: 32, width: "auto" }} priority />
+                <Image src="/brand/logo-horizontal.svg" alt="Metis" width={136} height={50} priority />
               </Link>
             }
             items={[
