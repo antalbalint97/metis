@@ -39,12 +39,14 @@ export const ALLOWED_EVENTS = new Set([
 let consentDefaultPushed = false;
 let lastConsentUpdate: AnalyticsConsent | null = null;
 let gtmBootstrapPushed = false;
-let lastPageView: { key: string; at: number } | null = null;
+let lastPageViewKey: string | null = null;
+let lastPageLocation: string | null = null;
+let activePageReferrer: string | null = null;
 
 export function ensureDataLayer(): unknown[] { window.dataLayer = window.dataLayer || []; return window.dataLayer; }
 export function cleanAnalyticsPayload(payload: AnalyticsParams): CleanAnalyticsPayload {
   return Object.fromEntries(Object.entries(payload)
-    .filter(([key, value]) => value !== undefined && value !== null && !key.startsWith("gtm."))
+    .filter(([key, value]) => value !== undefined && value !== null && key !== "gtm" && key !== "tagTypeBlacklist" && !key.startsWith("gtm."))
     .map(([key, value]) => [key, typeof value === "string" ? value.slice(0, 120) : value])) as CleanAnalyticsPayload;
 }
 export function pushDataLayerEvent(eventName: string, params: AnalyticsParams = {}) {
@@ -83,18 +85,26 @@ function resolvePageType(pathname: string) {
   if (pathname.startsWith("/fejlodesi-savok/")) return "resource";
   return "content";
 }
+function resolvePageLocation(pathname: string) {
+  const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]')?.href;
+  if (!canonical) return window.location.href;
+  try {
+    const canonicalUrl = new URL(canonical, window.location.href);
+    return canonicalUrl.pathname === pathname ? canonicalUrl.href : window.location.href;
+  } catch { return window.location.href; }
+}
 export function getPageContext(overrides: AnalyticsParams = {}): CleanAnalyticsPayload {
   const pathname = window.location.pathname;
-  const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]')?.href;
-  const canonicalMatchesRoute = canonical && new URL(canonical, window.location.href).pathname === pathname;
+  const pageLocation = resolvePageLocation(pathname);
   const contentPage = pathname.startsWith("/posts/");
+  const cleanOverrides = cleanAnalyticsPayload(overrides);
   const cleaned = cleanAnalyticsPayload({ brand: TRACKING_CONFIG.brand, brand_id: TRACKING_CONFIG.brand_id,
-    site_id: TRACKING_CONFIG.site_id, site_section: pathname.split("/").filter(Boolean)[0] || "home",
+    site_id: TRACKING_CONFIG.site_id, site_section: "main",
     page_type: resolvePageType(pathname), page_title: document.title, page_path: pathname,
-    page_location: window.location.href, page_referrer: document.referrer || undefined,
-    canonical_url: canonicalMatchesRoute ? canonical : `${TRACKING_CONFIG.site_url}${pathname}`,
+    page_location: pageLocation, page_referrer: activePageReferrer || document.referrer || undefined,
+    canonical_url: pageLocation,
     content_id: contentPage ? pathname.split("/").filter(Boolean).pop() : undefined,
-    content_title: contentPage ? document.querySelector("h1")?.textContent?.trim() : undefined, ...overrides });
+    content_title: contentPage ? document.querySelector("h1")?.textContent?.trim() : undefined, ...cleanOverrides });
   delete cleaned.event;
   return cleaned;
 }
@@ -105,11 +115,14 @@ export function trackAnalyticsEvent(name: string, params: AnalyticsParams = {}) 
 }
 export function trackPageView(overrides: AnalyticsParams = {}) {
   if (typeof window === "undefined" || !hasAnalyticsConsent()) return false;
-  const context = getPageContext(overrides);
-  const key = `${context.brand_id}|${context.page_path}|${context.page_title}`;
-  const now = Date.now();
-  if (lastPageView?.key === key && now - lastPageView.at < 1500) return false;
-  lastPageView = { key, at: now };
+  const initialContext = getPageContext(overrides);
+  const key = `${initialContext.brand_id}|${initialContext.site_id}|${initialContext.page_path}|${initialContext.page_location}|${initialContext.page_title}`;
+  if (lastPageViewKey === key) return false;
+  const nextReferrer = lastPageLocation && lastPageLocation !== initialContext.page_location ? lastPageLocation : activePageReferrer || document.referrer || undefined;
+  const context = cleanAnalyticsPayload({ ...initialContext, page_referrer: nextReferrer });
+  lastPageViewKey = key;
+  activePageReferrer = typeof context.page_referrer === "string" ? context.page_referrer : null;
+  lastPageLocation = typeof context.page_location === "string" ? context.page_location : null;
   pushDataLayerEvent("page_context", context);
   pushDataLayerEvent("page_view", context);
   return true;
