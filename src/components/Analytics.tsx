@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { TRACKING_CONFIG, ensureDataLayer, getStoredAnalyticsConsent, pushConsentDefault, pushGtmBootstrap, trackAnalyticsEvent, trackPageView, updateAnalyticsConsent, type AnalyticsConsent } from "@/lib/analytics";
 
-export { trackAnalyticsEvent } from "@/lib/analytics";
+export { trackAnalyticsEvent, trackExperimentExposure } from "@/lib/analytics";
 
 const ECOSYSTEM: Record<string, string> = { "www.meniva.net": "meniva", "meniva.net": "meniva", "ctrplane.com": "ctrlplane", "www.ctrplane.com": "ctrlplane", "metis.name": "metis", "www.metis.name": "metis", "nullfal.com": "nullfal", "www.nullfal.com": "nullfal" };
 
