@@ -38,7 +38,7 @@ export async function generateMetadata({
   return {
     title: `${post.frontmatter.title} | Metis`,
     description: post.frontmatter.excerpt,
-    alternates: { canonical: `/posts/${slug}` },
+    alternates: { canonical: post.frontmatter.originalUrl ?? `/posts/${slug}` },
     openGraph: {
       type: "article",
       locale: "hu_HU",
@@ -326,6 +326,15 @@ export default async function PostPage({
             <div className="flex gap-2">
               <ShareButton title={post.frontmatter.title} />
             </div>
+            {post.frontmatter.originalUrl ? (
+              <p className="text-[13px] text-subtle-foreground">
+                Eredetileg a{" "}
+                <a href={post.frontmatter.originalUrl} className="text-accent" rel="noopener">
+                  Substackon
+                </a>{" "}
+                jelent meg.
+              </p>
+            ) : null}
           </div>
         </Shell>
       </section>
