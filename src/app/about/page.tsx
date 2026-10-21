@@ -1,126 +1,137 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Card, PageContainer } from "@meniva/design-system";
 import type { Metadata } from "next";
+import { getAllPosts } from "@/lib/posts";
+import { formatDateShort, formatMonth, readingMinutes } from "@/lib/format";
+import { CONTACT_EMAIL } from "@/lib/site";
+import { EPISODES, SECTION_META, episodeHref } from "@/data/episodes";
+import { GhostStripes } from "@/components/site/MetisMark";
+import { Monitor, Shell } from "@/components/site/ui";
+import { WritingRow } from "@/components/site/WritingRow";
 
 export const metadata: Metadata = {
-  title: "Rólam | Metis",
-  description: "Antal Bálint adattudós és mentor szakmai háttere, tapasztalata és tanítási szemlélete.",
+  title: "Antal Bálint | Metis",
+  description: "Antal Bálint, a Metis alapítója: szociológus végzettségű adattudós, aki írásokat és beszélgetéseket készít egy házi stúdióból.",
   alternates: { canonical: "/about" },
   openGraph: { url: "/about", images: ["https://metis.name/brand/og-default.png"] },
 };
 
+const AUTHOR = "Antal Bálint";
+
 export default function AboutPage() {
+  const posts = getAllPosts();
+  const episodes = EPISODES.filter((e) => e.author === AUTHOR);
+  const items = [
+    ...posts.map((p) => ({
+      key: p.slug,
+      date: p.frontmatter.date,
+      kind: p.frontmatter.seriesTitle ?? "Esszé",
+      title: p.frontmatter.title,
+      excerpt: p.frontmatter.excerpt,
+      href: `/posts/${p.slug}`,
+      meta: `${formatDateShort(p.frontmatter.date)} · ${readingMinutes(p.content)} perc`,
+    })),
+    ...episodes.map((e) => ({
+      key: e.slug,
+      date: e.date,
+      kind: SECTION_META[e.section].singular,
+      title: e.title,
+      excerpt: e.excerpt,
+      href: episodeHref(e),
+      meta: `${formatDateShort(e.date)} · Videó · ${e.minutes} perc`,
+    })),
+  ].sort((a, b) => (a.date < b.date ? 1 : -1));
+  const since = [...items].map((i) => i.date).sort()[0];
+
   return (
-    <PageContainer size="content" className="pb-20 pt-12">
-      <header className="mb-10">
-        <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl text-foreground">
-          Rólam
-        </h1>
-        <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-          Adattudomány, statisztika, matematika és Python érthetően, lépésről lépésre.
-        </p>
-      </header>
-
-      <section className="grid gap-10 sm:grid-cols-[180px_1fr] sm:items-start">
-        <div className="sm:sticky sm:top-20">
-          <div className="overflow-hidden rounded-xl border border-border bg-muted">
-            <Image
-              src="/images/balint.jpg"
-              alt="Bálint portré"
-              width={600}
-              height={600}
-              priority
-              className="h-auto w-full object-cover"
-            />
+    <>
+      <section className="relative overflow-hidden pb-10 pt-6 lg:pb-12 lg:pt-10">
+        <GhostStripes
+          id="author-ghost"
+          className="pointer-events-none absolute -right-[120px] -top-[60px] w-[320px] lg:right-[40px] lg:top-[20px] lg:w-[340px]"
+        />
+        <Shell className="relative grid items-end gap-8 lg:grid-cols-[72px_180px_1fr_320px] lg:gap-8">
+          <div className="mt-num hidden text-[28px] lg:block">Sz·01</div>
+          <div className="h-[140px] w-[140px] overflow-hidden rounded-full bg-muted lg:h-[180px] lg:w-[180px]">
+            <Image src="/images/balint.jpg" alt="Antal Bálint portré" width={360} height={360} priority className="h-full w-full object-cover" />
           </div>
-          <p className="mt-3 text-sm text-muted-foreground">
-            Elérhetőség: learn.metis@gmail.com
-          </p>
-        </div>
-
-        <article
-          className={[
-            // Inline selector typography styling (ugyanaz a módszer, mint a postoknál)
-            "[&_p]:my-7 [&_p]:leading-relaxed [&_p]:text-muted-foreground",
-            "[&_h2]:mt-14 [&_h2]:scroll-mt-24 [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:tracking-tight [&_h2]:text-foreground",
-            "[&_h3]:mt-10 [&_h3]:scroll-mt-24 [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:tracking-tight [&_h3]:text-foreground",
-            "[&_a]:underline [&_a]:underline-offset-4 [&_a]:text-accent",
-            "[&_ul]:my-7 [&_ul]:list-disc [&_ul]:pl-7 [&_ul>li]:my-2",
-            "[&_ol]:my-7 [&_ol]:list-decimal [&_ol]:pl-7 [&_ol>li]:my-2",
-            "[&_blockquote]:my-8 [&_blockquote]:border-l-4 [&_blockquote]:border-border [&_blockquote]:pl-5 [&_blockquote]:text-muted-foreground",
-          ].join(" ")}
-        >
-          <h2>Bemutatkozás</h2>
-
-          <p>
-            Bálint vagyok, szociológus végzettségű adattudós, aki napi szinten dolgozik
-            statisztikával, matematikával, Python-nal és nagy adathalmazokkal. Nem klasszikus matekos
-            háttérből érkeztem, így saját tapasztalatból ismerem azt az utat, amelyen
-            lépésről lépésre, érthetően lehet eljutni a valódi megértésig.
-          </p>
-
-          <p>
-            Az elmúlt években adattudósként dolgoztam a kiskereskedelem, a légiipar és a média
-            területén, ahol Python, SQL, Power BI és PySpark segítségével építettem
-            skálázható elemzési és automatizációs megoldásokat. Munkám során olyan
-            problémákkal foglalkoztam, mint ügyfél-lojalitás, ügyfél lemorzsolódási és megtartási-ráta elemzés,
-            kampányhatékonyság vagy költségoptimalizálás, jellemzően nagyvállalati,
-            Azure-alapú környezetben. Számomra az adat nem öncélú számhalmaz, hanem eszköz
-            arra, hogy érthető, mérhető üzleti döntéseket támogasson.
-          </p>
-
-          <h2>Tanítás</h2>
-
-          <blockquote>
-            Hiszek abban, hogy a megértés építi a legnagyobb önbizalmat, legyen szó
-            vizsgáról, beadandóról vagy egy új technológia elsajátításáról.
-          </blockquote>
-
-          <h2>Jelenleg</h2>
-
-          <p>
-            Jelenleg a gépi tanulás és a cloud engineering (AWS, Azure) területén mélyítem
-            tovább a tudásomat, hosszú távú célom pedig olyan oktatóanyagok készítése amelyek
-            nem csak a technikai készségek átadására, hanem az elemzői gondolkodásra is tanítanak.
-          </p>
-
-          <h2>Kapcsolódjunk</h2>
-
-          <p>
-            Ha szeretnél stresszmentesebben tanulni, karrierváltáson gondolkozol, vagy csak magabiztosabban szeretnéd érteni
-            a statisztikát, a matematikát vagy a Python logikáját, szívesen segítek, lépésről lépésre.
-          </p>
-
-          <ul>
-            <li>Egyetemi vizsgafelkészülés, beadandó támogatás</li>
-            <li>Statisztika és valószínűségszámítás</li>
-            <li>Python alapok, adatelemzés, data science workflow</li>
-          </ul>
-        </article>
+          <div className="flex flex-col gap-4">
+            <p className="mt-overline">Szerző · Alapító</p>
+            <h1 className="text-[40px] font-light leading-none tracking-[-0.03em] sm:text-[56px]">Antal Bálint</h1>
+            <p className="max-w-[600px] text-[17px] leading-relaxed text-muted-foreground">
+              Szociológus végzettségű adattudós. Írásokat ír, és egy házi stúdióból készíti a Metis
+              beszélgetéseit. Témái: nyilvánosság, vitakultúra, a láthatatlan munka, és hogy mit
+              mondanak a számok az emberekről.
+            </p>
+            <div className="flex gap-4 text-[15px]">
+              <a href={`mailto:${CONTACT_EMAIL}`} className="text-accent no-underline hover:underline">E-mail</a>
+              <Link href="/about/karrier-evolucio" className="text-accent no-underline hover:underline">Karrierút</Link>
+            </div>
+          </div>
+          <dl className="relative flex flex-col text-[15px]">
+            <div className="flex justify-between border-b border-border py-2.5">
+              <dt className="text-muted-foreground">írás</dt>
+              <dd className="font-medium">{posts.length}</dd>
+            </div>
+            <div className="flex justify-between border-b border-border py-2.5">
+              <dt className="text-muted-foreground">epizód</dt>
+              <dd className="font-medium">{episodes.length}</dd>
+            </div>
+            {since ? (
+              <div className="flex justify-between py-2.5">
+                <dt className="text-muted-foreground">óta</dt>
+                <dd className="font-medium">{formatMonth(since)}</dd>
+              </div>
+            ) : null}
+          </dl>
+        </Shell>
       </section>
 
-      <Card padding="feature" className="journey-card mt-14 sm:mt-16">
-        <p className="ds-overline">A teljesebb történet</p>
-        <div className="mt-4 grid gap-6 sm:grid-cols-[1fr_auto] sm:items-end">
+      <section className="pb-20">
+        <Shell className="grid gap-12 lg:grid-cols-[1fr_320px] lg:gap-14">
           <div>
-            <h2 className="text-2xl font-semibold tracking-tight text-foreground">
-              Hogyan jutottam el a diákmunkáktól az adatos és AI-rendszerekig?
-            </h2>
-            <p className="mt-3 max-w-2xl leading-relaxed text-muted-foreground">
-              Nem egyenes karrierút volt. Öt szakaszban mutatom meg, mit tanultam közben,
-              és mi az, amit ma mentorként is továbbadok. Ez a háttér adja a
-              mentorálás alapját.
-            </p>
+            <p className="mb-4 inline-block border-b-2 border-accent pb-1 text-[15px]">Mind ({items.length})</p>
+            <div className="border-t border-border">
+              {items.map((it, i) => (
+                <WritingRow
+                  key={it.key}
+                  number={items.length - i}
+                  kind={it.kind}
+                  title={it.title}
+                  excerpt={it.excerpt}
+                  href={it.href}
+                  metaTop={AUTHOR}
+                  metaBottom={it.meta}
+                />
+              ))}
+            </div>
           </div>
-          <Link
-            href="/about/karrier-evolucio"
-            className="ds-btn ds-btn--primary ds-btn--lg whitespace-nowrap"
-          >
-            Megnézem az utat
-          </Link>
-        </div>
-      </Card>
-    </PageContainer>
+
+          <aside className="flex flex-col gap-8 lg:sticky lg:top-6 lg:self-start">
+            <Monitor className="p-7">
+              <div className="mt-scanlines" />
+              <div className="relative flex flex-col gap-3">
+                <p className="mt-overline">Transzparencia</p>
+                <p className="text-sm leading-relaxed text-monitor-muted">
+                  A Metis nem piaci alapon működik. A szerző nem kap fizetést a projektért. A
+                  felszerelés saját. Támogatás: nincs.
+                </p>
+                <Link href="/rolunk" className="text-sm text-monitor-accent no-underline hover:underline">
+                  Részletek →
+                </Link>
+              </div>
+            </Monitor>
+            <div className="flex flex-col gap-3">
+              <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Bemutatkozás</p>
+              <p className="text-[15px] leading-relaxed text-muted-foreground">
+                Nem klasszikus matekos háttérből érkeztem, adattudósként dolgoztam a
+                kiskereskedelem, a légiipar és a média területén. Számomra az adat nem öncélú
+                számhalmaz, hanem eszköz arra, hogy jobban értsük egymást.
+              </p>
+            </div>
+          </aside>
+        </Shell>
+      </section>
+    </>
   );
 }

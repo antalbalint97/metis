@@ -5,6 +5,11 @@ const nextConfig: NextConfig = {
   transpilePackages: ["@meniva/design-system"],
   async redirects() {
     return [
+      // Pages retired in the 2026 identity redesign.
+      { source: "/fejlodesi-savok/:path*", destination: "/", permanent: true },
+      { source: "/mentorprogram", destination: "/rolunk", permanent: true },
+      { source: "/glossary", destination: "/posts", permanent: true },
+      { source: "/esszek", destination: "/posts", permanent: true },
       {
         source: "/:path*",
         has: [{ type: "host", value: "metis-pi-five.vercel.app" }],

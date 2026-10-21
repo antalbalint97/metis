@@ -1,25 +1,24 @@
 import type { Metadata, Viewport } from "next";
-import { IBM_Plex_Sans, IBM_Plex_Mono, Fraunces } from "next/font/google";
-import Link from "next/link";
-import Image from "next/image";
+import { Inter, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 // Design-system tokens and component styles (tokens before components).
 import "@meniva/design-system/styles/tokens.css";
 import "@meniva/design-system/styles/components.css";
-import { Footer as DSFooter, Navbar } from "@meniva/design-system";
 import { SITE_URL } from "@/lib/site";
 import Analytics from "@/components/Analytics";
+import { SiteHeader } from "@/components/site/SiteHeader";
+import { SiteFooter } from "@/components/site/SiteFooter";
 
-// Shared body/UI font for the MMNC family. The DS only names the family
-// ('IBM Plex Sans'); the app loads the actual faces here via next/font and wires
-// them to the DS --font-sans/--font-mono tokens in globals.css.
-const ibmPlexSans = IBM_Plex_Sans({
+// The Metis abstract identity system uses Inter for display and body alike;
+// globals.css wires it into the DS --font-display/--font-sans tokens.
+const inter = Inter({
   subsets: ["latin", "latin-ext"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
-  variable: "--font-ibm-plex-sans",
+  variable: "--font-inter",
 });
 
+// Monospace for code blocks.
 const ibmPlexMono = IBM_Plex_Mono({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -27,19 +26,14 @@ const ibmPlexMono = IBM_Plex_Mono({
   variable: "--font-ibm-plex-mono",
 });
 
-// Warm display serif for the Metis brand, provided to the design system via
-// the --font-fraunces variable that the DS metis tokens read for --font-display.
-const fraunces = Fraunces({
-  subsets: ["latin", "latin-ext"],
-  display: "swap",
-  variable: "--font-fraunces",
-  weight: ["400", "500", "600", "700"],
-});
+const SITE_TITLE = "Metis | Történetek és viták, amelyek máshol nem férnek be";
+const SITE_DESCRIPTION =
+  "Vlog, podcast és írások egy házi stúdióból: szociográfia, vitakultúra, szolidaritás. Olyan történetek és viták, amelyek a nagy médiumokba nem férnek be.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Metis | Adatelemzés és mentorálás",
-  description: "Antal Bálint mentor- és tanulótere adatelemzéshez, statisztikához, data science-hez és ML-hez.",
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
   authors: [{ name: "Antal Bálint", url: `${SITE_URL}/about` }],
   alternates: { canonical: "/" },
   icons: {
@@ -56,15 +50,15 @@ export const metadata: Metadata = {
     type: "website",
     locale: "hu_HU",
     siteName: "Metis",
-    title: "Metis | Adatelemzés és mentorálás",
-    description: "Antal Bálint mentor- és tanulótere adatelemzéshez, statisztikához, data science-hez és ML-hez.",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
     url: "/",
     images: [{ url: `${SITE_URL}/brand/og-default.png`, width: 1200, height: 630, alt: "Metis" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Metis | Adatelemzés és mentorálás",
-    description: "Antal Bálint mentor- és tanulótere adatelemzéshez, statisztikához, data science-hez és ML-hez.",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
     images: [`${SITE_URL}/brand/og-default.png`],
   },
 };
@@ -77,9 +71,8 @@ const structuredData = {
       "@type": "WebSite",
       "@id": `${SITE_URL}/#website`,
       name: "Metis",
-      alternateName: "Metis Data Mentoring",
       url: SITE_URL,
-      description: "Antal Bálint mentor- és tanulótere adatelemzéshez, statisztikához, data science-hez és ML-hez.",
+      description: SITE_DESCRIPTION,
       inLanguage: "hu-HU",
       image: `${SITE_URL}/brand/og-default.png`,
       publisher: { "@id": PERSON_ID },
@@ -97,7 +90,7 @@ const structuredData = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#FAF7F1",
+  themeColor: "#FAF8F5",
   colorScheme: "light",
 };
 
@@ -110,39 +103,16 @@ export default function RootLayout({
     <html
       lang="hu"
       data-brand="metis"
-      className={`${ibmPlexSans.variable} ${ibmPlexMono.variable} ${fraunces.variable}`}
+      className={`${inter.variable} ${ibmPlexMono.variable}`}
     >
       <body className="min-h-screen bg-background text-foreground font-sans antialiased">
         <Analytics />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
-        {/* Page shell */}
-        <div className="min-h-screen flex flex-col">
-          {/* Shared DS shell: Navbar (72/64 height, mobile toggle). Logo is the
-              DS Metis lettermark; wrapped in a Next Link for client-side routing. */}
-          <Navbar
-            sticky
-            container="wide"
-            logo={
-              <Link href="/" aria-label="Metis">
-                <Image src="/brand/logo-horizontal.svg" alt="Metis" width={136} height={50} priority />
-              </Link>
-            }
-            items={[
-              { label: "Kezdőlap", href: "/" },
-              { label: "Cikkek", href: "/posts" },
-              { label: "Fogalomtár", href: "/glossary" },
-              { label: "Rólam", href: "/about" },
-            ]}
-          />
-
-          {/* Content width is owned per page via PageContainer. */}
+        <div className="flex min-h-screen flex-col">
+          <SiteHeader />
+          {/* Content width is owned per page. */}
           <main className="flex-1">{children}</main>
-
-          {/* Footer band always at bottom */}
-          <DSFooter
-            container="wide"
-            copyright={`© ${new Date().getFullYear()} Metis`}
-          />
+          <SiteFooter />
         </div>
       </body>
     </html>

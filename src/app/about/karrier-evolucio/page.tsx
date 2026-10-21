@@ -44,9 +44,9 @@ export default function CareerEvolutionPage() {
             ),
           }}
           secondaryAction={{
-            label: "Mentorprogram",
+            label: "Írások",
             render: ({ className, children }) => (
-              <Link href="/mentorprogram" className={className}>
+              <Link href="/posts" className={className}>
                 {children}
               </Link>
             ),
@@ -237,16 +237,16 @@ export default function CareerEvolutionPage() {
           <Card padding="feature" className="text-center">
             <SectionHeader
               align="center"
-              overline="A te következő lépésed"
-              title="Nem kész pályatervet adok, hanem kapaszkodókat az építkezéshez"
-              description="Ha jól jönne egy tapasztalt külső nézőpont, a mentorprogramban közösen bontjuk le a célodat tanulható, gyakorolható lépésekre. Ha előbb egyedül néznél körül, kezdd a fejlődési sávokkal."
+              overline="Folytatás"
+              title="A történetek itt nem érnek véget"
+              description="Az írásaimban és a Metis beszélgetéseiben ugyanezt keresem: hogyan látjuk egymás valóságát. Ha van mondanivalód, írj nekünk."
             />
             <div className="mt-7 flex flex-wrap justify-center gap-3">
-              <Link href="/mentorprogram" className="ds-btn ds-btn--primary ds-btn--lg">
-                Mentorprogram
+              <Link href="/posts" className="ds-btn ds-btn--primary ds-btn--lg">
+                Írások
               </Link>
-              <Link href="/#fejlodesi-savok" className="ds-btn ds-btn--outline ds-btn--lg">
-                Fejlődési sávok
+              <Link href="/irj-nekunk" className="ds-btn ds-btn--outline ds-btn--lg">
+                Írj nekünk
               </Link>
             </div>
           </Card>
