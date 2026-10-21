@@ -15,7 +15,7 @@ No test suite is configured.
 
 ## Architecture
 
-**Metis Blog** is a Hungarian-language data education blog built with Next.js App Router + Static Site Generation.
+**Metis** (metis.name) is a Hungarian-language vlog, podcast and essay site (sociography, debate culture, solidarity) built with Next.js App Router + Static Site Generation. The visual language is the "Metis abstract identity system": Inter, warm off-white, charcoal, teal, the half-circle sign as a background motif, numbered lists and a dark "monitor" card.
 
 ### Content System
 
@@ -35,27 +35,29 @@ Posts render via `react-markdown` with custom component overrides in [src/compon
 
 Plugins in use: `remark-gfm`, `rehype-raw`, `rehype-slug`.
 
+### Episodes
+
+- Video/podcast episodes of the Életképek, Vita and Beszélgetések sections live in [src/data/episodes.ts](src/data/episodes.ts) (`youtubeId` embeds the player)
+- Shared templates: [SectionPage](src/components/site/SectionPage.tsx) and [EpisodePage](src/components/site/EpisodePage.tsx)
+
 ### Styling
 
-Tailwind CSS 4 with custom CSS variables defined in [src/app/globals.css](src/app/globals.css):
-- `--color-primary`, `--color-secondary`, `--color-muted`, `--color-foreground`, `--color-border`, `--color-surface`
-- Max-width containers: `740px` for main content, `1040px` for wider sections
+Tailwind CSS 4 with tokens in [src/app/globals.css](src/app/globals.css) (`--accent` teal, `--monitor-*` for the dark card) plus the `mt-*` identity classes (`mt-overline`, `mt-monitor`, `mt-scanlines`, `mt-num`, `mt-chip`, `mt-prose`). Site chrome and shared pieces are in [src/components/site/](src/components/site/).
+- Page width: `Shell` (max 1440px, 64px desktop gutters); reading column 720px
 - Light theme only (no dark mode)
 
 ### Page Structure
 
 ```
 src/app/
-├── layout.tsx              # Root layout — header, nav, footer
-├── page.tsx                # Homepage with hero + testimonials carousel
-├── posts/[slug]/page.tsx   # Dynamic blog post renderer
-├── glossary/               # Glossary page
-├── about/                  # About page
-├── mentorprogram/          # Mentor program landing page
-└── fejlodesi-savok/        # 4 learning path pages (data-analyst, data-scientist, machine-learning-engineer, software-engineer)
+├── layout.tsx                  # Root layout: SiteHeader, SiteFooter, analytics
+├── page.tsx                    # Homepage: newest Életképek episode, episode list, essays, debate
+├── eletkepek|vita|beszelgetesek/  # Section pages + [slug] episode pages
+├── posts/                      # Esszék index + [slug] reader view
+├── about/                      # Author profile (Antal Bálint) + karrier-evolucio
+├── rolunk/                     # About the project
+└── irj-nekunk/                 # Submission form (opens a pre-filled e-mail; no backend)
 ```
-
-Shared testimonial data lives in [src/data/testimonials.ts](src/data/testimonials.ts) and is consumed by both the homepage and the mentor program page.
 
 ### Key Notes
 

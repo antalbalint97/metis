@@ -13,40 +13,50 @@
   Muted fg   : warm gray         #57534E
   Muted bg   : stone tint        #F3EFE7
   Border     : subtle warm gray  #E4DDD2
-  Accent     : forest green      #35694E
+  Accent     : teal              #2A7E6E
   Accent fg  : white on accent   #FFFFFF
-  Ring       : focus ring forest #35694E (with alpha)
+  Ring       : focus ring teal   #2A7E6E (with alpha)
 */
 
 :root {
   color-scheme: light;
 
   /* ── Core surfaces ── */
-  --background: #FAF7F1;
+  --background: #FAF8F5;
   --foreground: #1C1917;
   --surface: #FFFFFF;
 
   /* ── Muted / secondary ── */
-  --muted: #F3EFE7;
+  --muted: #F5F0EB;
   --muted-foreground: #57534E;
 
   /* ── Borders ── */
-  --border: #E4DDD2;
-  --border-strong: #CDC4B7;
+  --border: #E7E0D8;
+  --border-strong: #D4CCC3;
+  --subtle-foreground: #8A847C;
 
-  /* ── Accent (forest) ── */
-  --accent: #35694E;
-  --accent-hover: #2B5941;
+  /* ── Accent (teal) ── */
+  --accent: #2A7E6E;
+  --accent-hover: #22685B;
   --accent-foreground: #FFFFFF;
-  --accent-muted: #E7EFE8;
+  --accent-muted: #E8F4F1;
+
+  /* ── Monitor (dark card) ── */
+  --monitor: #141416;
+  --monitor-line: #292524;
+  --monitor-border: #3F3F46;
+  --monitor-foreground: #F5F0EB;
+  --monitor-muted: #A8A29E;
+  --monitor-accent: #3DBDA8;
+  --ink: #1C1917;
 
   /* ── Primary (charcoal for buttons) ── */
   --primary: #1C1917;
   --primary-hover: #292524;
-  --primary-foreground: #FAF7F1;
+  --primary-foreground: #FAF8F5;
 
   /* ── Interactive / focus ── */
-  --ring: #35694E;
+  --ring: #2A7E6E;
 
   /* ── Radius scale ── */
   --radius-sm: 0.375rem;
@@ -70,6 +80,14 @@
   --color-surface: var(--surface);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
+  --color-subtle-foreground: var(--subtle-foreground);
+  --color-monitor: var(--monitor);
+  --color-monitor-line: var(--monitor-line);
+  --color-monitor-border: var(--monitor-border);
+  --color-monitor-foreground: var(--monitor-foreground);
+  --color-monitor-muted: var(--monitor-muted);
+  --color-monitor-accent: var(--monitor-accent);
+  --color-ink: var(--ink);
   --color-border: var(--border);
   --color-border-strong: var(--border-strong);
   --color-accent: var(--accent);
@@ -81,8 +99,8 @@
   --color-primary-foreground: var(--primary-foreground);
   --color-ring: var(--ring);
 
-  /* Typography: shared family fonts loaded via next/font (layout.tsx). */
-  --font-sans: var(--font-ibm-plex-sans), system-ui, sans-serif;
+  /* Typography: fonts loaded via next/font (layout.tsx). */
+  --font-sans: var(--font-inter), system-ui, sans-serif;
   --font-mono: var(--font-ibm-plex-mono), ui-monospace, monospace;
 
   /* Radius */
@@ -93,24 +111,15 @@
   --radius-xl: 1.25rem;
 }
 
-/* Wire the shared IBM Plex faces (next/font) into the DS metis font tokens so
-   ds-* components use the loaded faces. `html[data-brand]` outranks the DS
-   `[data-brand]` block regardless of stylesheet import order. Display stays
-   Fraunces via --font-fraunces (set in layout). This is the only token subset
-   migrated in this slice; the rest of the parallel layer is intentionally kept. */
+/* Wire the next/font faces into the DS metis font tokens so ds-* components
+   use the loaded faces. The abstract identity system uses Inter for both
+   display and body; hierarchy comes from weight (300 headlines) and tracking.
+   `html[data-brand]` outranks the DS `[data-brand]` block regardless of
+   stylesheet import order. */
 html[data-brand="metis"] {
-  --font-sans: var(--font-ibm-plex-sans), system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-inter), system-ui, -apple-system, sans-serif;
+  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
   --font-mono: var(--font-ibm-plex-mono), ui-monospace, monospace;
-}
-
-/* Card titles use the body sans, not the Fraunces display face: short/structured
-   card titles (e.g. "Data Analyst", "Fejlődési sávok") read better as sans than
-   ornamental serif. Fraunces stays for the hero title and SectionHeader
-   display/editorial headings. Scoped override only; the DS package is unchanged. */
-html[data-brand="metis"] .ds-course-card__title,
-html[data-brand="metis"] .ds-service-card__title {
-  font-family: var(--font-sans);
-  letter-spacing: var(--tracking-tight);
 }
 
 /* ── Base styles ── */
@@ -126,8 +135,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Headings use the design-system display font (Metis = warm Fraunces serif).
-   Body text stays Inter for readability. */
+/* Headings use the design-system display font (Inter in the Metis identity). */
 h1, h2, h3, h4 {
   font-family: var(--font-display);
 }
@@ -237,3 +245,232 @@ h1, h2, h3, h4 {
 .final-cta {
   background: var(--muted) !important;
 }
+
+/* ──────────────────────────────────────────────
+   METIS ABSTRACT IDENTITY SYSTEM
+   Shared pieces of the redesign: overlines, the dark
+   "monitor" card, numbered rows, outlined chips.
+   ────────────────────────────────────────────── */
+
+.mt-overline {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* Wide-tracked tagline ("Szociográfia · Vitakultúra · Szolidaritás"). */
+.mt-tagline {
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+
+.mt-wordmark {
+  font-weight: 500;
+  letter-spacing: 0.42em;
+}
+
+/* The dark monitor card used for video, quotes and highlighted boxes. */
+.mt-monitor {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: var(--monitor);
+  color: var(--monitor-foreground);
+  box-shadow: 0 20px 25px -5px rgba(28, 25, 23, 0.07), 0 8px 10px -6px rgba(28, 25, 23, 0.04);
+}
+
+.mt-monitor .mt-overline {
+  color: var(--monitor-accent);
+}
+
+/* CRT-like scanlines over the monitor surface. */
+.mt-scanlines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.03) 0px,
+    rgba(255, 255, 255, 0.03) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+}
+
+.mt-play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  transform: translate(-50%, -50%);
+  border-radius: 999px;
+  background: rgba(245, 240, 235, 0.92);
+  color: var(--ink);
+}
+
+/* Big light numerals of the numbered lists (episodes, writings, steps). */
+.mt-num {
+  font-weight: 300;
+  color: var(--subtle-foreground);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Writing card: heavy top rule + title + excerpt + meta. */
+.mt-rule-top {
+  border-top: 2px solid var(--foreground);
+}
+
+.mt-chip {
+  display: inline-flex;
+  align-items: center;
+  height: 2.25rem;
+  padding: 0 0.95rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: border-color 160ms ease, color 160ms ease, background-color 160ms ease;
+}
+
+.mt-chip:hover {
+  border-color: var(--border-strong);
+  color: var(--foreground);
+}
+
+.mt-chip[aria-pressed="true"] {
+  border-color: var(--foreground);
+  background: var(--foreground);
+  color: var(--primary-foreground);
+}
+
+.mt-chip--accent[aria-pressed="true"] {
+  border-color: var(--accent);
+  background: var(--accent-muted);
+  color: var(--accent);
+}
+
+.mt-field {
+  width: 100%;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  padding: 0.85rem 0.9rem;
+  color: var(--foreground);
+  font-size: 1rem;
+}
+
+.mt-field::placeholder {
+  color: var(--subtle-foreground);
+}
+
+.mt-field:focus {
+  outline: none;
+  border-color: var(--ring);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--ring) 20%, transparent);
+}
+
+/* Article body typography (reader view). */
+.mt-prose {
+  font-size: 1.125rem;
+  line-height: 1.7;
+}
+
+@media (min-width: 640px) {
+  .mt-prose {
+    font-size: 1.1875rem;
+  }
+}
+
+.mt-prose h2 {
+  margin: 3.5rem 0 1.25rem;
+  font-size: 1.75rem;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  scroll-margin-top: 6rem;
+}
+
+.mt-prose h3 {
+  margin: 2.5rem 0 1rem;
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.mt-prose a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.mt-prose ul,
+.mt-prose ol {
+  margin: 0.25rem 0;
+  padding-left: 1.5rem;
+}
+
+.mt-prose ul { list-style: disc; }
+.mt-prose ol { list-style: decimal; }
+.mt-prose li { margin: 0.25rem 0; padding-left: 0.25rem; }
+.mt-prose li > p { margin: 0; }
+.mt-prose p + ul,
+.mt-prose p + ol { margin-top: 1rem; }
+
+/* Blockquotes become the dark monitor quote card. */
+.mt-prose blockquote {
+  position: relative;
+  overflow: hidden;
+  margin: 2.5rem 0;
+  border-radius: var(--radius-lg);
+  background: var(--monitor);
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.03) 0px,
+    rgba(255, 255, 255, 0.03) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+  padding: 2.25rem 2rem 2rem;
+  color: var(--monitor-foreground);
+  font-size: 1.4rem;
+  font-weight: 300;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
+@media (min-width: 640px) {
+  .mt-prose blockquote {
+    padding: 2.5rem 2.75rem;
+    font-size: 1.6rem;
+  }
+}
+
+.mt-prose blockquote::before {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 2px;
+  margin-bottom: 1.1rem;
+  background: var(--monitor-accent);
+}
+
+.mt-prose blockquote p { margin: 0 !important; }
+.mt-prose blockquote strong { font-weight: 500; }
+.mt-prose blockquote a { color: var(--monitor-accent); }
+
+.mt-prose hr { margin: 2.5rem 0; border-color: var(--border); }
+.mt-prose details { margin: 2rem 0; }
+.mt-prose summary { cursor: pointer; user-select: none; }
+.mt-prose table { margin: 2rem 0; width: 100%; border-collapse: collapse; font-size: 1rem; }
+.mt-prose th { border: 1px solid var(--border); background: var(--muted); padding: 0.75rem; text-align: left; }
+.mt-prose td { border: 1px solid var(--border); padding: 0.75rem; }

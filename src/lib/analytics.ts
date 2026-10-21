@@ -188,9 +188,9 @@ function resolvePageType(pathname: string) {
   if (brand === "metis") {
     if (pathname.startsWith("/posts/")) return "article";
     if (pathname === "/posts") return "article_index";
-    if (pathname === "/mentorprogram") return "mentor_program";
-    if (pathname === "/glossary") return "glossary";
-    if (pathname.startsWith("/fejlodesi-savok/")) return "resource";
+    if (/^\/(eletkepek|vita|beszelgetesek)\/.+/.test(pathname)) return "episode";
+    if (["/eletkepek", "/vita", "/beszelgetesek"].includes(pathname)) return "episode_index";
+    if (pathname === "/irj-nekunk") return "submission";
   }
   if (brand === "ctrlplane" && pathname.startsWith("/irasok/")) return "article";
   return "content";

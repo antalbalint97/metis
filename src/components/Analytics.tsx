@@ -76,10 +76,10 @@ export default function Analytics() {
   useEffect(() => { const open = () => setShowBanner(true); window.addEventListener("open-analytics-settings", open); return () => window.removeEventListener("open-analytics-settings", open); }, []);
 
   return showBanner ? (
-    <aside role="dialog" aria-label="Analitikai sütik" style={{ position: "fixed", zIndex: 1000, left: 16, right: 16, bottom: 16, maxWidth: 680, margin: "auto", padding: 20, borderRadius: 12, background: "#111827", color: "white", boxShadow: "0 16px 48px rgba(0,0,0,.3)" }}>
+    <aside role="dialog" aria-label="Analitikai sütik" style={{ position: "fixed", zIndex: 1000, left: 16, right: 16, bottom: 16, maxWidth: 680, margin: "auto", padding: 20, borderRadius: 12, background: "var(--monitor)", color: "var(--monitor-foreground)", boxShadow: "0 16px 48px rgba(0,0,0,.3)" }}>
       <strong>Analitikai sütik</strong>
-      <p style={{ margin: "8px 0 16px", lineHeight: 1.5 }}>Névtelen használati adatokat csak a beleegyezésed után gyűjtünk. Hirdetési célú tárolást nem használunk. <a href="/privacy" style={{ color: "#93c5fd" }}>Adatvédelmi tájékoztató</a></p>
-      <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}><button type="button" onClick={() => choose("granted")} className="ds-btn ds-btn--primary ds-btn--sm">Elfogadom</button><button type="button" onClick={() => choose("denied")} className="ds-btn ds-btn--outline ds-btn--sm" style={{ color: "white" }}>Elutasítom</button></div>
+      <p style={{ margin: "8px 0 16px", lineHeight: 1.5 }}>Névtelen használati adatokat csak a beleegyezésed után gyűjtünk. Hirdetési célú tárolást nem használunk. <a href="/privacy" style={{ color: "var(--monitor-accent)" }}>Adatvédelmi tájékoztató</a></p>
+      <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}><button type="button" onClick={() => choose("granted")} className="ds-btn ds-btn--sm" style={{ background: "var(--monitor-accent)", color: "var(--ink)", borderColor: "var(--monitor-accent)" }}>Elfogadom</button><button type="button" onClick={() => choose("denied")} className="ds-btn ds-btn--outline ds-btn--sm" style={{ color: "var(--monitor-foreground)", borderColor: "var(--monitor-border)" }}>Elutasítom</button></div>
     </aside>
-  ) : <button type="button" onClick={() => setShowBanner(true)} style={{ position: "fixed", zIndex: 900, right: 12, bottom: 12, padding: "7px 10px", borderRadius: 8, border: "1px solid #9ca3af", background: "#fff", color: "#111827", fontSize: 12 }}>Süti beállítások</button>;
+  ) : <button type="button" onClick={() => setShowBanner(true)} style={{ position: "fixed", zIndex: 900, right: 12, bottom: 12, padding: "7px 10px", borderRadius: 8, border: "1px solid var(--border-strong)", background: "var(--background)", color: "var(--foreground)", fontSize: 12 }}>Süti beállítások</button>;
 }
