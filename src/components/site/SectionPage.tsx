@@ -4,7 +4,7 @@ import { formatDateShort } from "@/lib/format";
 import { SECTION_META, episodeHref, getEpisodes, getLatestEpisode, type SectionKey } from "@/data/episodes";
 import { GhostMark } from "./MetisMark";
 import { EpisodeList } from "./EpisodeList";
-import { AuthorsBox, Monitor, Screen, Shell, pad2 } from "./ui";
+import { AuthorsBox, ComingSoonMonitor, Monitor, Screen, Shell, pad2 } from "./ui";
 
 /** Series page (Életképek, Vita, Beszélgetések): lead + newest episode, numbered list, stats. */
 export function SectionPage({ section }: { section: SectionKey }) {
@@ -49,30 +49,42 @@ export function SectionPage({ section }: { section: SectionKey }) {
                 </p>
               </div>
             </Monitor>
-          ) : null}
-        </Shell>
-      </section>
-
-      <section className="pb-16">
-        <Shell>
-          {episodes.length ? (
-            <EpisodeList episodes={episodes} overline="Sorozat" />
           ) : (
-            <p className="text-muted-foreground">Hamarosan érkezik az első epizód.</p>
+            <ComingSoonMonitor
+              label={meta.label}
+              text="Az első epizódok most készülnek. Ha van ötleted vagy vendégjavaslatod, írj nekünk."
+            />
           )}
         </Shell>
       </section>
 
+      {episodes.length ? (
+        <section className="pb-16">
+          <Shell>
+            <EpisodeList episodes={episodes} overline="Sorozat" />
+          </Shell>
+        </section>
+      ) : null}
+
       <section className="pb-20">
         <Shell className="grid gap-8 sm:grid-cols-3 lg:grid-cols-[1fr_1fr_1fr_420px] lg:gap-6">
-          <div className="mt-rule-top flex flex-col gap-1 pt-4">
-            <span className="text-[32px] font-normal">{episodes.length}</span>
-            <span className="text-[13px] text-subtle-foreground">epizód eddig</span>
-          </div>
-          <div className="mt-rule-top flex flex-col gap-1 pt-4">
-            <span className="text-[32px] font-normal">~{avg} perc</span>
-            <span className="text-[13px] text-subtle-foreground">egy beszélgetés</span>
-          </div>
+          {episodes.length ? (
+            <>
+              <div className="mt-rule-top flex flex-col gap-1 pt-4">
+                <span className="text-[32px] font-normal">{episodes.length}</span>
+                <span className="text-[13px] text-subtle-foreground">epizód eddig</span>
+              </div>
+              <div className="mt-rule-top flex flex-col gap-1 pt-4">
+                <span className="text-[32px] font-normal">~{avg} perc</span>
+                <span className="text-[13px] text-subtle-foreground">egy beszélgetés</span>
+              </div>
+            </>
+          ) : (
+            <div className="mt-rule-top flex flex-col gap-1 pt-4 sm:col-span-2">
+              <span className="text-[32px] font-normal">Hamarosan</span>
+              <span className="text-[13px] text-subtle-foreground">az első epizód</span>
+            </div>
+          )}
           <div className="mt-rule-top flex flex-col gap-1 pt-4">
             <span className="text-[32px] font-normal">2 hetente</span>
             <span className="text-[13px] text-subtle-foreground">új epizód</span>

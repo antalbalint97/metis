@@ -5,7 +5,7 @@ import { formatDateShort, readingMinutes } from "@/lib/format";
 import { TAGLINE } from "@/lib/site";
 import { episodeHref, getLatestEpisode, getEpisodes } from "@/data/episodes";
 import { GhostMark } from "@/components/site/MetisMark";
-import { AuthorsBox, Monitor, pad2, Screen, SectionHead, Shell, WritingCard } from "@/components/site/ui";
+import { AuthorsBox, ComingSoonMonitor, Monitor, pad2, Screen, SectionHead, Shell, WritingCard } from "@/components/site/ui";
 import { EpisodeRow } from "@/components/site/EpisodeRow";
 
 export const metadata: Metadata = {
@@ -60,21 +60,28 @@ export default function HomePage() {
                 </p>
               </div>
             </Monitor>
-          ) : null}
+          ) : (
+            <ComingSoonMonitor
+              label="Életképek"
+              text="Emberek és élethelyzetek, akikről a nagy médiumok nem forgatnak. Az első epizódok most készülnek."
+            />
+          )}
         </Shell>
       </section>
 
-      {/* Életképek: every episode, in order. */}
-      <section className="pb-16">
-        <Shell>
-          <SectionHead overline="Életképek" title="Az összes epizód, sorban" href="/eletkepek" />
-          <div className="mt-7 border-t border-border">
-            {rest.map((e) => (
-              <EpisodeRow key={e.slug} episode={e} />
-            ))}
-          </div>
-        </Shell>
-      </section>
+      {/* Életképek: every episode, in order (once there is more than the featured one). */}
+      {rest.length ? (
+        <section className="pb-16">
+          <Shell>
+            <SectionHead overline="Életképek" title="Az összes epizód, sorban" href="/eletkepek" />
+            <div className="mt-7 border-t border-border">
+              {rest.map((e) => (
+                <EpisodeRow key={e.slug} episode={e} />
+              ))}
+            </div>
+          </Shell>
+        </section>
+      ) : null}
 
       {/* Esszék + Vita */}
       <section className="pb-16 lg:pb-20">
@@ -110,7 +117,20 @@ export default function HomePage() {
                 </h3>
                 <p className="text-sm leading-normal text-muted-foreground">{debate.excerpt}</p>
               </article>
-            ) : null}
+            ) : (
+              <article className="flex flex-col gap-3">
+                <Monitor flat className="!rounded-[var(--radius-md)] !bg-ink">
+                  <Screen title="Vita" aspect="aspect-video" play={false} />
+                </Monitor>
+                <h3 className="text-xl font-semibold leading-snug">Hamarosan: az első vita</h3>
+                <p className="text-sm leading-normal text-muted-foreground">
+                  Két álláspont, egy asztal, moderátorral. Van egy kérdés, amiről két oldalt is meg kéne hallgatni?{" "}
+                  <Link href="/irj-nekunk?tipus=vendeg" className="text-accent">
+                    Javasolj vitatémát.
+                  </Link>
+                </p>
+              </article>
+            )}
             <AuthorsBox
               text="Nem hozták le? Küldd be ide. Minden írásra indoklással válaszolunk."
               cta="Beküldés"
