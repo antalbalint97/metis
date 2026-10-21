@@ -116,6 +116,25 @@ export function WritingCard({
   );
 }
 
+/** Monitor card for a section that has no published episode yet. */
+export function ComingSoonMonitor({ label, text }: { label: string; text: string }) {
+  return (
+    <Monitor className="grid md:grid-cols-[1fr_300px]">
+      <Screen title={label} play={false} />
+      <div className="flex flex-col justify-between gap-6 px-7 py-8">
+        <div className="flex flex-col gap-3.5">
+          <p className="mt-overline">{label} · Hamarosan</p>
+          <h2 className="text-[28px] font-medium leading-tight text-monitor-foreground">Hamarosan indul</h2>
+          <p className="text-sm leading-relaxed text-monitor-muted">{text}</p>
+        </div>
+        <Link href="/irj-nekunk?tipus=vendeg" className="text-[13px] text-monitor-accent no-underline hover:underline">
+          Vendéget ajánlanék →
+        </Link>
+      </div>
+    </Monitor>
+  );
+}
+
 /** Outlined call-to-action box for contributors ("Szerzőknek"). */
 export function AuthorsBox({
   text,

@@ -10,6 +10,8 @@ type Frontmatter = {
   seriesTitle?: string;
   seriesOrder?: number;
   ogImage?: string;
+  /** Original publication (e.g. Substack): shown as a source link and used as canonical URL. */
+  originalUrl?: string;
 };
 
 export type Post = {
@@ -82,6 +84,7 @@ function parseFrontmatter(raw: string): { frontmatter: Frontmatter; content: str
     seriesTitle: toOptionalString(fm.seriesTitle),
     seriesOrder: toOptionalNumber(fm.seriesOrder),
     ogImage: toOptionalString(fm.ogImage ?? fm.image),
+    originalUrl: toOptionalString(fm.originalUrl),
   };
 
   return { frontmatter, content };

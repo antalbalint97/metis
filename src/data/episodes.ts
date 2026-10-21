@@ -2,8 +2,9 @@
  * Video / podcast episodes of the three video sections.
  *
  * NOTE: the entries below are the sample texts of the redesign plan
- * ("A szövegek példaszövegek"). Replace them with the real episodes, and add
- * `youtubeId` to embed the player instead of the placeholder screen.
+ * ("A szövegek példaszövegek"). They carry `sample: true` and are kept out of
+ * the site, so sections show a "Hamarosan" state. Add real episodes without
+ * the flag, with `youtubeId` to embed the player.
  */
 
 export type SectionKey = "eletkepek" | "vita" | "beszelgetesek";
@@ -60,12 +61,15 @@ export type Episode = {
   chapters?: Chapter[];
   transcript?: TranscriptLine[];
   links?: { label: string; href: string }[];
+  /** Placeholder text from the design plan: never published. */
+  sample?: boolean;
 };
 
-export const EPISODES: Episode[] = [
+const ALL_EPISODES: Episode[] = [
   {
     slug: "ejszakai-muszak",
     section: "eletkepek",
+    sample: true,
     number: 1,
     title: "Éjszakai műszak",
     excerpt: "Harminc év a sürgősségin. Egy ápoló arról, mit nem lát a beteg, és mit nem lát a rendszer.",
@@ -95,6 +99,7 @@ export const EPISODES: Episode[] = [
   {
     slug: "a-tanterem-utan",
     section: "eletkepek",
+    sample: true,
     number: 2,
     title: "A tanterem után",
     excerpt: "Egy vidéki tanár, aki délután futárkodik. Nem panasz, csak leltár.",
@@ -105,6 +110,7 @@ export const EPISODES: Episode[] = [
   {
     slug: "fedel-nelkul-nem-hang-nelkul",
     section: "eletkepek",
+    sample: true,
     number: 3,
     title: "Fedél nélkül, nem hang nélkül",
     excerpt: "Két év az utcán, egy a szállón. Mit jelent elveszteni, aztán visszakérni a láthatóságot.",
@@ -115,6 +121,7 @@ export const EPISODES: Episode[] = [
   {
     slug: "a-falu-orvosa",
     section: "eletkepek",
+    sample: true,
     number: 4,
     title: "A falu orvosa",
     excerpt: "Egy háziorvos, aki három településen rendel, és tudja mindenki nevét.",
@@ -125,6 +132,7 @@ export const EPISODES: Episode[] = [
   {
     slug: "alapjovedelem-ket-allaspont-egy-asztal",
     section: "vita",
+    sample: true,
     number: 1,
     title: "Alapjövedelem: két álláspont, egy asztal",
     excerpt: "Közgazdász és szociális munkás, 60 perc, moderátorral. Nem kell egyetérteniük.",
@@ -135,6 +143,7 @@ export const EPISODES: Episode[] = [
   {
     slug: "mit-tanit-az-osztalyterem-a-demokraciarol",
     section: "beszelgetesek",
+    sample: true,
     number: 1,
     title: "Mit tanít az osztályterem a demokráciáról?",
     excerpt: "Egy középiskolai tanárral arról, hol kezdődik a vitakultúra.",
@@ -143,6 +152,9 @@ export const EPISODES: Episode[] = [
     author: "Antal Bálint",
   },
 ];
+
+/** Published episodes: everything except the design plan's samples. */
+export const EPISODES = ALL_EPISODES.filter((e) => !e.sample);
 
 /** Episodes of a section, newest number first. */
 export function getEpisodes(section: SectionKey) {
