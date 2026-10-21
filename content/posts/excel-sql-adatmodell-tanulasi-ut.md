@@ -5,6 +5,7 @@ excerpt: "A legtöbben SQL-lel vagy Pythonnal akarnak kezdeni. Pedig az igazi fe
 series: "data-gondolkodas"
 seriesTitle: "Adatos gondolkodás"
 seriesOrder: 5
+hidden: true
 ---
 
 # Miért Excel → SQL → adatmodell a helyes tanulási út?

@@ -5,6 +5,7 @@ excerpt: "És hogyan igazodj el a data szerepek zavaros világában."
 series: "data-gondolkodas"
 seriesTitle: "Adatos gondolkodás"
 seriesOrder: 1
+hidden: true
 ---
 
 Ha elkezdesz data állásokat nézni, nagyon gyorsan belefutsz egy furcsa jelenségbe. Szinte minden pozíció „analyst”, „scientist” vagy „engineer”, mégis teljesen mást várnak el.

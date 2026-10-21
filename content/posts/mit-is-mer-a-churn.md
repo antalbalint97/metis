@@ -5,6 +5,7 @@ excerpt: "Egy üzleti probléma, ami szinte minden termék- és szolgáltató c�
 series: "data-gondolkodas"
 seriesTitle: "Adatos gondolkodás"
 seriesOrder: 4
+hidden: true
 ---
 ## Mi is az a lemorzsolódási ráta, azaz a churn?
 

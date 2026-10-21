@@ -5,6 +5,7 @@ excerpt: "A feltáró adatelemzés (EDA) szemlélete és szerepe az elemzői gon
 series: "data-gondolkodas"
 seriesTitle: "Adatos gondolkodás"
 seriesOrder: 2
+hidden: true
 ---
 
 Amikor adatelemzésről beszélünk, sokan automatikusan számolásra, statisztikára vagy modellekre gondolnak. Mintha az elemzés ott kezdődne, ahol képletek és algoritmusok jelennek meg.
