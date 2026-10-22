@@ -12,6 +12,8 @@ type Frontmatter = {
   ogImage?: string;
   /** Original publication (e.g. Substack): shown as a source link and used as canonical URL. */
   originalUrl?: string;
+  /** Kept in the repo but off the site; its URL redirects to /posts (see next.config.ts). */
+  hidden?: boolean;
 };
 
 export type Post = {
@@ -85,6 +87,7 @@ function parseFrontmatter(raw: string): { frontmatter: Frontmatter; content: str
     seriesOrder: toOptionalNumber(fm.seriesOrder),
     ogImage: toOptionalString(fm.ogImage ?? fm.image),
     originalUrl: toOptionalString(fm.originalUrl),
+    hidden: fm.hidden === "true",
   };
 
   return { frontmatter, content };
@@ -126,12 +129,13 @@ export function getAllPosts(): Post[] {
     return { slug, frontmatter, content };
   });
 
-  posts.sort((a, b) => (a.frontmatter.date < b.frontmatter.date ? 1 : -1));
-  return posts;
+  const visible = posts.filter((p) => !p.frontmatter.hidden);
+  visible.sort((a, b) => (a.frontmatter.date < b.frontmatter.date ? 1 : -1));
+  return visible;
 }
 
 export function getAllSlugs(): string[] {
-  return readAllMarkdownFiles().map((x) => x.slug);
+  return getAllPosts().map((p) => p.slug);
 }
 
 export function getPostBySlug(slug: string): Post | null {
@@ -141,5 +145,6 @@ export function getPostBySlug(slug: string): Post | null {
 
   const raw = fs.readFileSync(hit.fullPath, "utf8");
   const { frontmatter, content } = parseFrontmatter(raw);
+  if (frontmatter.hidden) return null;
   return { slug, frontmatter, content };
 }

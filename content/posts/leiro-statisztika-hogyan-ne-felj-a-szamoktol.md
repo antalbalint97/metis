@@ -5,6 +5,7 @@ excerpt: "Nem matekóra: hanem egy intuitív minimum csomag, hogy ne egy számot
 series: "data-gondolkodas"
 seriesTitle: "Adatos gondolkodás"
 seriesOrder: 3
+hidden: true
 ---
 
 Az előző cikkben arról volt szó, hogy az elemzés már ott elkezdődik, amikor **megnyitjuk az adatot**. Nem képletekkel indul, hanem döntésekkel: mit nézünk meg, mit hagyunk ki, mit tekintünk „normálisnak”, és mi az, ami gyanús.

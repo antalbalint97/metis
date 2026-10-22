@@ -5,6 +5,7 @@ excerpt: "Miért nem elég tudni JOIN-olni? Hogyan torzulnak el a KPI-ok, ha ros
 series: "data-gondolkodas"
 seriesTitle: "Adatos gondolkodás"
 seriesOrder: 7
+hidden: true
 ---
 
 # JOIN, aggregálás és KPI nevezők: hol csúszik félre az elemzés?

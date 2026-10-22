@@ -5,6 +5,7 @@ excerpt: "A legtöbb rossz KPI nem technikai hiba, hanem gondolkodási. Ez a cik
 series: "data-gondolkodas"
 seriesTitle: "Adatos gondolkodás"
 seriesOrder: 6
+hidden: true
 ---
 
 # Adatmodell gondolkodás: hogyan épülnek fel az adatbázisok?
