@@ -2,7 +2,9 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { TAGLINE } from "@/lib/site";
 import { GhostMark } from "@/components/site/MetisMark";
+import { StudioGallery } from "@/components/site/StudioGallery";
 import { Monitor, Shell, pad2 } from "@/components/site/ui";
+import { STUDIO_PHOTOS } from "@/data/studio";
 
 export const metadata: Metadata = {
   title: "Rólunk | Metis",
@@ -56,8 +58,11 @@ export default function AboutUsPage() {
       <section className="pb-16">
         <Shell>
           <Monitor className="grid md:grid-cols-2">
-            <div className="relative min-h-[220px] md:min-h-[420px]">
-              <div className="mt-scanlines" />
+            <div className="relative aspect-[4/3] md:aspect-auto md:min-h-[480px]">
+              <StudioGallery
+                photos={STUDIO_PHOTOS}
+                sizes="(min-width: 1440px) 656px, (min-width: 768px) 50vw, 100vw"
+              />
             </div>
             <div className="flex flex-col justify-center gap-5 px-7 py-10 md:px-12">
               <p className="mt-overline">A stúdió</p>
