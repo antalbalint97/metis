@@ -38,13 +38,13 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   icons: {
     icon: [
-      { url: "/brand/icon-96.png", sizes: "96x96", type: "image/png" },
-      { url: "/brand/icon-48.png", sizes: "48x48", type: "image/png" },
-      { url: "/brand/icon-16.png", sizes: "16x16", type: "image/png" },
-      { url: "/brand/icon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/brand/icon-96.png?v=3", sizes: "96x96", type: "image/png" },
+      { url: "/brand/icon-48.png?v=3", sizes: "48x48", type: "image/png" },
+      { url: "/brand/icon-16.png?v=3", sizes: "16x16", type: "image/png" },
+      { url: "/brand/icon-32.png?v=3", sizes: "32x32", type: "image/png" },
     ],
-    shortcut: [{ url: "/brand/icon-32.png?v=2", sizes: "32x32", type: "image/png" }],
-    apple: [{ url: "/brand/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+    shortcut: [{ url: "/brand/icon-32.png?v=3", sizes: "32x32", type: "image/png" }],
+    apple: [{ url: "/brand/apple-touch-icon.png?v=3", sizes: "180x180", type: "image/png" }],
   },
   openGraph: {
     type: "website",
