@@ -1,8 +1,8 @@
 /**
  * Photos of the studio for the Rólunk page.
  *
- * The first photo is the featured one in the studio card; the rest go into the
- * gallery below it. To add a new photo (e.g. a selfie with a guest), put an
+ * They rotate in the slideshow of the studio card, in this order; the first
+ * one is shown first. To add a new photo (e.g. a selfie with a guest), put an
  * optimized JPEG (max 1600px on the long edge, no EXIF) into
  * /public/images/studio/ and append an entry here.
  */
@@ -11,8 +11,10 @@ export type StudioPhoto = {
   alt: string;
   width: number;
   height: number;
-  /** Optional short caption shown under the photo, e.g. the guest's name and the date. */
+  /** Optional short caption shown over the bottom of the photo, e.g. the guest's name and the date. */
   caption?: string;
+  /** Optional CSS object-position when the default centered crop cuts the wrong part. */
+  position?: string;
 };
 
 export const STUDIO_PHOTOS: StudioPhoto[] = [
@@ -21,6 +23,7 @@ export const STUDIO_PHOTOS: StudioPhoto[] = [
     alt: "A Metis stúdió a kamera mögül, meleg esti fényben: a kamera kijelzőjén a két fotel, a mikrofonok és a laptop a Metis logóval.",
     width: 1600,
     height: 1200,
+    caption: "A kamera mögül: így néz ki a stúdió felvétel előtt.",
   },
   {
     src: "/images/studio/studio-szemben.jpg",
@@ -28,6 +31,7 @@ export const STUDIO_PHOTOS: StudioPhoto[] = [
     width: 1200,
     height: 1600,
     caption: "Két fotel, két mikrofon, egy kamera.",
+    position: "50% 35%",
   },
   {
     src: "/images/studio/studio-oldalrol.jpg",
@@ -35,5 +39,6 @@ export const STUDIO_PHOTOS: StudioPhoto[] = [
     width: 1200,
     height: 1600,
     caption: "Itt mennek a forgatások.",
+    position: "50% 40%",
   },
 ];

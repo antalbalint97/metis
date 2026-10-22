@@ -301,6 +301,20 @@ h1, h2, h3, h4 {
   );
 }
 
+/* Slow zoom on gallery photos (Rólunk studio slideshow). */
+@keyframes mt-kenburns {
+  from { transform: scale(1); }
+  to { transform: scale(1.08); }
+}
+
+.mt-kenburns {
+  animation: mt-kenburns 18s ease-in-out infinite alternate;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mt-kenburns { animation: none; }
+}
+
 .mt-play {
   position: absolute;
   left: 50%;
