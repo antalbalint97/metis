@@ -1,8 +1,10 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { TAGLINE } from "@/lib/site";
 import { GhostMark } from "@/components/site/MetisMark";
 import { Monitor, Shell, pad2 } from "@/components/site/ui";
+import { STUDIO_PHOTOS } from "@/data/studio";
 
 export const metadata: Metadata = {
   title: "Rólunk | Metis",
@@ -25,6 +27,8 @@ const VALUES = [
     text: "A megismerés nem cél, hanem eszköz. Azért hallgatjuk végig egymást, hogy mellé tudjunk állni.",
   },
 ];
+
+const [FEATURED_PHOTO, ...GALLERY_PHOTOS] = STUDIO_PHOTOS;
 
 const STEPS = [
   "Beküldöd az írást vagy ajánlasz egy vendéget.",
@@ -57,7 +61,14 @@ export default function AboutUsPage() {
         <Shell>
           <Monitor className="grid md:grid-cols-2">
             <div className="relative min-h-[220px] md:min-h-[420px]">
-              <div className="mt-scanlines" />
+              <Image
+                src={FEATURED_PHOTO.src}
+                alt={FEATURED_PHOTO.alt}
+                fill
+                priority
+                sizes="(min-width: 1440px) 656px, (min-width: 768px) 50vw, 100vw"
+                className="object-cover"
+              />
             </div>
             <div className="flex flex-col justify-center gap-5 px-7 py-10 md:px-12">
               <p className="mt-overline">A stúdió</p>
@@ -74,6 +85,37 @@ export default function AboutUsPage() {
           </Monitor>
         </Shell>
       </section>
+
+      {GALLERY_PHOTOS.length > 0 ? (
+        <section className="pb-16 lg:pb-20">
+          <Shell className="flex flex-col gap-6">
+            <div className="flex flex-col gap-2">
+              <p className="mt-overline">Galéria</p>
+              <h2 className="text-[26px] font-normal tracking-[-0.015em] sm:text-[32px]">Így néz ki a stúdió</h2>
+            </div>
+            <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {GALLERY_PHOTOS.map((photo) => (
+                <li key={photo.src}>
+                  <figure className="flex flex-col gap-3">
+                    <div className="relative aspect-[4/5] overflow-hidden rounded-[var(--radius-sm)] bg-muted">
+                      <Image
+                        src={photo.src}
+                        alt={photo.alt}
+                        fill
+                        sizes="(min-width: 1024px) 437px, (min-width: 640px) 50vw, 100vw"
+                        className="object-cover"
+                      />
+                    </div>
+                    {photo.caption ? (
+                      <figcaption className="text-sm text-muted-foreground">{photo.caption}</figcaption>
+                    ) : null}
+                  </figure>
+                </li>
+              ))}
+            </ul>
+          </Shell>
+        </section>
+      ) : null}
 
       <section className="pb-16 lg:pb-20">
         <Shell className="grid gap-8 md:grid-cols-3">
